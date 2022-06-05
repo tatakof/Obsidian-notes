@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "e7898e3aefeba637",
+        "id": "61c62c351c3d45b0",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bayes_expectedValues.md",
+            "file": "BayesianModelingRoadmap.md",
             "mode": "source",
             "source": false
           }
@@ -53,8 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 382.0107650756836,
-    "collapsed": true
+    "width": 111
   },
   "right": {
     "id": "e1c9d22e2cd94d77",
@@ -70,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bayes_expectedValues.md",
+                "file": "BayesianModelingRoadmap.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,17 +87,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "e7898e3aefeba637",
+  "active": "61c62c351c3d45b0",
   "lastOpenFiles": [
-    "bayes_expectedValues.md",
     "BayesianModelingRoadmap.md",
-    "bayes_varCovar.md",
+    "WTF_modeling.md",
+    "bayes_causal-inference.md",
+    "bayes_expectedValues.md",
+    "bayes_hierarchical.md",
+    "bayes_dont-understand.md",
+    "Math Functions.md",
+    "bayes_lossFunctions.md",
     "bayes_glossary.md",
-    "prob_rules.md",
-    "Causal Inference Pearl book.md",
-    "prob_conditioning.md",
-    "Pasted image 20220519113555.png",
-    "Pasted image 20220418155447.png",
-    "Bayesian modelling vs Deep Learning.md"
+    "bayes_generative-modeling.md"
   ]
 }

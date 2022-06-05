@@ -9,7 +9,19 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "cs_Concepts.md",
+            "file": "R_wizardry.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      },
+      {
+        "id": "e9f6fe2b191f4745",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "radian.md",
             "mode": "source",
             "source": false
           }
@@ -49,7 +61,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -69,7 +82,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cs_Concepts.md",
+                "file": "R_wizardry.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,15 +102,15 @@
   },
   "active": "4ac5dd3f2e503ca9",
   "lastOpenFiles": [
-    "cs_Concepts.md",
+    "R_wizardry.md",
     "radian.md",
+    "Screenshot from 2022-03-24 17-24-09.png",
+    "cs_Concepts.md",
     "Audio device.md",
     "Git.md",
     "gt_store_pat.md",
     "gt_Basics.md",
     "Targets.md",
-    "bash.md",
-    "pop os.md",
-    "ssh.md"
+    "bash.md"
   ]
 }

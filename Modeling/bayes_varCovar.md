@@ -1,0 +1,10 @@
+
+
+
+
+
+
+
+
+
+ADD EXPLANATION FROM INFO THEORY BOOK 
