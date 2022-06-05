@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "6f00d7fbc779c2ec",
+    "type": "split",
+    "children": [
+      {
+        "id": "b1ac46d3ab75dc95",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "To Do.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ad6d1bd0b5c08b6d",
+    "type": "split",
+    "children": [
+      {
+        "id": "cb570a13cbb292f4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "eed47dbf64ee774e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "fb1c2d5fd56149dc",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "bdcce35733cb67bc",
+    "type": "split",
+    "children": [
+      {
+        "id": "7da238ee2e2cc0d8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b2627a9c832be8be",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "To Do.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "b1ac46d3ab75dc95",
+  "lastOpenFiles": [
+    "To Do.md",
+    "blogs to check.md"
+  ]
+}

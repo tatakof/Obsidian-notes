@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "923ddec7ce67db22",
+    "type": "split",
+    "children": [
+      {
+        "id": "d694be2dcbc78d3d",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Programming PS.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0704d77e6c226ae2",
+    "type": "split",
+    "children": [
+      {
+        "id": "37b9e5cc2293d71d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a1bae8eb487dc966",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "cebc9a5645ae1d62",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "6f3d8f7a5d3fb16a",
+    "type": "split",
+    "children": [
+      {
+        "id": "4f7b8e676d3c1e44",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ba5a4d5e41251bde",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Programming PS.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "d694be2dcbc78d3d",
+  "lastOpenFiles": [
+    "Programming PS.md"
+  ]
+}

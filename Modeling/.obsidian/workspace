@@ -1,0 +1,104 @@
+{
+  "main": {
+    "id": "94d4fc41f91d6d8d",
+    "type": "split",
+    "children": [
+      {
+        "id": "e7898e3aefeba637",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "bayes_expectedValues.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e42b0e9fd13a985f",
+    "type": "split",
+    "children": [
+      {
+        "id": "6d0cc0a3eb78131e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "df0bf57c3ea5b680",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "177d19982d925a12",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 382.0107650756836,
+    "collapsed": true
+  },
+  "right": {
+    "id": "e1c9d22e2cd94d77",
+    "type": "split",
+    "children": [
+      {
+        "id": "da9487ce3fac9d5b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "393951335955734a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "bayes_expectedValues.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "e7898e3aefeba637",
+  "lastOpenFiles": [
+    "bayes_expectedValues.md",
+    "BayesianModelingRoadmap.md",
+    "bayes_varCovar.md",
+    "bayes_glossary.md",
+    "prob_rules.md",
+    "Causal Inference Pearl book.md",
+    "prob_conditioning.md",
+    "Pasted image 20220519113555.png",
+    "Pasted image 20220418155447.png",
+    "Bayesian modelling vs Deep Learning.md"
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "main": {
+    "id": "56141fbf0f54d4e0",
+    "type": "split",
+    "children": [
+      {
+        "id": "eab3045f610f5488",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Resources.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "731a190614d95470",
+    "type": "split",
+    "children": [
+      {
+        "id": "e62dcebdba888260",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5b2df293a0514ea3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "57ac074beca8a9e0",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 223
+  },
+  "right": {
+    "id": "9251ecd9af9ed0c2",
+    "type": "split",
+    "children": [
+      {
+        "id": "4dec7d97e4def1a6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c36d4496c214d6cb",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Resources.md",
+                "collapseAll": false,
+                "extraContext": true,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "eab3045f610f5488",
+  "lastOpenFiles": [
+    "Resources.md",
+    "Review.md",
+    "A Beginner’s Guide to the Zettelkasten Method.md",
+    "Smart note-taking for research paper writing.md"
+  ]
+}

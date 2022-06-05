@@ -1,0 +1,4 @@
+- How file systems work
+- How permissions work 
+- How to install stuff
+- How to 
