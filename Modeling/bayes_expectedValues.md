@@ -1,3 +1,4 @@
+----------------------------------------------------------
 In statistics, one often deals with data sets and prob distribs that are too large to effectively examine each possible combination of values. Instead, we use statistical measures to represent, with some loss of information, meaningful features of the distribution. 
 
 #### What is the expected value
@@ -72,9 +73,12 @@ E(X) is one way to make a best guess of X's value (imagine X can take many value
 
 Similarly, $E(Y|X = x)$ represents a best guess of $Y$, given that we observe $X = x$. If $g = E(Y|X = x), then $g$ minimizes the expected square error $E[(g - Y)^2 | X = x)]$ 
 
+The use of expectations as a basis for predictions or "best guesses" hinges to a great extent on an implicit assumption regarding the distribution of X or Y|X = x, namely that such distributions are approximately symmetric. If the distribution of interest is highly skewed, other methods of prediction may be better. In such cases, for example, we might use the median of the distrib of X as our best guess; this estimate minimizes the expected absolute error E(|g - X |)
 
 
-
-
+----------------------------------------------------------
+ALL OF THIS CAME FROM PEARLS CAUSAL INFERENCE IN STATISTICS. 
 
 ADD STUFF FROM INFO THEORY BOOK
+
+
