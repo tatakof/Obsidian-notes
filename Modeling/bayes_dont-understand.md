@@ -20,3 +20,9 @@ Note that nonlinear relationships between Y and X cannot naturally be captured b
 ------------------------------------------------------------
 from [[bayes_regression]]
 Why is is so hard to get P(y,x)? because we need all of the data (instead of a sample) to compute it? is regression the method for a sample but if we had infinite data we would never use regression and just compute $E[Y|X = x]$ from $P(y, x)$ ?
+
+
+
+
+from [[math_concepts#DNO 1]]
+Does every variable have a space? that is, space and variable are interchangeable?

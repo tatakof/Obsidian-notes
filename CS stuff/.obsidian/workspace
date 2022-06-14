@@ -61,12 +61,11 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 314.0107650756836
+    "width": 100
   },
   "right": {
     "id": "04049c468fc71619",

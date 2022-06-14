@@ -4,14 +4,29 @@ A function is a relation that associates elements in one space to elements in an
 $$
 f : X \rightarrow Y
 $$
+((So ":" means something like "does the following map of elements" and "$\rightarrow$" means "to" in the sense of X to Y?))
+
+If we want to be particularly explicit and denote how a particular element $x \in X$ maps into elements of Y then we can also write
+$$
+f: X \rightarrow Y
+
+$$
+
+$$
+x \mapsto f(x)
+
+$$
+
+((where $\mapsto$ means "mapsto" and f(x) equals y, that is, the element y of the space Y ))
+#### DNT 1 
+Does every variable have a space? that is, space and variable are interchangeable?
+FINISH DNT
 
 
+![[Pasted image 20220614103728.png]]
+image from https://betanalpha.github.io/assets/case_studies/probability_theory.html
 
-
-
-
-
-
+TO BE CONTINUED...
 
 
 
@@ -83,6 +98,20 @@ A mathematical object taken together with its boundary is also called closed. Fo
 #### Closure operator
 In mathematics, a closure operator on a set S is a function cl : P(S) -> P(S) from the power set of S to itselft that satisfies the following conditions for all sets $X, Y \subseteq S$.
 Closure operators are determined by their closed sets, i.e., by the sots of the form cl(X), since the closure cl(X) of a set X is the smallest closed set containing X. 
+
+
+#### Set
+A *set* is a collection of elements, e.g. $A_1 = {2},\ A_2 = {1, 2, 3, 4}$ . All the sets are contained in a given *space* [[math_concepts#Space]]
+
+from https://betanalpha.github.io/assets/case_studies/probability_theory.html
+#### Space
+The collection of all the elements under consideration. e.g., the natural numbers is a space $\mathbb{N} = \{0, 1, ... \}$ 
+
+#### Subset
+....
+
+
+
 
 #### Closed set
 In geometry, topology, and related branches of mathematics, a closed set is a set whose complement is an open set. In a topological space, a closed set can be defined as a set which contains all its limit points. In a complete metric space, a closed set is a set which is closed under the limit operation. This should not be confused with a closed manifold. 

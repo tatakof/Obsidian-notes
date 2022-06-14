@@ -39,7 +39,9 @@
 - Info theory for bayesian modelling
 - Information criterions and Cross validation, model selection and forecast, info theory [[bayes_IC-CV]]
 
+- Observational process  [[bayes_observational-process]]
 
+- True data generating process [[bayes_true-data-generating-process]]
 - Generative modeling [[bayes_generative-modeling]]
 
 
