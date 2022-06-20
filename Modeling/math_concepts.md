@@ -127,3 +127,10 @@ an open interval does not include its endopoints, and is indicated with parenthe
 
 #### Utility 
 A quantification of the overall benefit of an action minus any costs. 
+$$
+\begin{aligned}
+U : A \rightarrow \mathbb{R}^+ \\ 
+a \mapsto U(x)
+
+\end{aligned}
+$$

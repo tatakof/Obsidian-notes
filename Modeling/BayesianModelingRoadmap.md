@@ -1,15 +1,31 @@
+Keep reading at: 
+Probabilistic Modeling and statistical inference#1.2 The true data generating process. 
+
+
+
 - To do: [[bayes_toDo]]
 - To read: [[bayes_toRead]]
 - Things I don't understand: [[bayes_dont-understand]]
 
-
+- Why
+	- Why statistics (only inference?)?[[bayes_why-statistics]]
+	- why inference? [[bayes_why-inference]]
+	- Why make a model [[bayes_why-make-a-model]]
+	- Why bayesian statistics [[bayes_why-bayes]]
+	- why causal inference [[bayes_why-causal-inference]]
+	- why generative models [[bayes_why-generative-model]]
 - WTF we are doing when we are modeling [[WTF_modeling]]
 
+- Generalization of our inferences: [[bayes_generalization]]
+- Decision making: [[bayes_decision-making]]
 
 - Measure Theory [[measure_theory]]
 
-
+- On experiments: [[bayes_experiments]]
 - Sample vs Population: [[bayes_sampleVSpopulation]]
+
+
+- Why systems are/seem probabilistic even if they are deterministic [[bayes_probabilistic-systems]]
 
 - Models as information compression [[Models as Information compression]]
 

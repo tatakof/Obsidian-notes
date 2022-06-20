@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "R_wizardry.md",
+            "file": "LaTeX.md",
             "mode": "source",
             "source": false
           }
@@ -81,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "R_wizardry.md",
+                "file": "LaTeX.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,6 +101,7 @@
   },
   "active": "4ac5dd3f2e503ca9",
   "lastOpenFiles": [
+    "LaTeX.md",
     "R_wizardry.md",
     "radian.md",
     "Screenshot from 2022-03-24 17-24-09.png",
@@ -109,7 +110,6 @@
     "Git.md",
     "gt_store_pat.md",
     "gt_Basics.md",
-    "Targets.md",
-    "bash.md"
+    "Targets.md"
   ]
 }

@@ -4,10 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "42615dd9e1a56e3f",
+        "id": "886969205796b4ad",
         "type": "leaf",
         "state": {
-          "type": "empty",
+          "type": "markdown",
+          "state": {
+            "file": "bayes_observational-process.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      },
+      {
+        "id": "c8c107846a597fdd",
+        "type": "leaf",
+        "state": {
+          "type": "graph",
           "state": {}
         }
       }
@@ -83,17 +95,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "42615dd9e1a56e3f",
+  "active": "c8c107846a597fdd",
   "lastOpenFiles": [
     "BayesianModelingRoadmap.md",
-    "bayes_true-data-generating-process.md",
+    "bayes_probabilistic-systems.md",
     "bayes_observational-process.md",
-    "math_concepts.md",
-    "programming_concepts.md",
-    "bayes_dont-understand.md",
-    "Untitled 1.md",
-    "jags.md",
-    "bayes_regression.md",
-    "bayes_predictionVScausalInferece.md"
+    "bayes_true-data-generating-process.md",
+    "bayes_generalization.md",
+    "Bayesian Modeling.md",
+    "bayes_experiments.md",
+    "other_concepts.md",
+    "bayes_types-of-variation.md",
+    "math_concepts.md"
   ]
 }
