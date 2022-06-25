@@ -16,3 +16,16 @@ A third type of inference is sometimes distinguished, notably by [Charles Sander
 
 Abductive reasoning is a form of logical inference. It starts with an observation or set of observations and then seeks the simplest and most likely conclusion from the observations. This process, unlike deductive reasoning, yields a plausible conclusion but does not positively verify it. Abductive conclusions are thus qualifies as having a remnant of uncertainty or doubt, which is expressed in retreat terms such as "best available" or "most likely". One can understand abductive reasoning as **inference to the best explanation**, . although not all usages of the terms *abduction* and *inference to the best explanation are exactly equivalent*. 
 "
+
+
+
+
+
+
+https://betanalpha.github.io/assets/case_studies/modeling_and_inference.html
+Inference is tasked with quantifying information about the true data generating process using observed data as its only expression. In particular, successful inferences advice decisions about how to interact with the latent phenomenon encompassed within the true data generating process. 
+
+![[Pasted image 20220623125529.png]]
+
+![[Pasted image 20220623125537.png]]
+

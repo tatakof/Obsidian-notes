@@ -29,7 +29,7 @@ Probabilistic Modeling and statistical inference#1.2 The true data generating pr
 
 - Models as information compression [[Models as Information compression]]
 
-- Bayesian workflow (see betancourt and stan team)[[bayesian workflow]]
+- Bayesian workflow (see betancourt and stan team)[[bayes_workflow]]
 
 - WTF Pushforwards (and why they matter) [[bayes_pushforwards]]
 
@@ -39,6 +39,7 @@ Probabilistic Modeling and statistical inference#1.2 The true data generating pr
 	- Probability rules [[prob_rules]]
 
 
+Statistical relationships vs causal structure [[bayes_statistical-relationship-vs-causal-structure]]
 
 - Prediction vs Causal inference [[bayes_predictionVScausalInferece]]
 - Glossary [[bayes_glossary]]
@@ -57,12 +58,15 @@ Probabilistic Modeling and statistical inference#1.2 The true data generating pr
 
 - Observational process  [[bayes_observational-process]]
 
-- True data generating process [[bayes_true-data-generating-process]]
+- True data generating process [[bayes_data-generating-process]]
 - Generative modeling [[bayes_generative-modeling]]
 
 
+- Posterior Predictive Checks [[bayes_posterior-predictive-checks]]
+
 - Hierarchical Models [[bayes_hierarchical]]
 
+- Bayes Experimental Design [[bayes_experimental-design]]
 
 - Causal inference [[bayes_causal-inference]]
 
