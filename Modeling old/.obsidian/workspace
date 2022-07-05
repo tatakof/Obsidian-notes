@@ -1,15 +1,15 @@
 {
   "main": {
-    "id": "02fccd46b8373629",
+    "id": "94d4fc41f91d6d8d",
     "type": "split",
     "children": [
       {
-        "id": "5d2d3e129b60e5e8",
+        "id": "a1828c7260184cf9",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Cuestiones que dijo juan.md",
+            "file": "prob_set-theory.md",
             "mode": "source",
             "source": false
           }
@@ -19,15 +19,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "044bcbe1f222bc25",
+    "id": "e42b0e9fd13a985f",
     "type": "split",
     "children": [
       {
-        "id": "bbe296ebc2d0dbae",
+        "id": "6d0cc0a3eb78131e",
         "type": "tabs",
         "children": [
           {
-            "id": "e84851b59c454269",
+            "id": "df0bf57c3ea5b680",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -35,7 +35,7 @@
             }
           },
           {
-            "id": "0631dd8cba4081f5",
+            "id": "177d19982d925a12",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -53,23 +53,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 287
   },
   "right": {
-    "id": "5406b1dfe8c05756",
+    "id": "e1c9d22e2cd94d77",
     "type": "split",
     "children": [
       {
-        "id": "4fa1673e8cb6304a",
+        "id": "da9487ce3fac9d5b",
         "type": "tabs",
         "children": [
           {
-            "id": "5719d2c422097ff8",
+            "id": "393951335955734a",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cuestiones que dijo juan.md",
+                "file": "prob_set-theory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,11 +87,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "5d2d3e129b60e5e8",
+  "active": "a1828c7260184cf9",
   "lastOpenFiles": [
-    "Cuestiones que dijo juan.md",
-    "paper_covariates.md",
-    "future.md",
-    "ideas.md"
+    "prob_set-theory.md",
+    "ProbabilityRoadMap.md",
+    "bayes_data-generating-process.md",
+    "BayesianModelingRoadmap.md",
+    "DeepLearningRoadmap.md",
+    "bayes_workflow.md",
+    "bayes_principled-model-development.md",
+    "bayes_why-inference.md",
+    "Optimizers.md",
+    "Architectures.md"
   ]
 }

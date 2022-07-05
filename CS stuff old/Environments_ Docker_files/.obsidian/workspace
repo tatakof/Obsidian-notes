@@ -1,33 +1,29 @@
 {
   "main": {
-    "id": "02fccd46b8373629",
+    "id": "5112e046b86c90c4",
     "type": "split",
     "children": [
       {
-        "id": "5d2d3e129b60e5e8",
+        "id": "9ea2925388fabf0e",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Cuestiones que dijo juan.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "044bcbe1f222bc25",
+    "id": "3ebc063ac192a838",
     "type": "split",
     "children": [
       {
-        "id": "bbe296ebc2d0dbae",
+        "id": "a4b2a890b4d65fa6",
         "type": "tabs",
         "children": [
           {
-            "id": "e84851b59c454269",
+            "id": "8a8d59a49559012e",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -35,12 +31,12 @@
             }
           },
           {
-            "id": "0631dd8cba4081f5",
+            "id": "e3cc9a48895337aa",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "ra",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -49,27 +45,27 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
     "width": 300
   },
   "right": {
-    "id": "5406b1dfe8c05756",
+    "id": "49429d5fd18a20f2",
     "type": "split",
     "children": [
       {
-        "id": "4fa1673e8cb6304a",
+        "id": "5af829f4f2fa46bd",
         "type": "tabs",
         "children": [
           {
-            "id": "5719d2c422097ff8",
+            "id": "d792f7daee0ef2c5",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cuestiones que dijo juan.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,11 +83,6 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "5d2d3e129b60e5e8",
-  "lastOpenFiles": [
-    "Cuestiones que dijo juan.md",
-    "paper_covariates.md",
-    "future.md",
-    "ideas.md"
-  ]
+  "active": "9ea2925388fabf0e",
+  "lastOpenFiles": []
 }

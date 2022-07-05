@@ -1,15 +1,15 @@
 {
   "main": {
-    "id": "02fccd46b8373629",
+    "id": "61b129eb5a6c52e9",
     "type": "split",
     "children": [
       {
-        "id": "5d2d3e129b60e5e8",
+        "id": "ad9371bde5ce4afd",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Cuestiones que dijo juan.md",
+            "file": "Softwares.md",
             "mode": "source",
             "source": false
           }
@@ -19,15 +19,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "044bcbe1f222bc25",
+    "id": "34da5f00233244fe",
     "type": "split",
     "children": [
       {
-        "id": "bbe296ebc2d0dbae",
+        "id": "8225d27f6ae1f754",
         "type": "tabs",
         "children": [
           {
-            "id": "e84851b59c454269",
+            "id": "c013a63db8404b9e",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -35,7 +35,7 @@
             }
           },
           {
-            "id": "0631dd8cba4081f5",
+            "id": "e3c6b9b6f1c70bd0",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -56,20 +56,20 @@
     "width": 300
   },
   "right": {
-    "id": "5406b1dfe8c05756",
+    "id": "c9849a86ecbcff6a",
     "type": "split",
     "children": [
       {
-        "id": "4fa1673e8cb6304a",
+        "id": "9c23801bd5b4ac6e",
         "type": "tabs",
         "children": [
           {
-            "id": "5719d2c422097ff8",
+            "id": "74a6baddc0cdb48e",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cuestiones que dijo juan.md",
+                "file": "Softwares.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,11 +87,8 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "5d2d3e129b60e5e8",
+  "active": "ad9371bde5ce4afd",
   "lastOpenFiles": [
-    "Cuestiones que dijo juan.md",
-    "paper_covariates.md",
-    "future.md",
-    "ideas.md"
+    "Softwares.md"
   ]
 }
