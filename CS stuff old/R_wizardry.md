@@ -293,6 +293,62 @@ If you have any questions let me know!
 
 
 
-### How to check existence of an input argument for R functions
+### How to check existence of an input argument for R functions | How to modify a function behaviour depending on the argument being passed
 
 (https://stackoverflow.com/questions/9877271/how-to-check-existence-of-an-input-argument-for-r-functions)
+HAVEN'T CHECKED THIS ONE
+
+But an easy way is to use the `exist` function. 
+
+You have to define a function, and inside the function body assign the argument to an object of the same name. 
+
+```r 
+function(x = example){
+
+if (exists(example)) { #this will evaluate to true if that argument is passed 
+	do_something()
+	
+} else {
+	do_something_else()
+}
+
+}
+
+
+```
+
+
+
+### How to select columns that may or may not exist. 
+Use `any_of` of the `tidyselect` package. 
+
+```r
+df %>%
+	select(any_of(var1, var2, var3))
+
+```
+
+this is useful if you are applying the same function to different datasets (maybe with a targets pipeline or just a purrr::map over many datasets) and these datasets contain different variable names (works great if the same variable is named differently on each dataset, which is great for messy data.)
+
+
+
+### Remove rows where any of multiple columns contains a NA. 
+
+```r
+my_data[complete.cases(my_data[,c("x2","x3")]),]
+```
+
+
+### Remove rows where at least 1 column contains a NA. 
+
+```
+df %>% drop_na
+
+```
+
+### Check amount of NAs in a column
+
+```r
+sum(is.na(dataset$variable))
+
+```

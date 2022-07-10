@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Cuestiones que dijo juan.md",
+            "file": "Paper-notes.md",
             "mode": "source",
             "source": false
           }
@@ -53,7 +53,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "5406b1dfe8c05756",
@@ -69,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cuestiones que dijo juan.md",
+                "file": "Paper-notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +90,7 @@
   },
   "active": "5d2d3e129b60e5e8",
   "lastOpenFiles": [
+    "Paper-notes.md",
     "Cuestiones que dijo juan.md",
     "paper_covariates.md",
     "future.md",

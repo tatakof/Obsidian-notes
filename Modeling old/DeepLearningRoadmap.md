@@ -1,6 +1,8 @@
 - Interesting talks [[dl_talks]]
+- MUST WATCH: [[dl_must-watch]]
 
 
+- Geometric deep learning !!!!!!!!! [[dl_geometric]]
 
 - What is Deep Learning [[WhatIsDeepLearning]]
 - Stuff I don't understand [[dl_not_understand]]
@@ -35,6 +37,6 @@
 - Information theory of deep learning [[dl_info-theory]]
 
 
+- Automatic Differentiation [[dl_automatic-diff]]
 
-
-
+- Reinforcement Learning [[dl_reinforcement-learning]]

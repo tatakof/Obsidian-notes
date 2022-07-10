@@ -134,3 +134,7 @@ a \mapsto U(x)
 
 \end{aligned}
 $$
+
+
+### Reciprocal
+to get the reciprocal of X, just do $1/X$. Simple AF. 

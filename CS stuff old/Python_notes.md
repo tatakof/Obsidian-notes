@@ -54,7 +54,7 @@ It seems they tend to use many versions of python at the same time, both system 
 
 
 
-# Primer on Python for R users. 
+# Primer on Python for R users. (or "Coming to python from R")
 from https://rstudio.github.io/reticulate/articles/python_primer.html
 
 Python accepts tabs or spaces as the indentation spacer, but the rules get tricky when they-re mixed. Most style guides suggest (and IDE's default to) using spaces only. 
@@ -125,3 +125,18 @@ In R, the dot is just a character. In python it us used for function composition
 Python is an object oriented programming language. **Almost everything in Python is an object, with its properties and methods**. A Class is like an object constructor, or a "blueprint" for creating objects.
 
 
+
+
+### Iteration
+In R, everything is a vector (yes, even matrices, tibbles and lists, which are vectors with special properties), and vectors in R are iterable objects, which means we can for example run for loops with them. And this is something we don't even think about in R, since using only one data structure (the vector), we take for granted many of the properties they have (like being iterable). But in python you have many data structures (tuples, arrays, dicts, etc) and not all of them are iterable. 
+So when you start coding in python, you may try to use a for loop with one data structure and find out that you can't do it due to an error raising. Even more, in python you construct objects (or classes from which you instance an object) CHECK IF THIS RIGHT, that you have to explicitly give them the property of being iterable. 
+Here are the primitive data structures (that is, those built-in python) that can be iterable: 
+
+
+### Modifying a data structure
+Same as with ###Iteration, in R you can modify in place (explain) vectors, and thus every data structure you use (remember everything in R is a vector). But in python this can't be done with all data structures (e.g.) and when you do it, you do it in a different way (append).
+
+
+
+
+### Sources to learn...
