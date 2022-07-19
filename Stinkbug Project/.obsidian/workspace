@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "5d2d3e129b60e5e8",
+        "id": "0586dc49ba198cb8",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Paper-notes.md",
+            "file": "Cuestiones que dijo juan.md",
             "mode": "source",
             "source": false
           }
@@ -53,8 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 268.5
   },
   "right": {
     "id": "5406b1dfe8c05756",
@@ -70,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Paper-notes.md",
+                "file": "Cuestiones que dijo juan.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,12 +87,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "5d2d3e129b60e5e8",
+  "active": "0586dc49ba198cb8",
   "lastOpenFiles": [
-    "Paper-notes.md",
+    "preguntas charla.md",
+    "notas-savary-et-al-2019.md",
     "Cuestiones que dijo juan.md",
-    "paper_covariates.md",
-    "future.md",
-    "ideas.md"
+    "notas_wade-et-al-2006.md",
+    "notas-papers.md",
+    "Paper-notes.md",
+    "Untitled.md",
+    "preguntas-pajaro.md",
+    "papers-to-search.md",
+    "paper_covariates.md"
   ]
 }

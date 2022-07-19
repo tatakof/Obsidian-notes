@@ -1,0 +1,1 @@
+https://www.geeksforgeeks.org/disk-partitioning-in-ubuntu-using-gparted/

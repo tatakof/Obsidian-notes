@@ -1,0 +1,144 @@
+{
+  "main": {
+    "id": "600f7e60cdf3932d",
+    "type": "split",
+    "children": [
+      {
+        "id": "d9a288f8ce527df8",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "WhatIsDeepLearning.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2bee6b06a6ef2b2b",
+    "type": "split",
+    "children": [
+      {
+        "id": "1342c4fad68ce5ed",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "efdde37267eb8fff",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "414625f490586d56",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ce32c41a1c554d36",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "05a607f0c33ccdf3",
+    "type": "split",
+    "children": [
+      {
+        "id": "ee4c32bc5d193750",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "997d1edd7911dc8b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "WhatIsDeepLearning.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a299b15e56320081",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "WhatIsDeepLearning.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "5c2f92bf87a166fe",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "3431b0a1850ec732",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "WhatIsDeepLearning.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "d9a288f8ce527df8",
+  "lastOpenFiles": [
+    "dp_neuralODE.md",
+    "DifferentiableProgrammingRoadMap.md",
+    "dp_zygote.md",
+    "Untitled 4.md",
+    "WhatIsDeepLearning.md",
+    "DeepLearningRoadmap.md",
+    "py_pytorch.md",
+    "Python_notes.md",
+    "PythonRoadMap.md",
+    "python_tutorial.md"
+  ]
+}

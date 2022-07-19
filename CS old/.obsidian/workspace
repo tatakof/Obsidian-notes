@@ -1,0 +1,115 @@
+{
+  "main": {
+    "id": "f1ccc5ec10af4187",
+    "type": "split",
+    "children": [
+      {
+        "id": "37d85b5d20be17d4",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "PythonRoadMap.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      },
+      {
+        "id": "56e3b72e34f23df1",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "py_pytorch.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7db6bced60ebc3e5",
+    "type": "split",
+    "children": [
+      {
+        "id": "e0f220e9bff52ac5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2107fbc3cc36701a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "1afa3166da34c95b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 256.5
+  },
+  "right": {
+    "id": "89a9dcea909021bb",
+    "type": "split",
+    "children": [
+      {
+        "id": "dba5ae36079210cf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4d4e506b1ad1cdfe",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "py_pytorch.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "56e3b72e34f23df1",
+  "lastOpenFiles": [
+    "jl_notes.md",
+    "py_pytorch.md",
+    "py_numpy.md",
+    "PythonRoadMap.md",
+    "programming_concepts.md",
+    "py_list-comprehension.md",
+    "py_unpacking.md",
+    "cs_Concepts.md",
+    "Twitter.md",
+    "Dual-boot-popos-windows.md"
+  ]
+}

@@ -1,0 +1,1 @@
+What each type of model means in terms of narrative or generative structure
