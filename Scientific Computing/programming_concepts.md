@@ -34,6 +34,9 @@ equivalent to type conversion?
 
 
 
+### Generator
+something that will give a list of items when asked to (i.e., object = generator())
+
 ----------------------------------------------------
 Concepts from Think Julia https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#chap19
 

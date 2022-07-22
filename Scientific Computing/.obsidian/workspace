@@ -6,10 +6,37 @@
       {
         "id": "d9a288f8ce527df8",
         "type": "leaf",
+        "dimension": 36.93058568329718,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "WhatIsDeepLearning.md",
+            "file": "dl_backward-forward-pass.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      },
+      {
+        "id": "13f966e1f80c00af",
+        "type": "leaf",
+        "dimension": 28.633405639913235,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "dl_batches.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      },
+      {
+        "id": "b5d65171376d8eca",
+        "type": "leaf",
+        "dimension": 34.436008676789584,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "dl_gradient-descent.md",
             "mode": "source",
             "source": false
           }
@@ -40,7 +67,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "gradient",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -61,7 +88,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 100,
+    "collapsed": true
   },
   "right": {
     "id": "05a607f0c33ccdf3",
@@ -77,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "WhatIsDeepLearning.md",
+                "file": "dl_backward-forward-pass.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "WhatIsDeepLearning.md",
+                "file": "dl_backward-forward-pass.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "WhatIsDeepLearning.md"
+                "file": "dl_backward-forward-pass.md"
               }
             }
           }
@@ -130,15 +158,15 @@
   },
   "active": "d9a288f8ce527df8",
   "lastOpenFiles": [
-    "dp_neuralODE.md",
-    "DifferentiableProgrammingRoadMap.md",
-    "dp_zygote.md",
-    "Untitled 4.md",
-    "WhatIsDeepLearning.md",
+    "dl_optimization-step.md",
+    "dl_gradient-descent.md",
+    "dl_metric-vs-loss.md",
+    "dl_batches.md",
     "DeepLearningRoadmap.md",
-    "py_pytorch.md",
-    "Python_notes.md",
-    "PythonRoadMap.md",
-    "python_tutorial.md"
+    "dl_optimizers.md",
+    "dl_backward-forward-pass.md",
+    "dl_metrics.md",
+    "WhatIsDeepLearning.md",
+    "dl_loss.md"
   ]
 }

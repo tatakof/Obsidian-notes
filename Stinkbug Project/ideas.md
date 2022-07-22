@@ -1,5 +1,6 @@
 to do: 
 - state space dag
+	- Maybe put the letter M for Meteorological variables
 - functions to make posterior parameter plots. 
 
 

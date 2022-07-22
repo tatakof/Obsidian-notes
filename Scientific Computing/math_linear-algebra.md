@@ -11,3 +11,9 @@ https://www.youtube.com/watch?v=uZeDTwWcnuY
 
 khan academy?
 
+
+
+
+
+Matrix multiplication
+http://matrixmultiplication.xyz/

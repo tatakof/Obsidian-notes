@@ -138,3 +138,8 @@ $$
 
 ### Reciprocal
 to get the reciprocal of X, just do $1/X$. Simple AF. 
+
+
+### Function composition. 
+Take the result of one function and pass it to the next, take again the result of this and pass it to a new function. Iterate. 
+

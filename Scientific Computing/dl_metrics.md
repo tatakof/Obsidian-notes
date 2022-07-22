@@ -48,10 +48,3 @@ As we've discussed, we want to calculate our metric over a *validation set*. Thi
 
 
 
-
-
-
-
-
-
-# Bayesian Metrics
