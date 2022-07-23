@@ -53,6 +53,21 @@ def pr_eight(x,w): return (x*w).sum()
 
 
 
+
+### Neural nets
+A neural network contains a lot of numbers, but they are only of two types: numbers that are calculated, and the parameters that these numbers are calculated from. This gives us the two most important pieces of jargon to learn:
+
+- Activations:: Numbers that are calculated (both by linear and nonlinear layers)
+- Parameters:: Numbers that are randomly initialized, and optimized (that is, the numbers that define the model)
+
+We will often talk in this book about activations and parameters. Remember that they have very specific meanings. They are numbers. They are not abstract concepts, but they are actual specific numbers that are in your model. Part of becoming a good deep learning practitioner is getting used to the idea of actually looking at your activations and parameters, and plotting them and testing whether they are behaving correctly.
+
+A neural network contains a number of layers. Each layer is either *linear* or *nonlinear*. We generally alternate between these two kinds of layers in a neural network. Sometimes people refer to both a linear layer and its subsequent nonlinearity together as a single layer. Yes, this is confusing. Sometimes a nonlinearity is referred to as an *activation function*.
+
+
+
+
+
 ### Deep learning
 FROM https://julialang.org/blog/2019/01/fluxdiffeq/ 
 

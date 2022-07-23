@@ -1,3 +1,12 @@
+
+Loss: A value that represents how well (or badly) our model is doing.
+
+The loss function will return a value based on the given predictions and targets, where lower values correspond to better model predictions.
+
+
+when we do SGD, the average loss over the minibatch is calculated
+
+
 ... Based on these predictions, calculate how good the model is (its *loss*) ...
 
 

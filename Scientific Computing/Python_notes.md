@@ -90,7 +90,7 @@ Tuple unpacking can occur in a variety of contexts, such as iteration
 
 ### Packages
 what we call packages in R is called modules in Python. 
-
+see [[Python_notes#Python modules]]
 
 ### Getting help
 if you want to get help on a method, type ?? before the method, without the module beforehand.  You can also type Module.Method?? or ??Module.Method
@@ -147,7 +147,11 @@ Same as with ###Iteration, in R you can modify in place (explain) vectors, and t
 ### Python Broadcasting
 see chapter 4 of fastbook and look for more sources. 
 
+Scientific/numerical Python packages like NumPy and PyTorch will often implement broadcasting that often makes code easier to write. In the case of PyTorch, tensors with smaller rank are expanded to have the same size as the larger rank tensor. In this way, operations can be performed between tensors with different rank.
+
 
 #### Python broadcasting vs R vector recycling
 
 
+### Python modules
+"Since modules are classes, we have to instantiate them, which is why you see `nn.ReLU()` in this example."

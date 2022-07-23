@@ -4,39 +4,36 @@
     "type": "split",
     "children": [
       {
-        "id": "d9a288f8ce527df8",
+        "id": "55d55202b5be8436",
         "type": "leaf",
-        "dimension": 36.93058568329718,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "dl_backward-forward-pass.md",
+            "file": "BayesianModelingRoadmap.md",
             "mode": "source",
             "source": false
           }
         }
       },
       {
-        "id": "13f966e1f80c00af",
+        "id": "84d765f4132d10ba",
         "type": "leaf",
-        "dimension": 28.633405639913235,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "dl_batches.md",
+            "file": "bayes_MC-diagnostics.md",
             "mode": "source",
             "source": false
           }
         }
       },
       {
-        "id": "b5d65171376d8eca",
+        "id": "7575ba5180614ce4",
         "type": "leaf",
-        "dimension": 34.436008676789584,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "dl_gradient-descent.md",
+            "file": "bayes_wrongModel_BettterPrediction.md",
             "mode": "source",
             "source": false
           }
@@ -105,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "dl_backward-forward-pass.md",
+                "file": "bayes_MC-diagnostics.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "dl_backward-forward-pass.md",
+                "file": "bayes_MC-diagnostics.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -145,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "dl_backward-forward-pass.md"
+                "file": "bayes_MC-diagnostics.md"
               }
             }
           }
@@ -156,17 +153,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "d9a288f8ce527df8",
+  "active": "84d765f4132d10ba",
   "lastOpenFiles": [
-    "dl_optimization-step.md",
+    "bayes_wrongModel_BettterPrediction.md",
+    "bayes_MC-diagnostics.md",
+    "BayesianModelingRoadmap.md",
     "dl_gradient-descent.md",
-    "dl_metric-vs-loss.md",
-    "dl_batches.md",
+    "fai_jargon.md",
+    "dl_why-nonlinearity.md",
     "DeepLearningRoadmap.md",
-    "dl_optimizers.md",
-    "dl_backward-forward-pass.md",
-    "dl_metrics.md",
-    "WhatIsDeepLearning.md",
-    "dl_loss.md"
+    "dl_types-of-activation-functions.md",
+    "dl_why-bias.md",
+    "dl_metric-vs-loss.md"
   ]
 }

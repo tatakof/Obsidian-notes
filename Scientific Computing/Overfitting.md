@@ -13,7 +13,7 @@ Models should learn *characteristics* of kinds of items in data, not learn the i
 
 - When overfitting **happens**:
 	- When you train your model for too long without enough data. 
-
+    - when you use a NN with a big amount of layers with a not so big data-set. "...have in mind that using a big amount of layers on a not so big data-set, overfitting tends to happen (you'll see that you can't train them for as many epochs before the accuracy on the validation set starts getting worse)"
 
 - When to use **overfitting-avoidance techniques**:
 	- Only use them when you have confirmed that overfitting is actually ocurring. Otherwise this could lead to performance loss. 
