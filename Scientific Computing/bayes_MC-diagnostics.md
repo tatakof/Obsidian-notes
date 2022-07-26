@@ -31,11 +31,19 @@ Both bulk-ESS and tail-ESS should be at least 100
 
 
 ### Effective sample size
+https://mc-stan.org/docs/reference-manual/effective-sample-size.html
+The second technical difficulty posed by MCMC methods is that the samples will typically be autocorrelated (or anticorrelated) within a chain. This increases the uncertainty of the estimation of posterior quantities of interest, such as means, variances, or quantiles; see [Charles J. Geyer](https://mc-stan.org/docs/reference-manual/effective-sample-size.html#ref-Geyer:2011) ([2011](https://mc-stan.org/docs/reference-manual/effective-sample-size.html#ref-Geyer:2011)).
 
-Regarding your request for more information about effective sample size, close after the portion I cited above in the same book, they discuss R-hat connection with effective sample size neff as well as recommended settings for both. In particular, they mention that it might suffice to have as few as 10 or 100
+Stan estimates an effective sample size for each parameter, which plays the role in the Markov chain Monte Carlo central limit theorem (MCMC CLT) as the number of independent draws plays in the standard central limit theorem (CLT).
 
-as an effective sample size, and only aiming for more if an increased amount of precision is desired. Here's a quote:
 
-> As a default rule, we suggest running the simulation until n^eff
 
-is at least 5m... Having an effective sample size of 10 per sequence should typically correspond to stability of all the simulated sequences
+
+https://stats.stackexchange.com/questions/418142/low-effective-sample-size-but-good-r-hat-is-this-a-problem
+Regarding your request for more information about effective sample size, close after the portion I cited above in the same book, they discuss R-hat connection with effective sample size neff as well as recommended settings for both. In particular, they mention that it might suffice to have as few as 10 or 100 as an effective sample size, and only aiming for more if an increased amount of precision is desired. Here's a quote:
+
+> As a default rule, we suggest running the simulation until n^eff is at least 5m... Having an effective sample size of 10 per sequence should typically correspond to stability of all the simulated sequences. For some purposes, more precision will be desired, and then a higher effective sample size threshold can be used. Once  R-hat is near 1 and ˆn eff is more than 10 per chain for all scalar estimands of interest, just collect the mn simulations (with warm-up iterations already excluded, as noted before)  and treat them as a sample from the target distribution
+
+Here, m is the "number of chains (after splitting)" [BDA3 pg. 284](http://www.stat.columbia.edu/%7Egelman/book/BDA3.pdf) you're simulating . Notice that in particular that the desired number they suggest does not depend on the number of draws, retained or otherwise. The reason why these two metrics are "typically" related is because their formulas make use of the same quantities.
+
+However, they are getting at the dispersion of two different quantities. R^ measures the potential reduction in scale for the posterior distribution, while effective sample size gives you the reduction in the variance of the estimate for an expected value of this distribution. In the ideal case, we wouldn't have to resort to sampling, and we could just derive, say, the posterior expected value; here, we would have zero error on the latter, but a possibly very large number for the former. For more information take a look at page 286 and 287.

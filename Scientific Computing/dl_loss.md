@@ -52,10 +52,21 @@ In PyTorch, we always assume that a lower value of a loss function is better.
 
 
 
-
+Remember that _loss_ is whatever function we've decided to use to optimize the parameters of our model. But we haven't actually told fastai what loss function we want to use. So what is it doing? fastai will generally try to select an appropriate loss function based on what kind of data and model you are using. In this case we have image data and a categorical outcome, so fastai will default to using _cross-entropy loss_.
 
 
 
 ### Types of loss functions used
 
 Sigmod?? see chapter 4 of fastbook. 
+
+
+
+
+#### Cross Entropy
+_Cross-entropy loss_ is a loss function that is similar to the one we used in the previous chapter, but (as we'll see) has two benefits:
+
+-   It works even when our dependent variable has more than two categories.
+-   It results in faster and more reliable training.
+
+

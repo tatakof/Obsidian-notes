@@ -4,39 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "55d55202b5be8436",
+        "id": "7464ddaf3c6932bb",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "BayesianModelingRoadmap.md",
+            "file": "dl_loss.md",
             "mode": "source",
             "source": false
           }
         }
       },
       {
-        "id": "84d765f4132d10ba",
+        "id": "05deb66ca9f3b269",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "bayes_MC-diagnostics.md",
-            "mode": "source",
-            "source": false
-          }
-        }
-      },
-      {
-        "id": "7575ba5180614ce4",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "bayes_wrongModel_BettterPrediction.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "graph",
+          "state": {}
         }
       }
     ],
@@ -102,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bayes_MC-diagnostics.md",
+                "file": "dl_loss.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "bayes_MC-diagnostics.md",
+                "file": "dl_loss.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "bayes_MC-diagnostics.md"
+                "file": "dl_loss.md"
               }
             }
           }
@@ -153,17 +137,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "84d765f4132d10ba",
+  "active": "7464ddaf3c6932bb",
   "lastOpenFiles": [
+    "fai_jargon.md",
+    "DeepLearningRoadmap.md",
+    "dl_deploy-apps.md",
     "bayes_wrongModel_BettterPrediction.md",
     "bayes_MC-diagnostics.md",
+    "baye_MC-convergence.md",
     "BayesianModelingRoadmap.md",
     "dl_gradient-descent.md",
-    "fai_jargon.md",
     "dl_why-nonlinearity.md",
-    "DeepLearningRoadmap.md",
-    "dl_types-of-activation-functions.md",
-    "dl_why-bias.md",
-    "dl_metric-vs-loss.md"
+    "dl_types-of-activation-functions.md"
   ]
 }

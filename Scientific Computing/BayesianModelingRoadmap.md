@@ -66,6 +66,7 @@ Statistical relationships vs causal structure [[bayes_statistical-relationship-v
 - Generative modeling [[bayes_generative-modeling]]
 
 - Markov Chain Monte Carlo
+	- Convergence [[baye_MC-convergence]]
 	- Diagnostics for Markov Chains [[bayes_MC-diagnostics]]
 
 - Posterior Predictive Checks [[bayes_posterior-predictive-checks]]

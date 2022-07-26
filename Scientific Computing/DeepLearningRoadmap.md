@@ -88,3 +88,6 @@
 - Reinforcement Learning [[dl_reinforcement-learning]]
 
 - Transformers [[dl_transformers]]
+
+
+- Deploying DL apps [[dl_deploy-apps]]

@@ -44,8 +44,11 @@ A model that has already been trained, generally using a large dataset, and will
 ### Fine-tune 
 Update a pretrained model for a different task. 
 
+
+
 ### Epoch 
 One complete pass through the input data
+An epoch is one complete pass through all of the images in the data
 
 ### Loss 
 A measure of how good the model is, chosen to drive training via SGD (Stochastic Gradient Descent)
