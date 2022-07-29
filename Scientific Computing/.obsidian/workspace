@@ -4,48 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "7464ddaf3c6932bb",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Python_notes.md",
-            "mode": "source",
-            "source": false
-          }
-        }
-      },
-      {
-        "id": "e758f58fb3593eec",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "dl_loss.md",
-            "mode": "source",
-            "source": false
-          }
-        }
-      },
-      {
-        "id": "ed4ede12e054b580",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "dl_types-of-activation-functions.md",
-            "mode": "source",
-            "source": false
-          }
-        }
-      },
-      {
         "id": "b563bff55da3c802",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "charla pajaro.md",
+            "file": "programming_concepts.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      },
+      {
+        "id": "ef574dec9207da7a",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "jl_notes.md",
             "mode": "source",
             "source": false
           }
@@ -76,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "gradient",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -97,7 +73,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 245.5
+    "width": 245.5,
+    "collapsed": true
   },
   "right": {
     "id": "05a607f0c33ccdf3",
@@ -113,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "charla pajaro.md",
+                "file": "jl_notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +107,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "charla pajaro.md",
+                "file": "jl_notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -153,7 +130,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "charla pajaro.md"
+                "file": "jl_notes.md"
               }
             }
           }
@@ -164,17 +141,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "b563bff55da3c802",
+  "active": "ef574dec9207da7a",
   "lastOpenFiles": [
-    "R_wizardry.md",
-    "fai_jargon.md",
+    "programming_concepts.md",
+    "jl_notes.md",
+    "JuliaRoadMap.md",
     "Python_notes.md",
-    "DeepLearningRoadmap.md",
     "dl_loss.md",
     "dl_types-of-activation-functions.md",
-    "dl_number-of-layers.md",
-    "dl_learning-rate.md",
-    "dl_discriminative-learning-rates.md",
-    "dl_number-of-epochs.md"
+    "charla pajaro.md",
+    "R_wizardry.md",
+    "fai_jargon.md",
+    "DeepLearningRoadmap.md"
   ]
 }
