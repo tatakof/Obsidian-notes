@@ -30,6 +30,18 @@ END UNPROCESSED CHUNK
 
 
 
+
+This final linear layer ((of a pretrained model)) is unlikely to be of any use for us when we are fine-tuning in a transfer learning setting, because it is specifically designed to classify the categories in the original pretraining dataset. So when we do transfer learning we remove it, throw it away, and replace it with a new linear layer with the correct number of outputs for our desired task (in this case, there would be 37 activations).
+
+
+
+
+
+### Freezing
+Our challenge when fine-tuning is to replace the random weights in our added linear layers with weights that correctly achieve our desired task (classifying pet breeds) without breaking the carefully pretrained weights and the other layers. There is actually a very simple trick to allow this to happen: tell the optimizer to only update the weights in those randomly added final layers. Don't change the weights in the rest of the neural network at all. This is called *freezing* those pretrained layers.
+
+
+
 ### Types of tasks and availability of pretrained models. 
 - Image: Lots
 - Tabular: no pretrained model available

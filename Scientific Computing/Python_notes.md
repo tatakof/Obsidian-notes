@@ -133,6 +133,89 @@ So when you start coding in python, you may try to use a for loop with one data 
 Here are the primitive data structures (that is, those built-in python) that can be iterable: 
 
 
+
+#### For loops
+"""
+For loops iterate over lists
+prints:
+    dog is a mammal
+    cat is a mammal
+    mouse is a mammal
+"""
+for animal in ["dog", "cat", "mouse"]:
+    # You can use format() to interpolate formatted strings
+    print("{} is a mammal".format(animal))
+
+"""
+"range(number)" returns an iterable of numbers
+from zero to the given number
+prints:
+    0
+    1
+    2
+    3
+"""
+for i in range(4):
+    print(i)
+
+"""
+"range(lower, upper)" returns an iterable of numbers
+from the lower number to the upper number
+prints:
+    4
+    5
+    6
+    7
+"""
+for i in range(4, 8):
+    print(i)
+
+"""
+"range(lower, upper, step)" returns an iterable of numbers
+from the lower number to the upper number, while incrementing
+by step. If step is not indicated, the default value is 1.
+prints:
+    4
+    6
+"""
+for i in range(4, 8, 2):
+    print(i)
+
+"""
+To loop over a list, and retrieve both the index and the value of each item in the list
+prints:
+    0 dog
+    1 cat
+    2 mouse
+"""
+animals = ["dog", "cat", "mouse"]
+for i, value in enumerate(animals):
+    print(i, value)
+
+
+
+
+Python offers a fundamental abstraction called the Iterable.
+An iterable is an object that can be treated as a sequence.
+The object returned by the range function, is an iterable.
+
+filled_dict = {"one": 1, "two": 2, "three": 3}
+our_iterable = filled_dict.keys()
+print(our_iterable)  # => dict_keys(['one', 'two', 'three']). This is an object that implements our Iterable interface.
+
+We can loop over it.
+for i in our_iterable:
+    print(i)  # Prints one, two, three
+
+However we cannot address elements by index.
+our_iterable[1]  # Raises a TypeError
+
+An iterable is an object that knows how to create an iterator.
+our_iterator = iter(our_iterable)
+
+
+
+
 ### Modifying a data structure
 Same as with ###Iteration, in R you can modify in place (explain) vectors, and thus every data structure you use (remember everything in R is a vector). But in python this can't be done with all data structures (e.g.) and when you do it, you do it in a different way (append).
 
@@ -155,3 +238,40 @@ Scientific/numerical Python packages like NumPy and PyTorch will often implement
 
 ### Python modules
 "Since modules are classes, we have to instantiate them, which is why you see `nn.ReLU()` in this example."
+
+
+
+
+
+### List comprehension
+FROM LEARN XYZ
+We can use list comprehensions for nice maps and filters
+List comprehension stores the output as a list which can itself be a nested list
+```python 
+[add_10(i) for i in [1, 2, 3]]         # => [11, 12, 13]
+[x for x in [3, 4, 5, 6, 7] if x > 5]  # => [6, 7]
+```
+
+ You can construct set and dict comprehensions as well.
+
+```python
+{x for x in 'abcddeef' if x not in 'abc'}  # => {'d', 'e', 'f'}
+{x: x**2 for x in range(5)}  # => {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+```
+
+
+
+### Unpacking
+https://www.delftstack.com/howto/python/python-for-loop-multiple-variables/
+A `for` loop is used for iterating over any sequence, from a list to a tuple to a dictionary. It can even iterate over a string. This article discusses how to use the `for` loop for multiple variables in Python.
+
+The use of multiple variables in a `for` loop in Python can be applied to lists or dictionaries, but it does not work for a general error. These multiple assignments of variables simultaneously, in the same line of code, are known as **iterable unpacking**.
+
+
+### Kwargs
+FROM FASTAI
+In Python `**kwargs` in a parameter list means "put any additional keyword arguments into a dict called `kwargs`. And `**kwargs` in an argument list means "insert all key/value pairs in the `kwargs` dict as named arguments here". This approach is used in many popular libraries, such as `matplotlib`, in which the main `plot` function simply has the signature `plot(*args, **kwargs)`. The [`plot` documentation](https://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.plot) says "The `kwargs` are `Line2D` properties" and then lists those properties.
+
+  
+
+We're using `**kwargs` in `EmbeddingNN` to avoid having to write all the arguments to `TabularModel` a second time, and keep them in sync. However, this makes our API quite difficult to work with, because now Jupyter Notebook doesn't know what parameters are available. Consequently things like tab completion of parameter names and pop-up lists of signatures won't work.

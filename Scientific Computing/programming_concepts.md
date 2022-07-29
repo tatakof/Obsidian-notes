@@ -1,5 +1,44 @@
 ### Callback: 
+	FROM WIKIPEDIA
 In computer programming, a callback, also known as a "call-after" function, is **any reference to executable code that is passed as an argument to other code; that other code is expected to call back (execute) the code at a given time**.
+
+	FROM https://stackoverflow.com/questions/9596276/how-to-explain-callbacks-in-plain-english-how-are-they-different-from-calling-o?page=1&tab=trending#tab-top
+
+In plain English, a callback function is like a **Worker** who "calls back" to his **Manager** when he has completed a **Task**.
+
+
+
+--
+am going to try to keep this dead simple. A "callback" is any function that is called by another function which takes the first function as a parameter. A lot of the time, a "callback" is a function that is called when _something_ happens. That _something_ can be called an "event" in programmer-speak.
+
+Imagine this scenario: you are expecting a package in a couple of days. The package is a gift for your neighbor. Therefore, once you get the package, you want it brought over to the neighbors. You are out of town, and so you leave instructions for your spouse.
+
+You could tell them to get the package and bring it to the neighbors. If your spouse was as stupid as a computer, they would sit at the door and wait for the package until it came (NOT DOING ANYTHING ELSE) and then once it came they would bring it over to the neighbors. But there's a better way. Tell your spouse that ONCE they receive the package, they should bring it over the neighbors. Then, they can go about life normally UNTIL they receive the package.
+
+In our example, the receiving of the package is the "event" and the bringing it to the neighbors is the "callback". Your spouse "runs" your instructions to bring the package over only _when_ the package arrives. Much better!
+
+This kind of thinking is obvious in daily life, but computers don't have the same kind of common sense. Consider how programmers normally write to a file:
+
+```
+fileObject = open(file)
+# now that we have WAITED for the file to open, we can write to it
+fileObject.write("We are writing to the file.")
+# now we can continue doing the other, totally unrelated things our program does
+```
+
+Here, we WAIT for the file to open, before we write to it. This "blocks" the flow of execution, and our program cannot do any of the other things it might need to do! What if we could do this instead:
+
+```
+# we pass writeToFile (A CALLBACK FUNCTION!) to the open function
+fileObject = open(file, writeToFile)
+# execution continues flowing -- we don't wait for the file to be opened
+# ONCE the file is opened we write to it, but while we wait WE CAN DO OTHER THINGS!
+```
+
+It turns out we do this with some languages and frameworks. It's pretty cool! Check out [Node.js](http://nodejs.org/) to get some real practice with this kind of thinking.
+
+
+
 
 
 ### Expression
@@ -295,5 +334,10 @@ Every object is an instance of some type, so “object” and “instance” are
 ### Object Diagram
 A state diagram that shows an object and its fields is called an _object diagram_
 ![[Pasted image 20220716160338.png]]
+
+
+
+### Iterator
+An iterable is an object that can be treated as a sequence.
 
 

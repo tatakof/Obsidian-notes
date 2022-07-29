@@ -352,3 +352,11 @@ df %>% drop_na
 sum(is.na(dataset$variable))
 
 ```
+
+
+
+### Select columns that match multiple stings
+```
+data  <- read_csv(path_to_data) %>%
+    select(matches("acc|mag|pitch|roll"))
+```

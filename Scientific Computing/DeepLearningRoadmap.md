@@ -16,14 +16,24 @@
 - Stuff I don't understand [[dl_not_understand]]
  
 - Jargon [[fai_jargon]]
- 
+
+
+- Improving your model: 
+	- Learning rate: [[dl_learning-rate]]
+	- Discriminative Learning Rates: [[dl_discriminative-learning-rates]]
+	- Number of epochs [[dl_number-of-epochs]]
+	- Number of layers [[dl_number-of-layers]]
+- DeepLearning Math
+	- Logarithms [[dl_log]]
+
+
 - Architectures [[Architectures#Deep Learning Architectures]]
 	- CNN [[fai_cnn]]
 	- Transformers [[dl_transformers]]
 	- Types of Layers [[dl_types-of-layers]]
 	- Activation functions [[dl_types-of-activation-functions]]
 
-
+- Predictions [[dl_predictions]]
 
 - Types of data [[Types of tasks for Deep Learning]]
  

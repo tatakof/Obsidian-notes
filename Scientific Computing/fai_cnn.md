@@ -1,3 +1,9 @@
+### CNN
+We now know that a convolutional neural network consists of many linear layers with a nonlinear activation function between each pair, followed by one or more final linear layers with an activation function such as softmax at the very end. The final linear layer uses a matrix with enough columns such that the output size is the same as the number of classes in our model (assuming that we are doing classification).
+
+
+
+
 
 ## Tasks a CNN can handle
 A CNN is an image recognizer, but many things can be turned into images and thus be classified using a CNN. E.g.: 

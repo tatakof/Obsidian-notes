@@ -22,7 +22,10 @@ The combination of the architecture with a particular set of parameters. Also ca
 
 ### Parameters
 The values in the model that change what task it can do, and are updated through model training
+Numbers that are randomly initialized, and then optimized (they are the numbers that define the model)
 
+### Activations
+Numbers that are calculated (both by linear and nonlinear layers)
 
 
 ### Fit 
@@ -44,6 +47,8 @@ A model that has already been trained, generally using a large dataset, and will
 ### Fine-tune 
 Update a pretrained model for a different task. 
 
+### Freezing
+Our challenge when fine-tuning is to replace the random weights in our added linear layers with weights that correctly achieve our desired task (classifying pet breeds) without breaking the carefully pretrained weights and the other layers. There is actually a very simple trick to allow this to happen: tell the optimizer to only update the weights in those randomly added final layers. Don't change the weights in the rest of the neural network at all. This is called *freezing* those pretrained layers.
 
 
 ### Epoch 
