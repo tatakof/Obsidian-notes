@@ -6,7 +6,7 @@
       {
         "id": "805c343aba8ca20c",
         "type": "leaf",
-        "dimension": 46.171171171171174,
+        "dimension": 23.085585585585584,
         "state": {
           "type": "markdown",
           "state": {
@@ -17,9 +17,22 @@
         }
       },
       {
+        "id": "4bcf70d3ed31928f",
+        "type": "leaf",
+        "dimension": 23.085585585585584,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Tree-of-Modelling-Techniques.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      },
+      {
         "id": "9f853e8ddf0487a4",
         "type": "leaf",
-        "dimension": 53.82882882882883,
+        "dimension": 53.828828828828826,
         "state": {
           "type": "markdown",
           "state": {
@@ -92,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "jl_notes.md",
+                "file": "Tree-of-Modelling-Techniques.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "jl_notes.md",
+                "file": "Tree-of-Modelling-Techniques.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "jl_notes.md"
+                "file": "Tree-of-Modelling-Techniques.md"
               }
             }
           }
@@ -143,7 +156,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "9f853e8ddf0487a4",
+  "active": "4bcf70d3ed31928f",
   "lastOpenFiles": [
     "programming_concepts.md",
     "jl_notes.md",
