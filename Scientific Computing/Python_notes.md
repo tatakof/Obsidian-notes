@@ -275,3 +275,32 @@ In Python `**kwargs` in a parameter list means "put any additional keyword argum
   
 
 We're using `**kwargs` in `EmbeddingNN` to avoid having to write all the arguments to `TabularModel` a second time, and keep them in sync. However, this makes our API quite difficult to work with, because now Jupyter Notebook doesn't know what parameters are available. Consequently things like tab completion of parameter names and pop-up lists of signatures won't work.
+
+
+
+### Dot operator
+https://www.tutorialspoint.com/What-is-a-dot-operator-in-Python
+Almost everything in Python is an object. Every object has certain attributes and methods. The connection between the attributes or the methods with the object is indicated by a “dot” (”.”) written between them.
+
+For example if dog is a class, then a dog named Fido would be its instance/object.
+
+class Dog:
+Fido = Dog()
+
+If methods of the class are like eats(), runs(), sleeps() we can write Fido.eats(), Fiido.runs(), Fido.sleeps() and say Fido has attributes like Fido.size = tall, Fido.hair_color = brown
+
+So dot notation makes it possible to access the attributes, methods and instances of a class and to access attributes and methods of the class instances.
+
+https://www.askpython.com/python/built-in-methods/dot-notation
+Python is an object oriented programming language (as opposed to R mostly functional programming style)
+
+It is a programming paradigm based on the concept of real-world Objects. Each object has certain attributes that describe their state and methods that make them perform a certain task (equivalent to executing a function).
+
+In Python, almost every entity is traded as an Object. And knowing this is fundamental to grasp the significance of dot (.) notation.
+
+In simple words, the dot (.) notation is a way to access the attribute and methods of each method of instances of different object classes.
+
+It is usually preceded by the object instance while the right end of the dot notation contains the attributes and methods.
+
+The dot notation is more than just a way to access inner methods. It’s a sophisticated technique to keep your code clean and to the minimum while ensuring complete functionality.
+

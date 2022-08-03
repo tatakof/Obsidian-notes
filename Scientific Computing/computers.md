@@ -1,4 +1,4 @@
-- Slots
+ Slots
 
 PCI express slot is for GPU
 

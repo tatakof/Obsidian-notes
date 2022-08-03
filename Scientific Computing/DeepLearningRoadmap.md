@@ -1,7 +1,7 @@
 - Interesting talks [[dl_talks]]
 - MUST WATCH: [[dl_must-watch]]
 
-
+- On creating good validation sets [[dl_creating-good-validation-sets]]
 - Resources [[dl_resources]]
 
 - Geometric deep learning !!!!!!!!! [[dl_geometric]]

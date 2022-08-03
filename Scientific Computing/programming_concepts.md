@@ -598,74 +598,6 @@ A part of a program that can run repeatedly.
 
 
 
-
-15 EN ADELANTE !!!!!!!!
-### Struct 
-
-A programmer-defined _composite type_ is also called a _struct_. The `struct` definition for a point looks like this:
-
-```
-struct Point
-    x
-    y
-end
-```
-
-
-The header indicates that the new struct is called `Point`. The body defines the _attributes_ or _fields_ of the struct. The `Point` struct has two fields: `x` and `y`.
-
-A struct is like a factory for creating objects. To create a point, you call `Point` as if it were a function having as arguments the values of the fields. When `Point` is used as a function, it is called a _constructor_.
-
-You can get the values of the fields using `.` notation:
-
-```
-julia> x = p.x
-3.0
-julia> p.y
-4.0
-```
-The expression `p.x` means, “Go to the object `p` refers to and get the value of `x`.” In the example, we assign that value to a variable named `x`. There is no conflict between the variable `x` and the field `x`.
-
-
-**Structs are however by default immutable**, after construction the fields can not change value:
-
-```
-julia> p.y = 1.0
-ERROR: setfield! immutable struct of type Point cannot be changed
-```
-This may seem odd at first, but it has several advantages:
-
--   It can be more efficient.
-    
--   It is not possible to violate the invariants provided by the type’s constructors (see [Constructors](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#constructor)).
-    
--   Code using immutable objects can be easier to reason about.
-
-### Constructor 
-When a struct is used as a function for creating objects, it is called a constructor. Constructors return objects. 
-
-
-### Instantiation 
-Creating a new object is called _instantiation_, and the object is an _instance_ of the type.
-
-When you print an instance, Julia tells you what type it belongs to and what the values of the atributes are.
-
-Every object is an instance of some type, so “object” and “instance” are interchangeable. But in this chapter I use “instance” to indicate that I am talking about a programmer-defined type.
-
-
-### Object Diagram
-A state diagram that shows an object and its fields is called an _object diagram_
-![[Pasted image 20220716160338.png]]
-
-
-
-### Iterator
-An iterable is an object that can be treated as a sequence.
-
-ESTE CAP ESTA TERMINADO? BUSCAR LO ULTIMO ESCRITO EN THINK JULIA
-
-
-
 ### If statement
 
 The `if` statement executes different code depending on the state of the program.
@@ -835,6 +767,1080 @@ A function that calls itself is _recursive_; the process of executing it is call
 
 
 
-# CONTINUE AT
+### Infinite Recursion
+If a recursion never reaches a base case, it goes on making recursive calls forever, and the program never terminates. This is known as _infinite recursion_, and it is generally not a good idea. Here is a minimal program with an infinite recursion:
 
-#### Stack Diagrams for recursive functions
+```
+function recurse()
+    recurse()
+end
+```
+
+In most programming environments, a program with infinite recursion does not really run forever. Julia reports an error message when the maximum recursion depth is reached
+
+### Keyboard Input
+when the user types something in the repl because the program is waiting for it
+
+### Debugging 
+When a syntax or runtime error occurs, the error message contains a lot of information, but it can be overwhelming. The most useful parts are usually:
+
+-   What kind of error it was, and
+    
+-   Where it occurred.
+    
+
+Syntax errors are usually easy to find, but there are a few gotchas. In general, error messages indicate where the problem was discovered, but the actual error might be earlier in the code, sometimes on a previous line.
+
+The same is true of runtime errors.
+
+
+### floor division
+
+An operator, denoted `÷` (in julia), that divides two numbers and rounds down (toward negative infinity) to an integer.
+
+### modulus operator
+
+An operator, denoted with a percent sign (%), that works on integers and returns the remainder when one number is divided by another.
+
+### boolean expression
+
+An expression whose value is either `true` or `false`.
+
+### relational operator
+
+One of the operators that compares its operands: `==`, `≠` (`!=`), `>`, `<`, `≥` (`>=`), and `≤` (`<=`).
+
+### logical operator
+
+One of the operators that combines boolean expressions: `&&` (and), `||` (or), and `!` (not).
+
+### conditional statement
+
+A statement that controls the flow of execution depending on some condition.
+
+### condition
+
+The boolean expression in a conditional statement that determines which branch runs.
+
+### compound statement
+
+A statement that consists of a header and a body. The body is terminated with the keyword `end`.
+
+### branch
+
+One of the alternative sequences of statements in a conditional statement.
+
+### chained conditional
+
+A conditional statement with a series of alternative branches.
+
+### nested conditional
+
+A conditional statement that appears in one of the branches of another conditional statement.
+
+### return statement
+
+A statement that causes a function to end immediately and return to the caller.
+
+### recursion
+
+The process of calling the function that is currently executing.
+
+### base case
+
+A conditional branch in a recursive function that does not make a recursive call.
+
+### Infinite recursion
+
+A recursion that doesn’t have a base case, or never reaches it. Eventually, an infinite recursion causes a runtime error.
+
+
+
+
+
+### Return values of Fruitful functions
+Calling the function generates a return value, which we usually assign to a variable or use as part of an expression
+
+```
+e = exp(1.0)
+height = radius * sin(radians)
+```
+
+now the fruitful function
+```
+function area(radius)
+    a = π * radius^2
+    return a
+end
+```
+
+
+in a fruitful function the `return` statement includes an expression. This statement means: “Return immediately from this function and use the following expression as a return value.”
+
+Also, The value returned by a function is the value of the last expression evaluated, which, by default, is the last expression in the body of the function definition.
+```
+function area(radius)
+    π * radius^2
+end
+```
+On the other hand, _temporary variables_ like `a` and explicit `return` statements can make debugging easier.
+
+As soon as a `return` statement runs, the function terminates without executing any subsequent statements. Code that appears after a `return` statement, or any other place the flow of execution can never reach, is called _dead code_.
+
+In a fruitful function, it is a good idea to ensure that every possible path through the program hits a return statement.
+
+
+### Incremental development
+
+As you write larger functions, you might find yourself spending more time debugging.
+
+To deal with increasingly complex programs, you might want to try a process called _incremental development_. The goal of incremental development is to avoid long debugging sessions by adding and testing only a small amount of code at a time.
+
+When testing a function, it is useful to know the right answer.
+
+
+Immediately you can write an outline of the function:
+
+```
+function distance(x₁, y₁, x₂, y₂)
+    0.0
+end
+```
+
+
+At this point we have confirmed that the function is syntactically correct, and we can start adding code to the body. A reasonable next step is to find the differences x2−x1 and y2−y1
+
+. The next version stores those values in temporary variables and prints them with the `@show` macro.
+
+```
+function distance(x₁, y₁, x₂, y₂)
+    dx = x₂ - x₁
+    dy = y₂ - y₁
+    @show dx dy
+    0.0
+end
+```
+
+
+f the function is working, it should display `dx = 3` and `dy = 4`. If so, we know that the function is getting the right arguments and performing the first computation correctly. If not, there are only a few lines to check.
+
+Next we compute the sum of squares of `dx` and `dy`:
+
+```
+function distance(x₁, y₁, x₂, y₂)
+    dx = x₂ - x₁
+    dy = y₂ - y₁
+    d² = dx^2 + dy^2
+    @show d²
+    0.0
+end
+```
+
+Again, you would run the program at this stage and check the output (which should be 25). Superscript numbers are also available (**`\^2 TAB`**). Finally, you can use `sqrt` to compute and return the result:
+
+```
+function distance(x₁, y₁, x₂, y₂)
+    dx = x₂ - x₁
+    dy = y₂ - y₁
+    d² = dx^2 + dy^2
+    sqrt(d²)
+end
+```
+
+If that works correctly, you are done. Otherwise, you might want to print the value of `sqrt(d²)` before the `return` statement.
+
+The final version of the function doesn’t display anything when it runs; it only returns a value. The print statements we wrote are useful for debugging, but once you get the function working, you should remove them. Code like that is called _scaffolding_ because it is helpful for building the program but is not part of the final product.
+
+When you start out, you should add only a line or two of code at a time. As you gain more experience, you might find yourself writing and debugging bigger chunks. Either way, incremental development can save you a lot of debugging time.
+
+The key aspects of the process are:
+
+1.  Start with a working program and make small incremental changes. At any point, if there is an error, you should have a good idea where it is.
+    
+2.  Use variables to hold intermediate values so you can display and check them.
+    
+3.  Once the program is working, you might want to remove some of the scaffolding or consolidate multiple statements into compound expressions, but only if it does not make the program difficult to read.
+
+
+### Function composition
+As you should expect by now, you can call one function from within another.
+
+
+### Boolean Functions
+Functions can return booleans, which is often convenient for hiding complicated tests inside functions. For example:
+
+```
+function isdivisible(x, y)
+    if x % y == 0 ## test is remainder is 0
+        return true
+    else
+        return false
+    end
+end
+```
+
+
+It is common to give boolean functions names that sound like yes/no questions; `isdivisible` returns either `true` or `false` to indicate whether `x` is divisible by `y`.
+
+The result of the `==` operator is a boolean, so we can write the function more concisely by returning it directly:
+
+```
+function isdivisible(x, y)
+    x % y == 0
+end
+```
+
+Boolean functions are often used in conditional statements:
+
+```
+if isdivisible(x, y)
+    println("x is divisible by y")
+end
+```
+
+
+It might be tempting to write something like:
+
+```
+if isdivisible(x, y) == true
+    println("x is divisible by y")
+end
+```
+
+But the extra comparison with `true` is unnecessary (because isdivisible(x, y) already evaluates to true or false, and if true is enough, not needed a if true == true).
+
+### Guardian pattern
+
+```
+function fact(n)
+    if !(n isa Int64)
+        error("Factorial is only defined for integers.")
+    elseif n < 0
+        error("Factorial is not defined for negative integers.")
+    elseif n == 0
+        return 1
+    else
+        return n * fact(n-1)
+    end
+end
+```
+
+This program demonstrates a pattern sometimes called a _guardian_. The first two conditionals act as guardians, protecting the code that follows from values that might cause an error. The guardians make it possible to prove the correctness of the code.
+
+
+### Debugging
+Breaking a large program into smaller functions creates natural checkpoints for debugging. If a function is not working, there are three possibilities to consider:
+
+-   There is something wrong with the arguments the function is getting; a precondition is violated.
+    
+-   There is something wrong with the function; a postcondition is violated.
+    
+-   There is something wrong with the return value or the way it is being used.
+    
+
+To rule out the first possibility, you can add a print statement at the beginning of the function and display the values of the parameters (and maybe their types). Or you can write code that checks the preconditions explicitly.
+
+If the parameters look good, add a print statement before each return statement and display the return value. If possible, check the result by hand. Consider calling the function with values that make it easy to check the result (as in [Incremental Development](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#incremental_development)).
+
+If the function seems to be working, look at the function call to make sure the return value is being used correctly (or used at all!).
+
+Adding print statements at the beginning and end of a function can help make the flow of execution more visible. For example, here is a version of `fact` with print statements:
+
+```
+function fact(n)
+    space = " " ^ (4 * n)
+    println(space, "factorial ", n)
+    if n == 0
+        println(space, "returning 1")
+        return 1
+    else
+        recurse = fact(n-1)
+        result = n * recurse
+        println(space, "returning ", result)
+        return result
+    end
+end
+```
+
+
+### temporary variable
+
+A variable used to store an intermediate value in a complex calculation.
+
+### dead code
+
+Part of a program that can never run, often because it appears after a return statement.
+
+### incremental development
+
+A program development plan intended to avoid debugging by adding and testing only a small amount of code at a time.
+
+### scaffolding
+
+Code that is used during program development but is not part of the final version.
+
+### guardian
+
+A programming pattern that uses a conditional statement to check for and handle circumstances that might cause an error.
+
+
+
+### Iteration
+
+#### While loop
+In a computer program, repetition is also called _iteration_.
+
+More formally, here is the flow of execution for a `while` statement:
+
+1.  Determine whether the condition is true or false.
+    
+2.  If false, exit the while statement and continue execution at the next statement.
+    
+3.  If the condition is true, run the body and then go back to step 1.
+    
+
+This type of flow is called a loop because the third step loops back around to the top.
+
+
+The body of the loop should change the value of one or more variables so that the condition becomes false eventually and the loop terminates. Otherwise the loop will repeat forever, which is called an _infinite loop_.
+```
+function countdown(n)
+    while n > 0
+        print(n, " ")
+        n = n - 1
+    end
+    println("Blastoff!")
+end
+```
+Sometimes you don’t know it’s time to end a loop until you get half way through the body. In that case you can use the _break statement_ to jump out of the loop.
+
+```
+while true
+    print("> ")
+    line = readline()
+    if line == "done"
+        break
+    end
+    println(line)
+end
+println("Done!")
+```
+
+The break statement exits the loop. When a _continue statement_ is encountered inside a loop, control jumps to the beginning of the loop for the next iteration, skipping the execution of statements inside the body of the loop for the current iteration. For example:
+
+```
+for i in 1:10
+    if i % 3 == 0
+        continue
+    end
+    print(i, " ")
+end
+```
+
+### Algotrithms
+... an _algorithm_: it is a mechanical process for solving a category of problems...
+One of the characteristics of algorithms is that they do not require any intelligence to carry out. They are mechanical processes where each step follows from the last according to a simple set of rules.
+
+Executing algorithms is boring, but designing them is interesting, intellectually challenging, and a central part of computer science.
+
+### Debugging
+As you start writing bigger programs, you might find yourself spending more time debugging. More code means more chances to make an error and more places for bugs to hide.
+
+One way to cut your debugging time is “debugging by bisection”. For example, if there are 100 lines in your program and you check them one at a time, it would take 100 steps.
+
+Instead, try to break the problem in half. Look at the middle of the program, or near it, for an intermediate value you can check. Add a print statement (or something else that has a verifiable effect) and run the program.
+
+If the mid-point check is incorrect, there must be a problem in the first half of the program. If it is correct, the problem is in the second half.
+
+Every time you perform a check like this, you halve the number of lines you have to search. After six steps (which is fewer than 100), you would be down to one or two lines of code, at least in theory.
+
+In practice it is not always clear what the “middle of the program” is and not always possible to check it. It doesn’t make sense to count lines and find the exact midpoint. Instead, think about places in the program where there might be errors and places where it is easy to put a check. Then choose a spot where you think the chances are about the same that the bug is before or after the check.
+
+
+### Glossary
+#### reassignment
+
+Assigning a new value to a variable that already exists.
+
+#### update
+
+An assignment where the new value of the variable depends on the old.
+
+#### initialization
+
+An assignment that gives an initial value to a variable that will be updated.
+
+#### increment
+
+An update that increases the value of a variable (often by one).
+
+#### decrement
+
+An update that decreases the value of a variable.
+
+#### iteration
+
+Repeated execution of a set of statements using either a recursive function call or a loop.
+
+#### while statement
+
+Statement that allows iterations controlled by a condition.
+
+#### break statement
+
+Statement allowing to jump out of a loop.
+
+#### continue statement
+
+Statement inside a loop that jumps to the beginning of the loop for the next iteration.
+
+#### infinite loop
+
+A loop in which the terminating condition is never satisfied.
+
+#### algorithm
+
+A general process for solving a category of problems.
+
+
+
+
+
+
+### Strings
+Strings are not like integers, floats, and booleans. A string is a _sequence_ (of characters), which means it is an ordered collection of other values.
+
+
+### Characters
+English language speakers are familiar with characters such as the letters of the alphabet (A, B, C, …​), numerals, and common punctuation. These characters are standardized and mapped to integer values between 0 and 127 by the _ASCII standard_ (American Standard Code for Information Interchange).
+
+The _Unicode standard_ tackles the complexities of what exactly a character is, and is generally accepted as the definitive standard addressing this problem. It provides a unique number for every character on a world-wide scale.
+
+
+
+### Traversal (pattern of processing)
+A lot of computations involve processing a string one character at a time. Often they start at the beginning, select each character in turn, do something to it, and continue until the end. This pattern of processing is called a _traversal_. One way to write a traversal is with a `while` loop:
+
+```
+index = firstindex(fruits)
+while index <= sizeof(fruits)
+    letter = fruits[index]
+    println(letter)
+    global index = nextind(fruits, index)
+end
+```
+
+
+
+### String slices
+
+A segment of a string is called a _slice_. Selecting a slice is similar to selecting a character:
+
+```
+julia> str = "Julius Caesar";
+
+julia> str[1:6]
+"Julius"
+```
+
+The operator `[n:m]` returns the part of the string from the `n`-th byte to the `m`-th byte. So the same caution is needed as for simple indexing.
+
+The `end` keyword can be used to indicate the last byte of the string:
+
+```
+julia> str[8:end]
+"Caesar"
+```
+
+If the first index is greater than the second the result is an _empty string_, represented by two quotation marks:
+
+```
+julia> str[8:7]
+""
+```
+
+An empty string contains no characters and has length 0, but other than that, it is the same as any other string.
+
+#### Strings are immutable. 
+
+
+#### Glossary
+
+#### sequence
+
+An ordered collection of values where each value is identified by an integer index.
+
+#### ASCII standard
+
+A character encoding standard for electronic communication specifying 128 characters.
+
+#### Unicode standard
+
+A computing industry standard for the consistent encoding, representation, and handling of text expressed in most of the world’s writing systems.
+
+#### index
+
+An integer value used to select an item in a sequence, such as a character in a string. In Julia indices start from 1.
+
+
+#### UTF-8 encoding
+A variable width character encoding capable of encoding all 1112064 valid code points in Unicode using one to four 8-bit bytes.
+
+#### traverse
+
+To iterate through the items in a sequence, performing a similar operation on each.
+
+#### slice
+
+A part of a string specified by a range of indices.
+
+#### empty string
+
+A string with no characters and length 0, represented by two quotation marks.
+
+#### immutable
+
+The property of a sequence whose items cannot be changed.
+
+#### string interpolation
+
+The process of evaluating a string containing one or more placeholders, yielding a result in which the placeholders are replaced with their corresponding values.
+
+#### search
+
+A pattern of traversal that stops when it finds what it is looking for.
+
+#### counter
+
+A variable used to count something, usually initialized to zero and then incremented.
+
+
+
+
+### Development plan: Reduction to a previously solved problem
+This means that you recognize the problem you are working on as an instance of a solved problem and apply an existing solution. 
+
+say we have this function
+```
+function usesonly(word, available)
+    for letter in word
+        if letter ∉ available
+            return false
+        end
+    end
+    true
+end
+```
+
+and we want to achieve something with the following function
+```
+function usesall(word, required)
+    for letter in required
+        if letter ∉ word
+            return false
+        end
+    end
+    true
+end
+```
+Using the development plan, we could rewrite the last function as
+```
+function usesall(word, required)
+    usesonly(required, word)
+end
+```
+
+
+
+
+### Debugging 
+
+Testing programs is hard. The functions in this chapter are relatively easy to test because you can check the results by hand. Even so, it is somewhere between difficult and impossible to choose a set of words that test for all possible errors.
+
+Taking `hasno_e` as an example, there are two obvious cases to check: words that have an `_e_` should return `false`, and words that don’t should return `true`. You should have no trouble coming up with one of each.
+
+Within each case, there are some less obvious subcases. Among the words that have an “e”, you should test words with an “e” at the beginning, the end, and somewhere in the middle. You should test long words, short words, and very short words, like the empty string. The empty string is an example of a _special case_, which is one of the non-obvious cases where errors often lurk.
+
+In addition to the test cases you generate, you can also test your program with a word list like `words.txt`. By scanning the output, you might be able to catch errors, but be careful: you might catch one kind of error (words that should not be included, but are) and not another (words that should be included, but aren’t).
+
+In general, testing can help you find bugs, but it is not easy to generate a good set of test cases, and even if you do, you can’t be sure your program is correct. According to a legendary computer scientist:
+
+> Program testing can be used to show the presence of bugs, but never to show their absence!
+— Edsger W. Dijkstra
+
+
+### Glossary
+
+#### File stream
+a value that represents an open file
+
+#### Reduction to a previously solved problem
+a way of solving a problem by expressing it as an instance of a previously solved problem
+
+#### Special case
+a test case that is atypical or non-obvious (and less likely to be handled correctly)
+
+
+
+
+
+### 10. Arrays
+
+#### An array is a sequence
+
+Like a string, an _array_ is a sequence of values. In a string, the values are characters; in an array, they can be any type. The values in an array are called _elements_ or sometimes _items_.
+
+There are several ways to create a new array; the simplest is to enclose the elements in square brackets (`[ ]`):
+
+```
+[10, 20, 30, 40]
+["crunchy frog", "ram bladder", "lark vomit"]
+```
+
+The elements of an array don’t have to be the same type. The following array contains a string, a float, an integer, and another array:
+
+```
+["spam", 2.0, 5, [10, 20]]
+```
+
+An array within another array is _nested_.
+
+An array that contains no elements is called an empty array; you can create one with empty brackets, `[]`.
+
+As you might expect, you can assign array values to variables:
+
+```
+julia> cheeses = ["Cheddar", "Edam", "Gouda"];
+
+julia> numbers = [42, 123];
+
+julia> empty = [];
+
+julia> print(cheeses, " ", numbers, " ", empty)
+["Cheddar", "Edam", "Gouda"] [42, 123] Any[]
+```
+
+The function `typeof` can be used to find out the kind of the array:
+
+```
+julia> typeof(cheeses)
+Array{String,1}
+julia> typeof(numbers)
+Array{Int64,1}
+julia> typeof(empty)
+Array{Any,1}
+```
+
+The kind of the array is specified between curly braces and is composed of a type and a number. The number indicates the dimensions. The array `empty` contains values of type `Any`., i.e. it can hold values of all types.
+
+#### Arrays are mutable
+
+The syntax for accessing the elements of an array is the same as for accessing the characters of a string—the bracket operator. The expression inside the brackets specifies the index. Remember that the indices start at 1:
+
+```
+julia> cheeses[1]
+"Cheddar"
+```
+
+Unlike strings, arrays are _mutable_. When the bracket operator appears on the left side of an assignment, it identifies the element of the array that will be assigned:
+
+```
+julia> numbers[2] = 5
+5
+julia> print(numbers)
+[42, 5]
+```
+
+Array indices work the same way as string indices (but without UTF-8 caveats):
+
+-   Any integer expression can be used as an index.
+    
+-   If you try to read or write an element that does not exist, you get a `BoundsError`.
+    
+-   The keyword `end` points to the last index of the array.
+    
+
+The `∈` operator also works on arrays:
+
+```
+julia> "Edam" ∈ cheeses
+true
+julia> "Brie" in cheeses
+false
+```
+
+#### Traversing an array
+
+```
+for cheese in cheeses
+    println(cheese)
+end
+```
+if you want to write or update the elements, you need the indices. A common way to do that is to use the built-in function `eachindex`:
+
+```
+for i in eachindex(numbers)
+    numbers[i] = numbers[i] * 2
+end
+```
+
+A `for` loop over an empty array never runs the body:
+
+```
+for x in []
+    println("This can never happens.")
+end
+```
+
+Although an array can contain another array, the nested array still counts as a single element. The length of this array is four:
+
+```
+["spam", 1, ["Brie", "Roquefort", "Camembert"], [1, 2, 3]]
+```
+
+#### Array slices
+The slice operator also works on arrays:
+
+```
+julia> t = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+julia> print(t[1:3])
+['a', 'b', 'c']
+julia> print(t[3:end])
+['c', 'd', 'e', 'f']
+```
+
+The slice operator `[:]`, makes a copy of the whole array:
+
+```
+julia> print(t[:])
+['a', 'b', 'c', 'd', 'e', 'f']
+```
+
+Since arrays are mutable, it is often useful to make a copy before performing operations that modify arrays.
+
+A slice operator on the left side of an assignment can update multiple elements:
+
+```
+julia> t[2:3] = ['x', 'y'];
+
+julia> print(t)
+['a', 'x', 'y', 'd', 'e', 'f']
+```
+
+#### Array library
+Julia provides functions that operate on arrays. For example, `push!` adds a new element to the end of an array:
+
+```
+julia> t = ['a', 'b', 'c'];
+
+julia> push!(t, 'd');
+
+julia> print(t)
+['a', 'b', 'c', 'd']
+```
+
+`append!` add the elements of the second array to the end of the first:
+
+```
+julia> t1 = ['a', 'b', 'c'];
+
+julia> t2 = ['d', 'e'];
+
+julia> append!(t1, t2);
+
+julia> print(t1)
+['a', 'b', 'c', 'd', 'e']
+```
+
+This example leaves `t2` unmodified (but not t1 because of the `!`).
+
+`sort!` arranges the elements of the array from low to high:
+
+```
+julia> t = ['d', 'c', 'e', 'b', 'a'];
+
+julia> sort!(t);
+
+julia> print(t)
+['a', 'b', 'c', 'd', 'e']
+```
+
+As a style convention in Julia, `!` is appended to names of functions that modify their arguments.
+
+
+#### Map, Filter and Reduce
+To add up all the numbers in an array, you can use a loop like this:
+
+```
+function addall(t)
+    total = 0
+    for x in t
+        total += x
+    end
+    total
+end
+```
+
+`total` is initialized to 0. Each time through the loop, `+=` gets one element from the array. The `+=` operator provides a short way to update a variable. This **_augmented assignment statement_**,
+
+```
+total += x
+```
+
+is equivalent to
+
+```
+total = total + x
+```
+
+
+#### Accumulator
+As the loop runs, `total` accumulates the sum of the elements; a variable used this way is sometimes called an _accumulator_.
+
+Adding up the elements of an array is such a common operation that Julia provides it as a built-in function, `sum`:
+
+```
+julia> t = [1, 2, 3, 4];
+
+julia> sum(t)
+10
+```
+
+
+#### Reduce operation
+An operation like this that combines a sequence of elements into a single value is sometimes called a _reduce operation_.
+
+
+
+#### Map
+
+```
+function capitalizeall(t)
+    res = []
+    for s in t
+        push!(res, uppercase(s))
+    end
+    res
+end
+```
+
+An operation like `capitalizeall` is sometimes called a _map_ because it “maps” a function (in this case `uppercase`) onto each of the elements in a sequence.
+
+
+#### Filter
+Another common operation is to select some of the elements from an array and return a subarray. For example, the following function takes an array of strings and returns an array that contains only the uppercase strings:
+
+```
+function onlyupper(t)
+    res = []
+    for s in t
+        if s == uppercase(s)
+            push!(res, s)
+        end
+    end
+    res
+end
+```
+
+An operation like `onlyupper` is called a _filter_ because it selects some of the elements and filters out the others.
+
+Most common array operations can be expressed as a combination of map, filter and reduce.
+
+
+### Dot Syntax
+For every binary operator like `^`, there is a corresponding _dot operator_ `.^` that is automatically defined to perform `^` element-by-element on arrays. For example, `[1, 2, 3] ^ 3` is not defined, but `[1, 2, 3] .^ 3` is defined as computing the elementwise result `[1^3, 2^3, 3^3]`:
+
+```
+julia> print([1, 2, 3] .^ 3)
+[1, 8, 27]
+```
+
+Any Julia function `f` can be applied elementwise to any array with the _dot syntax_. For example to capitalize an array of strings, we don’t need an explicit loop:
+
+```
+julia> t = uppercase.(["abc", "def", "ghi"]);
+
+julia> print(t)
+["ABC", "DEF", "GHI"]
+```
+
+This is an elegant way to create a map. The function `capitalizeall` can be implemented by a one-liner:
+
+```
+function capitalizeall(t)
+    uppercase.(t)
+end
+```
+
+
+#### Deleting (Inserting) elements
+There are several ways to delete elements from an array. If you know the index of the element you want, you can use `splice!`:
+
+```
+julia> t = ['a', 'b', 'c'];
+
+julia> splice!(t, 2)
+'b': ASCII/Unicode U+0062 (category Ll: Letter, lowercase)
+julia> print(t)
+['a', 'c']
+```
+
+`splice!` modifies the array and returns the element that was removed.
+
+`pop!` deletes and returns the last element:
+
+```
+julia> t = ['a', 'b', 'c'];
+
+julia> pop!(t)
+'c': ASCII/Unicode U+0063 (category Ll: Letter, lowercase)
+julia> print(t)
+['a', 'b']
+```
+
+`popfirst!` deletes and returns the first element:
+
+```
+julia> t = ['a', 'b', 'c'];
+
+julia> popfirst!(t)
+'a': ASCII/Unicode U+0061 (category Ll: Letter, lowercase)
+julia> print(t)
+['b', 'c']
+```
+
+The functions `pushfirst!` and `push!` insert an element at the beginning, respectively at the end of the array.
+
+If you don’t need the removed value, you can use the function `deleteat!`:
+
+```
+julia> t = ['a', 'b', 'c'];
+
+julia> print(deleteat!(t, 2))
+['a', 'c']
+```
+
+The function `insert!` inserts an element at a given index:
+
+```
+julia> t = ['a', 'b', 'c'];
+
+julia> print(insert!(t, 2, 'x'))
+['a', 'x', 'b', 'c']
+```
+
+
+#### Arrays and strings
+
+A string is a sequence of characters and an array is a sequence of values, but an array of characters is not the same as a string. To convert from a string to an array of characters, you can use the function `collect`:
+
+```
+julia> t = collect("spam");
+
+julia> print(t)
+['s', 'p', 'a', 'm']
+```
+
+The `collect` function breaks a string or another sequence into individual elements.
+
+If you want to break a string into words, you can use the `split` function:
+
+```
+julia> t = split("pining for the fjords");
+
+julia> print(t)
+SubString{String}["pining", "for", "the", "fjords"]
+```
+
+An _optional argument_ called a _delimiter_ specifies which characters to use as word boundaries. The following example uses a hyphen as a delimiter:
+
+```
+julia> t = split("spam-spam-spam", '-');
+
+julia> print(t)
+SubString{String}["spam", "spam", "spam"]
+```
+
+`join` is the inverse of `split`. It takes an array of strings and concatenates the elements:
+
+```
+julia> t = ["pining", "for", "the", "fjords"];
+
+julia> s = join(t, ' ')
+"pining for the fjords"
+```
+
+In this case the delimiter is a space character. To concatenate strings without spaces, you don’t specify a delimiter.
+
+
+
+# CONTINUE AT 10 ARRAYS, OBJECTS AND VALUE
+
+
+# 15 EN ADELANTE !!!!!!!!
+### Struct 
+
+A programmer-defined _composite type_ is also called a _struct_. The `struct` definition for a point looks like this:
+
+```
+struct Point
+    x
+    y
+end
+```
+
+
+The header indicates that the new struct is called `Point`. The body defines the _attributes_ or _fields_ of the struct. The `Point` struct has two fields: `x` and `y`.
+
+A struct is like a factory for creating objects. To create a point, you call `Point` as if it were a function having as arguments the values of the fields. When `Point` is used as a function, it is called a _constructor_.
+
+You can get the values of the fields using `.` notation:
+
+```
+julia> x = p.x
+3.0
+julia> p.y
+4.0
+```
+The expression `p.x` means, “Go to the object `p` refers to and get the value of `x`.” In the example, we assign that value to a variable named `x`. There is no conflict between the variable `x` and the field `x`.
+
+
+**Structs are however by default immutable**, after construction the fields can not change value:
+
+```
+julia> p.y = 1.0
+ERROR: setfield! immutable struct of type Point cannot be changed
+```
+This may seem odd at first, but it has several advantages:
+
+-   It can be more efficient.
+    
+-   It is not possible to violate the invariants provided by the type’s constructors (see [Constructors](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#constructor)).
+    
+-   Code using immutable objects can be easier to reason about.
+
+### Constructor 
+When a struct is used as a function for creating objects, it is called a constructor. Constructors return objects. 
+
+
+### Instantiation 
+Creating a new object is called _instantiation_, and the object is an _instance_ of the type.
+
+When you print an instance, Julia tells you what type it belongs to and what the values of the atributes are.
+
+Every object is an instance of some type, so “object” and “instance” are interchangeable. But in this chapter I use “instance” to indicate that I am talking about a programmer-defined type.
+
+
+### Object Diagram
+A state diagram that shows an object and its fields is called an _object diagram_
+![[Pasted image 20220716160338.png]]
+
+
+
+### Iterator
+An iterable is an object that can be treated as a sequence.
+
+ESTE CAP ESTA TERMINADO? BUSCAR LO ULTIMO ESCRITO EN THINK JULIA
+
+

@@ -1,3 +1,5 @@
+- Resources [[py_resources]]
+
 - Tutorial [[python_tutorial]]
 
 - Notes [[Python_notes]]

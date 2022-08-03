@@ -4,8 +4,9 @@
     "type": "split",
     "children": [
       {
-        "id": "b563bff55da3c802",
+        "id": "805c343aba8ca20c",
         "type": "leaf",
+        "dimension": 46.171171171171174,
         "state": {
           "type": "markdown",
           "state": {
@@ -16,8 +17,9 @@
         }
       },
       {
-        "id": "ef574dec9207da7a",
+        "id": "9f853e8ddf0487a4",
         "type": "leaf",
+        "dimension": 53.82882882882883,
         "state": {
           "type": "markdown",
           "state": {
@@ -73,7 +75,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 245.5,
+    "width": 100,
     "collapsed": true
   },
   "right": {
@@ -141,17 +143,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "ef574dec9207da7a",
+  "active": "9f853e8ddf0487a4",
   "lastOpenFiles": [
     "programming_concepts.md",
     "jl_notes.md",
-    "JuliaRoadMap.md",
     "Python_notes.md",
-    "dl_loss.md",
-    "dl_types-of-activation-functions.md",
-    "charla pajaro.md",
+    "jl_tutorial.md",
+    "JuliaRoadMap.md",
     "R_wizardry.md",
-    "fai_jargon.md",
-    "DeepLearningRoadmap.md"
+    "sm_R.md",
+    "RRoadMap.md",
+    "R-debugging-tips.md",
+    "computers.md"
   ]
 }

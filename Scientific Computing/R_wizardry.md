@@ -1,3 +1,6 @@
+#### Skipping errors in for loops
+https://stackoverflow.com/questions/14748557/skipping-error-in-for-loop
+
 #### Dynamic variables 
 programmatically define the name of a variable that's at the left side of the assignment operator
 
@@ -86,7 +89,7 @@ mutate(
 ### Programmatically make a ggplot where one of the axis to be plotted comes from a vector (and thus is a character)
 problem is that aes() wont take strings, but aes_string() can (in that case, everything u pass to aes_string must be a string, u cant pass both strings and normal variables)
 
-```
+```r 
 # in this case, the variables to be programmatically plotted as X axis are in a list of tibbles in a wide format, which I THINK is needed for a ridgeplot. 
 ridgeplot_global <-
 
@@ -313,6 +316,31 @@ if (exists(example)) { #this will evaluate to true if that argument is passed
 }
 
 }
+
+
+```
+
+
+
+other way is to do 
+
+```
+
+talk <- function(argument_1) {
+	if (argument_1 == "James") {
+	print("hello")
+} else if (argument_1 == "Car") {
+	print("Let's go")
+}
+}
+
+# Prints hello
+talk(argument_1 = "James")
+# Prints Let's go
+talk(argument_1 = "Car")
+# Prints nothing
+talk(argument_1 = "something_else")
+
 
 
 ```

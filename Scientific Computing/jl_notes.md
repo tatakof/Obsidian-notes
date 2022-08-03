@@ -138,6 +138,307 @@ That sounds simple enough, until you remember that one function can call another
 
 In summary, when you read a program, you don’t always want to read from top to bottom. Sometimes it makes more sense if you follow the flow of execution.
 
+### Incremental development of Functions
+
+As you write larger functions, you might find yourself spending more time debugging.
+
+To deal with increasingly complex programs, you might want to try a process called _incremental development_. The goal of incremental development is to avoid long debugging sessions by adding and testing only a small amount of code at a time.
+
+When testing a function, it is useful to know the right answer.
+
+
+Immediately you can write an outline of the function:
+
+```
+function distance(x₁, y₁, x₂, y₂)
+    0.0
+end
+```
+
+
+At this point we have confirmed that the function is syntactically correct, and we can start adding code to the body. A reasonable next step is to find the differences x2−x1 and y2−y1
+
+. The next version stores those values in temporary variables and prints them with the `@show` macro.
+
+```
+function distance(x₁, y₁, x₂, y₂)
+    dx = x₂ - x₁
+    dy = y₂ - y₁
+    @show dx dy
+    0.0
+end
+```
+
+
+f the function is working, it should display `dx = 3` and `dy = 4`. If so, we know that the function is getting the right arguments and performing the first computation correctly. If not, there are only a few lines to check.
+
+Next we compute the sum of squares of `dx` and `dy`:
+
+```
+function distance(x₁, y₁, x₂, y₂)
+    dx = x₂ - x₁
+    dy = y₂ - y₁
+    d² = dx^2 + dy^2
+    @show d²
+    0.0
+end
+```
+
+Again, you would run the program at this stage and check the output (which should be 25). Superscript numbers are also available (**`\^2 TAB`**). Finally, you can use `sqrt` to compute and return the result:
+
+```
+function distance(x₁, y₁, x₂, y₂)
+    dx = x₂ - x₁
+    dy = y₂ - y₁
+    d² = dx^2 + dy^2
+    sqrt(d²)
+end
+```
+
+If that works correctly, you are done. Otherwise, you might want to print the value of `sqrt(d²)` before the `return` statement.
+
+The final version of the function doesn’t display anything when it runs; it only returns a value. The print statements we wrote are useful for debugging, but once you get the function working, you should remove them. Code like that is called _scaffolding_ because it is helpful for building the program but is not part of the final product.
+
+When you start out, you should add only a line or two of code at a time. As you gain more experience, you might find yourself writing and debugging bigger chunks. Either way, incremental development can save you a lot of debugging time.
+
+The key aspects of the process are:
+
+1.  Start with a working program and make small incremental changes. At any point, if there is an error, you should have a good idea where it is.
+    
+2.  Use variables to hold intermediate values so you can display and check them.
+    
+3.  Once the program is working, you might want to remove some of the scaffolding or consolidate multiple statements into compound expressions, but only if it does not make the program difficult to read.
+
+
+
+
+### Useful things julia provides
+Julia provides the function `factorial` to calculate the factorial of an integer number.
+
+EMOJIS
+\:banana: TAB
+
+
+### Checking Types
+check if a variable is an integer
+```
+var = 5
+var isa Int64
+```
+
+### Strings
+A string is a sequence of characters. You can access the characters one at a time with the bracket operator:
+
+```
+julia> fruit = "banana"
+"banana"
+julia> letter = fruit[1]
+'b': ASCII/Unicode U+0062 (category Ll: Letter, lowercase)
+```
+
+
+### Indexing
+```
+julia> letter = fruit[1]
+```
+
+The expression in brackets is called an _index_. The index indicates which character in the sequence you want (hence the name).
+
+All indexing in Julia is 1-based—the first element of any integer-indexed object is found at index 1 and the last element at index `end`:
+
+```
+julia> fruit[end]
+'a': ASCII/Unicode U+0061 (category Ll: Letter, lowercase)
+```
+
+As an index you can use an expression that contains variables and operators:
+
+```
+julia> i = 1
+1
+julia> fruit[i+1]
+'a': ASCII/Unicode U+0061 (category Ll: Letter, lowercase)
+julia> fruit[end-1]
+'n': ASCII/Unicode U+006e (category Ll: Letter, lowercase)
+```
+
+But the value of the index has to be an integer. Otherwise you get:
+
+```
+julia> letter = fruit[1.5]
+ERROR: MethodError: no method matching getindex(::String, ::Float64)
+```
+
+But the value of the index has to be an integer. Otherwise you get:
+
+```
+julia> letter = fruit[1.5]
+ERROR: MethodError: no method matching getindex(::String, ::Float64)
+```
+
+`ength` is a built-in function that returns the number of characters in a string:
+
+```
+julia> fruits = "🍌 🍎 🍐"
+"🍌 🍎 🍐"
+julia> len = length(fruits)
+5
+```
+
+To get the last letter of a string, you might be tempted to try something like this:
+
+```
+julia> last = fruits[len]
+' ': ASCII/Unicode U+0020 (category Zs: Separator, space)
+```
+
+But you might not get what you expect.
+
+Strings are encoded using the _UTF-8 encoding_. UTF-8 is a variable-width encoding, meaning that not all characters are encoded in the same number of bytes.
+
+The function `sizeof` gives the number of bytes in a string:
+
+```
+julia> sizeof("🍌")
+4
+```
+
+Because an emoji is encoded in 4 bytes and string indexing is byte based, the 5th element of `fruits` is a `SPACE`.
+
+This means also that not every byte index into a UTF-8 string is necessarily a valid index for a character. If you index into a string at such an invalid byte index, an error is thrown:
+
+```
+julia> fruits[2]
+ERROR: StringIndexError("🍌 🍎 🍐", 2)
+```
+
+In the case of `fruits`, the character `🍌` is a four-byte character, so the indices 2, 3 and 4 are invalid and the next character’s index is 5; this next valid index can be computed by `nextind(fruits, 1)`, and the next index after that by `nextind(fruits, 5)` and so on.
+
+
+
+
+
+
+### Length vs sizeof
+
+
+
+
+
+
+#### Strings are immutable (unlike in R)
+
+It is tempting to use the `[]` operator on the left side of an assignment, with the intention of changing a character in a string. For example:
+
+```
+julia> greeting = "Hello, world!"
+"Hello, world!"
+julia> greeting[1] = 'J'
+ERROR: MethodError: no method matching setindex!(::String, ::Char, ::Int64)
+```
+
+The reason for the error is that strings are _immutable_, which means you can’t change an existing string. The best you can do is create a new string that is a variation on the original:
+
+```
+julia> greeting = "J" * greeting[2:end]
+"Jello, world!"
+```
+This example concatenates a new first letter onto a slice of greeting. It has no effect on the original string (m'because there's variable updating).
+
+
+#### String interpolation
+Constructing strings using concatenation can become a bit cumbersome. To reduce the need for these verbose calls to `string` or repeated multiplications, Julia allows _string interpolation_ using `$`:
+
+```
+julia> greet = "Hello"
+"Hello"
+julia> whom = "World"
+"World"
+julia> "$greet, $(whom)!"
+"Hello, World!"
+```
+m' note that the parenthesis is used to add the !, because otherwise we would be telling julia that we want to interpolate a variable called `whom!`` 
+
+This is more readable and convenient than string concatenation: `greet * ", " * whom * "!"`
+
+The shortest complete expression after the `$` is taken as the expression whose value is to be interpolated into the string. Thus, you can interpolate any expression into a string using parentheses:
+
+```
+julia> "1 + 2 = $(1 + 2)"
+"1 + 2 = 3"
+```
+
+
+Julia does not handle uppercase and lowercase letters the same way people do. All the uppercase letters come before all the lowercase letters, so:
+
+Your word, Pineapple, comes before banana.
+
+Tip
+A common way to address this problem is to convert strings to a standard format, such as all lowercase, before performing the comparison.
+
+
+
+
+
+
+
+
+### Assignment operator
+At this point I want to address a common source of confusion. Because Julia uses the equal sign (`=`) for assignment, it is tempting to interpret a statement like `a = b` as a mathematical proposition of equality; that is, the claim that `a` and `b` are equal. But this interpretation is wrong.
+
+First, equality is a symmetric relationship and assignment is not. For example, in mathematics, if a=7
+
+then 7=a
+
+. But in Julia, the statement `a = 7` is legal and `7 = a` is not.
+
+Also, in mathematics, a proposition of equality is either true or false for all time. If a=b
+
+now, then a will always equal b
+
+. In Julia, an assignment statement can make two variables equal, but they don’t have to stay that way:
+
+```
+julia> a = 5
+5
+julia> b = a    # a and b are now equal
+5
+julia> a = 3    # a and b are no longer equal
+3
+julia> b
+5
+```
+Reassigning variables is often useful, but you should use it with caution. If the values of variables change frequently, it can make the code difficult to read and debug.
+
+It is illegal to define a function that has the same name as a previously defined variable.
+
+#### Updating variables
+A common kind of reassignment is an update, where the new value of the variable depends on the old.
+
+```
+julia> x = x + 1
+8
+```
+
+If you try to update a variable that doesn’t exist, you get an error, because Julia evaluates the right side before it assigns a value to `x`:
+
+```
+julia> y = y + 1
+ERROR: UndefVarError: y not defined
+```
+
+Before you can update a variable, you have to initialize it, usually with a simple assignment:
+
+```
+julia> y = 0
+0
+julia> y = y + 1
+1
+```
+
+
+
+
 ### Structures (`struct`)
 
 "Structures (previously known in Julia as "Types") are, for the most (see later for the difference), what in other languages are called classes, or "structured data": they define the kind of information that is embedded in the structure, that is a set of fields (aka "properties" in other languages), and then individual instances (or "objects") can be produced each with its own specific values for the fields defined by the structure.
@@ -311,3 +612,37 @@ end
 
 #### For loops
 The syntax of a `for` statement is similar to a function definition. It has a header and a body that ends with the keyword `end`. The body can contain any number of statements.
+
+
+
+
+
+
+
+
+### Keyboard input
+The programs we have written so far accept no input from the user. They just do the same thing every time.
+
+Julia provides a built-in function called `readline` that stops the program and waits for the user to type something. When the user presses `RETURN` or `ENTER`, the program resumes and `readline` returns what the user typed as a string.
+
+```
+julia> text = readline()
+What are you waiting for? ## written in repl
+"What are you waiting for?"
+```
+
+
+
+### The semicolon use
+A semi-colon `;` allows to put multiple statements on the same line. In the REPL only the last statement returns its value.
+
+e.g. 
+```
+julia> print("What...is your name? "); readline()
+What...is your name? Arthur, King of the Britons!
+"Arthur, King of the Britons!"
+```
+
+
+#### The `!` use
+As a style convention in Julia, `!` is appended to names of functions that modify their arguments.
