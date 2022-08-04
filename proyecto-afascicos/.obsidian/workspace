@@ -1,42 +1,15 @@
 {
   "main": {
-    "id": "600f7e60cdf3932d",
+    "id": "30e85d252a06b1cd",
     "type": "split",
     "children": [
       {
-        "id": "805c343aba8ca20c",
+        "id": "58933f0210073797",
         "type": "leaf",
-        "dimension": 23.08558558558558,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "programming_concepts.md",
-            "mode": "source",
-            "source": false
-          }
-        }
-      },
-      {
-        "id": "4bcf70d3ed31928f",
-        "type": "leaf",
-        "dimension": 23.08558558558558,
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Tree-of-Modelling-Techniques.md",
-            "mode": "source",
-            "source": false
-          }
-        }
-      },
-      {
-        "id": "9f853e8ddf0487a4",
-        "type": "leaf",
-        "dimension": 53.828828828828826,
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "jl_notes.md",
+            "file": "notas charla.md",
             "mode": "source",
             "source": false
           }
@@ -46,15 +19,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "2bee6b06a6ef2b2b",
+    "id": "6cc4b60f3050b46f",
     "type": "split",
     "children": [
       {
-        "id": "1342c4fad68ce5ed",
+        "id": "0df40fd1529ce1bb",
         "type": "tabs",
         "children": [
           {
-            "id": "efdde37267eb8fff",
+            "id": "f9b5a40ece4ccc90",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -62,7 +35,7 @@
             }
           },
           {
-            "id": "414625f490586d56",
+            "id": "1e929ac135ec4ea2",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -77,7 +50,7 @@
             }
           },
           {
-            "id": "ce32c41a1c554d36",
+            "id": "8c43ff60f83c22a6",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -88,23 +61,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 100
+    "width": 300
   },
   "right": {
-    "id": "05a607f0c33ccdf3",
+    "id": "f781457a68475c17",
     "type": "split",
     "children": [
       {
-        "id": "ee4c32bc5d193750",
+        "id": "7325ca75d2cbde62",
         "type": "tabs",
         "children": [
           {
-            "id": "997d1edd7911dc8b",
+            "id": "33d99043ce84bf63",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tree-of-Modelling-Techniques.md",
+                "file": "notas charla.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,19 +89,19 @@
             }
           },
           {
-            "id": "a299b15e56320081",
+            "id": "91d5f146cf972088",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tree-of-Modelling-Techniques.md",
+                "file": "notas charla.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "5c2f92bf87a166fe",
+            "id": "2677977eac41fd8f",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -139,12 +112,12 @@
             }
           },
           {
-            "id": "3431b0a1850ec732",
+            "id": "f577c37ac8132c91",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tree-of-Modelling-Techniques.md"
+                "file": "notas charla.md"
               }
             }
           }
@@ -155,17 +128,6 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "4bcf70d3ed31928f",
-  "lastOpenFiles": [
-    "programming_concepts.md",
-    "jl_notes.md",
-    "Python_notes.md",
-    "jl_tutorial.md",
-    "JuliaRoadMap.md",
-    "R_wizardry.md",
-    "sm_R.md",
-    "RRoadMap.md",
-    "R-debugging-tips.md",
-    "computers.md"
-  ]
+  "active": "58933f0210073797",
+  "lastOpenFiles": []
 }
