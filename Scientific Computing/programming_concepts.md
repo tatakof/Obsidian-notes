@@ -1775,7 +1775,216 @@ In this case the delimiter is a space character. To concatenate strings without 
 
 
 
-# CONTINUE AT 10 ARRAYS, OBJECTS AND VALUE
+#### Objects and Values
+An **object is something a variable can refer to**.
+
+
+![[Pasted image 20220805110654.png]]
+
+
+In this case we would say that the two arrays are _equivalent_, because they have the same elements, but not _identical_, because they are not the same object. If two objects are identical, they are also equivalent, but if they are equivalent, they are not necessarily identical.
+
+To be precise an object has a value. If you evaluate `[1, 2, 3]`, you get an array object whose value is a sequence of integers. If another array has the same elements, we say it has the same value, but it is not the same object.
+
+
+
+
+### Aliasing
+
+If `a` refers to an object and you assign `b = a`, then both variables refer to the same object:
+
+```
+julia> a = [1, 2, 3];
+
+julia> b = a;
+
+julia> b ≡ a
+true
+```
+
+
+![[Pasted image 20220805110855.png]]
+
+
+The association of a variable with an object is called a _reference_. In this example, there are two references to the same object.
+
+An object with more than one reference has more than one name, so we say that the object is _aliased_.
+
+If the aliased object is mutable, changes made with one alias affect the other:
+
+```
+julia> b[1] = 42
+42
+julia> print(a)
+[42, 2, 3]
+```
+WARNING. 
+Although this behavior can be useful, it is error-prone. In general, it is safer to avoid aliasing when you are working with mutable objects.
+
+For immutable objects like strings, aliasing is not as much of a problem. In this example:
+
+```
+a = "banana"
+b = "banana"
+```
+
+It almost never makes a difference whether `a` and `b` refer to the same string or not.
+
+
+#### Array arguments
+
+
+
+### Debugging
+
+Careless use of arrays (and other mutable objects) can lead to long hours of debugging. Here are some common pitfalls and ways to avoid them:
+
+-   Most array functions modify the argument. This is the opposite of the string functions, which return a new string and leave the original alone.
+    
+    If you are used to writing string code like this:
+    
+    ```
+    new_word = strip(word)
+    ```
+    
+    It is tempting to write array code like this:
+    
+    ```
+    t2 = sort!(t1)
+    ```
+    
+    Because `sort!` returns the modified original array `t1`, `t2` is an alias of `t1`.
+    
+    Tip.
+    Before using array functions and operators, you should read the documentation carefully and then test them in interactive mode.
+
+
+-   Pick an idiom and stick with it.
+    
+    Part of the problem with arrays is that there are too many ways to do things. For example, to remove an element from an array, you can use `pop!`, `popfirst!`, `delete_at`, or even a slice assignment. To add an element, you can use `push!`, `pushfirst!`, `insert!` or `vcat`. Assuming that `t` is an array and `x` is an array element, these are correct:
+    
+    ```
+    insert!(t, 4, x)
+    push!(t, x)
+    append!(t, [x])
+    ```
+    
+    And these are wrong:
+    
+    ```
+    insert!(t, 4, [x])         # WRONG!
+    push!(t, [x])              # WRONG!
+    vcat(t, [x])               # WRONG!
+    ```
+    
+-   Make copies to avoid aliasing.
+    
+    If you want to use a function like `sort!` that modifies the argument, but you need to keep the original array as well, you can make a copy:
+    
+    ```
+    julia> t = [3, 1, 2];
+    
+    julia> t2 = t[:]; # t2 = copy(t)
+    
+    julia> sort!(t2);
+    
+    julia> print(t)
+    [3, 1, 2]
+    julia> print(t2)
+    [1, 2, 3]
+    ```
+    
+    In this example you could also use the built-in function `sort`, which returns a new, sorted array and leaves the original alone:
+    
+    ```
+    julia> t2 = sort(t);
+    
+    julia> println(t)
+    [3, 1, 2]
+    julia> println(t2)
+    [1, 2, 3]
+    ```
+    
+
+### Glossary
+
+array
+
+A sequence of values.
+
+element
+
+One of the values in an array (or other sequence), also called items.
+
+nested array
+
+An array that is an element of another array.
+
+accumulator
+
+A variable used in a loop to add up or accumulate a result.
+
+augmented assignment
+
+A statement that updates the value of a variable using an operator like `=`.
+
+dot operator
+
+Binary operator that is applied element-by-element to arrays.
+
+dot syntax
+
+Syntax used to apply a function elementwise to any array.
+
+reduce operation
+
+A processing pattern that traverses a sequence and accumulates the elements into a single result.
+
+map
+
+A processing pattern that traverses a sequence and performs an operation on each element.
+
+filter
+
+A processing pattern that traverses a sequence and selects the elements that satisfy some criterion.
+
+object
+
+Something a variable can refer to. An object has a type and a value.
+
+equivalent
+
+Having the same value.
+
+identical
+
+Being the same object (which implies equivalence).
+
+reference
+
+The association between a variable and its value.
+
+aliasing
+
+A circumstance where two or more variables refer to the same object.
+
+optional arguments
+
+arguments that are not required.
+
+delimiter
+
+A character or string used to indicate where a string should be split.
+
+
+
+
+
+
+
+
+
+
 
 
 # 15 EN ADELANTE !!!!!!!!

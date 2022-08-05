@@ -544,6 +544,30 @@ You can use dot notation as part of any expression. For example:
 
 
 
+### Dot Syntax
+For every binary operator like `^`, there is a corresponding _dot operator_ `.^` that is automatically defined to perform `^` element-by-element on arrays. For example, `[1, 2, 3] ^ 3` is not defined, but `[1, 2, 3] .^ 3` is defined as computing the elementwise result `[1^3, 2^3, 3^3]`:
+
+```
+julia> print([1, 2, 3] .^ 3)
+[1, 8, 27]
+```
+
+Any Julia function `f` can be applied elementwise to any array with the _dot syntax_. For example to capitalize an array of strings, we don’t need an explicit loop:
+
+```
+julia> t = uppercase.(["abc", "def", "ghi"]);
+
+julia> print(t)
+["ABC", "DEF", "GHI"]
+```
+
+This is an elegant way to create a map. The function `capitalizeall` can be implemented by a one-liner:
+
+```
+function capitalizeall(t)
+    uppercase.(t)
+end
+
 
 
 
@@ -618,6 +642,8 @@ The syntax of a `for` statement is similar to a function definition. It has a he
 
 
 
+## Useful things
+
 
 
 ### Keyboard input
@@ -646,3 +672,36 @@ What...is your name? Arthur, King of the Britons!
 
 #### The `!` use
 As a style convention in Julia, `!` is appended to names of functions that modify their arguments.
+
+
+
+The $\equiv$ operator
+
+use the $\equiv$ operator to check if two variables (a and b) refer to the same object (banana) (that is, if its the right side state diagram)
+
+![[Pasted image 20220805110244.png]]
+
+```
+julia> a = "banana"
+"banana"
+julia> b = "banana"
+"banana"
+julia> a ≡ b
+true
+```
+that is, they point to the same place in memory?
+
+have in mind that this doesn't happen with arrays
+```
+julia> a = [1, 2, 3];
+
+julia> b = [1, 2, 3];
+
+julia> a ≡ b
+false
+```
+![[Pasted image 20220805110614.png]]
+
+In this case we would say that the two arrays are _equivalent_, because they have the same elements, but not _identical_, because they are not the same object. If two objects are identical, they are also equivalent, but if they are equivalent, they are not necessarily identical.
+
+To be precise an object has a value. If you evaluate `[1, 2, 3]`, you get an array object whose value is a sequence of integers. If another array has the same elements, we say it has the same value, but it is not the same object.

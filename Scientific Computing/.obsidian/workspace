@@ -6,7 +6,7 @@
       {
         "id": "805c343aba8ca20c",
         "type": "leaf",
-        "dimension": 23.08558558558558,
+        "dimension": 55.067567567567565,
         "state": {
           "type": "markdown",
           "state": {
@@ -17,22 +17,9 @@
         }
       },
       {
-        "id": "4bcf70d3ed31928f",
-        "type": "leaf",
-        "dimension": 23.08558558558558,
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Tree-of-Modelling-Techniques.md",
-            "mode": "source",
-            "source": false
-          }
-        }
-      },
-      {
         "id": "9f853e8ddf0487a4",
         "type": "leaf",
-        "dimension": 53.828828828828826,
+        "dimension": 44.932432432432435,
         "state": {
           "type": "markdown",
           "state": {
@@ -88,7 +75,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 100
+    "width": 100,
+    "collapsed": true
   },
   "right": {
     "id": "05a607f0c33ccdf3",
@@ -104,7 +92,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tree-of-Modelling-Techniques.md",
+                "file": "programming_concepts.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +109,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tree-of-Modelling-Techniques.md",
+                "file": "programming_concepts.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -144,7 +132,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tree-of-Modelling-Techniques.md"
+                "file": "programming_concepts.md"
               }
             }
           }
@@ -155,17 +143,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "4bcf70d3ed31928f",
+  "active": "805c343aba8ca20c",
   "lastOpenFiles": [
-    "programming_concepts.md",
     "jl_notes.md",
+    "programming_concepts.md",
+    "Tree-of-Modelling-Techniques.md",
     "Python_notes.md",
     "jl_tutorial.md",
     "JuliaRoadMap.md",
     "R_wizardry.md",
     "sm_R.md",
     "RRoadMap.md",
-    "R-debugging-tips.md",
-    "computers.md"
+    "R-debugging-tips.md"
   ]
 }

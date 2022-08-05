@@ -4,15 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "58933f0210073797",
+        "id": "21c997e39aacf0d3",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "notas charla.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -77,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notas charla.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +89,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notas charla.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -116,9 +110,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "notas charla.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -128,6 +120,6 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "58933f0210073797",
+  "active": "21c997e39aacf0d3",
   "lastOpenFiles": []
 }
