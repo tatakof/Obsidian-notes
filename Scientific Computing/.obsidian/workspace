@@ -4,9 +4,8 @@
     "type": "split",
     "children": [
       {
-        "id": "805c343aba8ca20c",
+        "id": "9f853e8ddf0487a4",
         "type": "leaf",
-        "dimension": 55.067567567567565,
         "state": {
           "type": "markdown",
           "state": {
@@ -17,9 +16,8 @@
         }
       },
       {
-        "id": "9f853e8ddf0487a4",
+        "id": "f57ffd224e040c58",
         "type": "leaf",
-        "dimension": 44.932432432432435,
         "state": {
           "type": "markdown",
           "state": {
@@ -75,7 +73,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 100,
+    "width": 244.5,
     "collapsed": true
   },
   "right": {
@@ -143,17 +141,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "805c343aba8ca20c",
+  "active": "9f853e8ddf0487a4",
   "lastOpenFiles": [
     "jl_notes.md",
     "programming_concepts.md",
-    "Tree-of-Modelling-Techniques.md",
-    "Python_notes.md",
     "jl_tutorial.md",
+    "Python_notes.md",
+    "Untitled 5.md",
+    "Tree-of-Modelling-Techniques.md",
     "JuliaRoadMap.md",
     "R_wizardry.md",
     "sm_R.md",
-    "RRoadMap.md",
-    "R-debugging-tips.md"
+    "RRoadMap.md"
   ]
 }

@@ -7,7 +7,7 @@ conda is a package manager that allows the managing of both python and non-pytho
 Conda is better than pip. Always use conda for installing packages.
 
 
-Don't do installations system wide (prone to screw your system). Like use renv in R, use conda environments
+Don't do installations system wide (prone to screw your system). Like the use of renv in R, use conda environments
 
 ```
 # create an environment in /envs/ 

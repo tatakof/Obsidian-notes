@@ -1908,73 +1908,838 @@ Careless use of arrays (and other mutable objects) can lead to long hours of deb
 
 ### Glossary
 
-array
+### array
 
 A sequence of values.
 
-element
+### element
 
 One of the values in an array (or other sequence), also called items.
 
-nested array
+### nested array
 
 An array that is an element of another array.
 
-accumulator
+### accumulator
 
 A variable used in a loop to add up or accumulate a result.
 
-augmented assignment
+### augmented assignment
 
 A statement that updates the value of a variable using an operator like `=`.
 
-dot operator
+### dot operator
 
 Binary operator that is applied element-by-element to arrays.
 
-dot syntax
+### dot syntax
 
 Syntax used to apply a function elementwise to any array.
 
-reduce operation
+### reduce operation
 
 A processing pattern that traverses a sequence and accumulates the elements into a single result.
 
-map
+### map
 
 A processing pattern that traverses a sequence and performs an operation on each element.
 
-filter
+### filter
 
 A processing pattern that traverses a sequence and selects the elements that satisfy some criterion.
 
-object
+### object
 
 Something a variable can refer to. An object has a type and a value.
 
-equivalent
+
+### equivalent
 
 Having the same value.
 
-identical
+
+### identical
 
 Being the same object (which implies equivalence).
 
-reference
+### reference
 
 The association between a variable and its value.
 
-aliasing
+### aliasing
 
 A circumstance where two or more variables refer to the same object.
 
-optional arguments
+### optional arguments
 
 arguments that are not required.
 
-delimiter
+### delimiter
 
 A character or string used to indicate where a string should be split.
+
+
+
+
+
+### 11. Dictionaries
+A _dictionary_ is like an array, but more general. In an array, the indices have to be integers; in a dictionary they can be (almost) any type.
+
+A dictionary contains a collection of indices, which are called _keys_, and a collection of values. Each key is associated with a single value. The association of a key and a value is called a _key-value pair_ or sometimes an item.
+
+In mathematical language, a dictionary represents a _mapping_ from keys to values, so you can also say that each key “maps to” a value.
+
+
+Warning
+The order of the key-value pairs might not be the same. If you type the same example on your computer, you might get a different result. In general, the order of items in a dictionary is unpredictable.
+
+But that’s not a problem because the elements of a dictionary are never indexed with integer indices. Instead, you use the keys to look up the corresponding values:
+
+```
+julia> eng2sp["two"]
+"dos"
+```
+
+The key "two" always maps to the value "dos" so the order of the items doesn’t matter.
+
+
+
+
+### Implementation
+An _implementation_ is a way of performing a computation; some implementations are better than others.
+
+
+### Lookup
+Given a dictionary `d` and a key `k`, it is easy to find the corresponding value `v = d[k]`. This operation is called a _lookup_.
+
+### Reverse lookup
+But what if you have `v` and you want to find `k`? You have two problems: first, there might be more than one key that maps to the value `v`. Depending on the application, you might be able to pick one, or you might have to make an array that contains all of them. Second, there is no simple syntax to do a _reverse lookup_; you have to search.
+Julia provides an optimized way to do a reverse lookup: `findall(isequal(3), h)`.
+
+Warning.
+A reverse lookup is much slower than a forward lookup; if you have to do it often, or if the dictionary gets big, the performance of your program will suffer.
+
+
+### Dictionaries and Arrays
+
+Arrays can appear as values in a dictionary.
+
+Singleton: an array that contains a single element
+
+
+Note: I mentioned earlier that a dictionary is implemented using a hash table and that means that the keys have to be _hashable_.
+A **_hash_** is a function that takes a value (of any kind) and returns an integer. Dictionaries use these integers, called hash values, to store and look up key-value pairs.
+
+
+### Memo
+A previously computed value that is stored for later use is called a _memo_. Here is a “memoized” version of fibonacci:
+
+```
+known = Dict(0=>0, 1=>1)
+
+function fibonacci(n)
+    if n ∈ keys(known)
+        return known[n]
+    end
+    res = fibonacci(n-1) + fibonacci(n-2)
+    known[n] = res
+    res
+end
+```
+
+
+### Global variables
+In the previous example, known is created outside the function, so it belongs to the special frame called `Main`. Variables in `Main` are sometimes called _global_ because they can be accessed from any function. Unlike local variables, which disappear when their function ends, global variables persist from one function call to the next.
+
+The _global statement_ tells the interpreter something like, “In this function, when I say `been_called`, I mean the global variable; don’t create a local one.”
+
+```
+been_called = false
+
+function example2()
+    global been_called
+    been_called = true
+end
+```
+
+
+**Warning**. Global variables can be useful, but if you have a lot of them, and you modify them frequently, they can make programs hard to debug and perform badly.
+
+
+### Debugging (11)
+
+
+As you work with bigger datasets it can become unwieldy to debug by printing and checking the output by hand. Here are some suggestions for debugging large datasets:
+
+-   Scale down the input:
+    
+    If possible, reduce the size of the dataset. For example if the program reads a text file, start with just the first 10 lines, or with the smallest example you can find which errors. You sould not edit the files themselves, but rather modify the program so it reads only the first n
+    
+
+lines.
+
+If there is an error, you can reduce n
+
+-   to the smallest value that manifests the error, and then increase it gradually as you find and correct errors.
+    
+-   Check summaries and types:
+    
+    Instead of printing and checking the entire dataset, consider printing summaries of the data: for example, the number of items in a dictionary or the total of an array of numbers.
+    
+    A common cause of runtime errors is a value that is not the right type. For debugging this kind of error, it is often enough to print the type of a value.
+    
+-   Write self-checks:
+    
+    Sometimes you can write code to check for errors automatically. For example, if you are computing the average of an array of numbers, you could check that the result is not greater than the largest element in the array or less than the smallest. This is called a “sanity check”.
+    
+    Another kind of check compares the results of two different computations to see if they are consistent. This is called a “consistency check”.
+    
+-   Format the output:
+    
+    Formatting debugging output can make it easier to spot an error. We saw an example in [Debugging](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#deb06).
+    
+    Again, time you spend building scaffolding can reduce the time you spend debugging.
+
+
+### Glossary (11)
+#### Mapping
+a relationship in which each element of one set corresponds to an element of another set. 
+
+#### Dictionary
+A mapping from keys to their corresponding values
+
+#### Key-value pair
+The representation of the mapping from a key to a value
+
+#### Item
+In a dictionary, another name for a key-value pair
+
+#### key
+An object that appears in a dictionary as the first part of a key-value pair
+
+#### Value
+An object that appears in a dictionary as the second part of a key-value pair. This is more specific than our previours use of the word "value"
+
+#### Implementation
+a way of performing a computation
+
+#### Hash table
+the algorithm used to implement julia dictionaries. 
+
+#### hash function
+a funcion used by the hash table to compute the location for a key. 
+
+#### Lookup
+a dictionary operation that takes a key and finds it's value
+
+#### Reverse lookup
+a dictionary operation that takes a value and finds one or more keys that map to that value
+
+#### Singleton
+an array (or other sequence) with a single element
+
+#### call graph
+
+A diagram that shows every frame created during the execution of a program, with an arrow from each caller to each callee.
+
+#### memo
+
+A computed value stored to avoid unnecessary future computation.
+
+#### global variable
+
+A variable defined outside a function. Global variables can be accessed from any function.
+
+#### global statement
+
+A statement that declares a variable name global.
+
+#### flag
+
+A boolean variable used to indicate whether a condition is true.
+
+#### declaration
+
+A statement like `global` that tells the interpreter something about a variable.
+
+#### constant global variable
+
+A global variable that can not be reassigned.
+
+
+
+
+### 12. Tuples
+This chapter presents one more built-in type, the tuple, and then shows how arrays, dictionaries, and tuples work together. I also present a useful feature for variable-length argument arrays, the gather and scatter operators.
+
+#### Tuples are immutable
+
+A tuple is a sequence of values. The values can be of any type, and they are indexed by integers, so in that respect tuples are a lot like arrays. The important difference is that tuples are immutable and that each element can have its own type.
+
+Syntactically, a tuple is a comma-separated list of values:
+
+```
+julia> t = 'a', 'b', 'c', 'd', 'e'
+('a', 'b', 'c', 'd', 'e')
+```
+
+Although it is not necessary, it is common to enclose tuples in parentheses:
+
+```
+julia> t = ('a', 'b', 'c', 'd', 'e')
+('a', 'b', 'c', 'd', 'e')
+```
+
+To create a tuple with a single element, you have to include a final comma:
+
+```
+julia> t1 = ('a',)
+('a',)
+julia> typeof(t1)
+Tuple{Char}
+```
+
+**Warning**. A value in parentheses without comma is not a tuple:
+
+```
+julia> t2 = ('a')
+'a': ASCII/Unicode U+0061 (category Ll: Letter, lowercase)
+julia> typeof(t2)
+Char
+```
+
+Most array operators also work on tuples. The bracket operator indexes an element:
+
+If you try to modify one of the elements of the tuple, you get an error:
+
+```
+julia> t[1] = 'A'
+ERROR: MethodError: no method matching setindex!(::NTuple{5,Char}, ::Char, ::Int64)
+```
+Because tuples are immutable, you can’t modify the elements.
+
+
+... tuple assignment is more elegant:
+
+```
+a, b = b, a
+```
+
+The left side is a tuple of variables; the right side is a tuple of expressions. Each value is assigned to its respective variable. All the expressions on the right side are evaluated before any of the assignments.
+
+The number of variables on the left has to be fewer than the number of values on the right:
+
+```
+julia> (a, b) = (1, 2, 3)
+(1, 2, 3)
+julia> a, b, c = 1, 2
+ERROR: BoundsError: attempt to access (1, 2)
+  at index [3]
+```
+
+More generally, the right side can be any kind of sequence (string, array or tuple). For example, to split an email address into a user name and a domain, you could write:
+
+```
+julia> addr = "julius.caesar@rome"
+"julius.caesar@rome"
+julia> uname, domain = split(addr, '@');
+```
+
+The return value from `split` is an array with two elements; the first element is assigned to `uname`, the second to `domain`.
+
+```
+julia> uname
+"julius.caesar"
+julia> domain
+"rome"
+```
+
+
+
+#### Tuples as Return Values
+Strictly speaking, a function can only return one value, but if the value is a tuple, the effect is the same as returning multiple values. For example, if you want to divide two integers and compute the quotient and remainder, it is inefficient to compute `x ÷ y` and then `x % y`. It is better to compute them both at the same time.
+
+
+The built-in function `divrem` takes two arguments and returns a tuple of two values, the quotient and remainder. You can store the result as a tuple:
+
+```
+julia> t = divrem(7, 3)
+(2, 1)
+```
+
+Or use tuple assignment to store the elements separately:
+
+```
+julia> q, r = divrem(7, 3);
+
+julia> @show q r;
+q = 2
+r = 1
+```
+
+Here is an example of a function that returns a tuple:
+
+```
+function minmax(t)
+    minimum(t), maximum(t)
+end
+```
+
+### Variable-length Argument Tuples
+Functions can take a variable number of arguments. A parameter name that ends with `...` _gathers_ arguments into a tuple. For example, `printall` takes any number of arguments and prints them:
+
+```
+function printall(args...)
+    println(args)
+end
+```
+
+The gather parameter can have any name you like, but `args` is conventional. Here’s how the function works:
+
+```
+julia> printall(1, 2.0, '3')
+(1, 2.0, '3')
+```
+
+
+The complement of gather is _scatter_. If you have a sequence of values and you want to pass it to a function as multiple arguments, you can use the `...` operator. For example, `divrem` takes exactly two arguments; it doesn’t work with a tuple:
+
+```
+julia> t = (7, 3);
+
+julia> divrem(t)
+ERROR: MethodError: no method matching divrem(::Tuple{Int64,Int64})
+```
+
+But if you scatter the tuple, it works:
+
+```
+julia> divrem(t...)
+(2, 1)
+```
+
+#### Arrays and Tuples
+
+`zip` is a built-in function that takes two or more sequences and returns a collection of tuples where each tuple contains one element from each sequence. The name of the function refers to a zipper, which joins and interleaves two rows of teeth.
+
+This example zips a string and an array:
+
+```
+julia> s = "abc";
+
+julia> t = [1, 2, 3];
+
+julia> zip(s, t)
+Base.Iterators.Zip{Tuple{String,Array{Int64,1}}}(("abc", [1, 2, 3]))
+```
+
+The result is a _zip object_ that knows how to iterate through the pairs. The most common use of `zip` is in a `for` loop:
+
+```
+julia> for pair in zip(s, t)
+           println(pair)
+       end
+('a', 1)
+('b', 2)
+('c', 3)
+```
+
+
+**Iterators**. A zip object is a kind of _iterator_, which is any object that iterates through a sequence. Iterators are similar to arrays in some ways, but unlike arrays, you can’t use an index to select an element from an iterator.
+
+If you want to use array operators and functions, you can use a zip object to make an array:
+
+```
+julia> collect(zip(s, t))
+3-element Array{Tuple{Char,Int64},1}:
+ ('a', 1)
+ ('b', 2)
+ ('c', 3)
+```
+
+The result is an array of tuples; in this example, each tuple contains a character from the string and the corresponding element from the array.
+
+If the sequences are not the same length, the result has the length of the shorter one.
+
+```
+julia> collect(zip("Anne", "Elk"))
+3-element Array{Tuple{Char,Char},1}:
+ ('A', 'E')
+ ('n', 'l')
+ ('n', 'k')
+```
+
+You can use tuple assignment in a `for` loop to traverse an array of tuples:
+
+```
+julia> t = [('a', 1), ('b', 2), ('c', 3)];
+
+julia> for (letter, number) in t
+           println(number, " ", letter)
+       end
+1 a
+2 b
+3 c
+```
+
+Each time through the loop, Julia selects the next tuple in the array and assigns the elements to letter and number. The parentheses around `(letter, number)` are compulsory.
+
+If you combine `zip`, `for` and tuple assignment, you get a useful idiom for traversing two (or more) sequences at the same time. For example, `hasmatch` takes two sequences, `t1` and `t2`, and returns `true` if there is an index `i` such that `t1[i] == t2[i]`:
+
+```
+function hasmatch(t1, t2)
+    for (x, y) in zip(t1, t2)
+        if x == y
+            return true
+        end
+    end
+    false
+end
+```
+
+If you need to traverse the elements of a sequence and their indices, you can use the built-in function `enumerate`:
+
+```
+julia> for (index, element) in enumerate("abc")
+           println(index, " ", element)
+       end
+1 a
+2 b
+3 c
+```
+
+The result from `enumerate` is an enumerate object, which iterates a sequence of pairs; each pair contains an index (starting from 1) and an element from the given sequence.
+
+
+#### Dictionaries and Tuples
+Dictionaries can be used as iterators that iterate the key-value pairs. You can use it in a `for` loop like this:
+
+```
+julia> d = Dict('a'=>1, 'b'=>2, 'c'=>3);
+
+julia> for (key, value) in d
+           println(key, " ", value)
+       end
+a 1
+c 3
+b 2
+```
+
+As you should expect from a dictionary, the items are in no particular order.
+
+Going in the other direction, you can use an array of tuples to initialize a new dictionary:
+
+```
+julia> t = [('a', 1), ('c', 3), ('b', 2)];
+
+julia> d = Dict(t)
+Dict{Char,Int64} with 3 entries:
+  'a' => 1
+  'c' => 3
+  'b' => 2
+```
+
+Combining `Dict` with `zip` yields a concise way to create a dictionary:
+
+```
+julia> d = Dict(zip("abc", 1:3))
+Dict{Char,Int64} with 3 entries:
+  'a' => 1
+  'c' => 3
+  'b' => 2
+```
+
+It is common to use tuples as keys in dictionaries. For example, a telephone directory might map from last-name, first-name pairs to telephone numbers. Assuming that we have defined `last`, `first` and `number`, we could write:
+
+```
+directory[last, first] = number
+```
+
+The expression in brackets is a tuple. We could use tuple assignment to traverse this dictionary.
+
+```
+for ((last, first), number) in directory
+    println(first, " ", last, " ", number)
+end
+```
+
+This loop traverses the key-value pairs in `directory`, which are tuples. It assigns the elements of the key in each tuple to `last` and `first`, and the value to `number`, then prints the name and corresponding telephone number.
+
+
+#### Sequences of Sequences
+
+
+I have focused on arrays of tuples, but almost all of the examples in this chapter also work with arrays of arrays, tuples of tuples, and tuples of arrays. To avoid enumerating the possible combinations, it is sometimes easier to talk about sequences of sequences.
+
+In many contexts, the different kinds of sequences (strings, arrays and tuples) can be used interchangeably. So how should you choose one over the others?
+
+To start with the obvious, strings are more limited than other sequences because the elements have to be characters. They are also immutable. If you need the ability to change the characters in a string (as opposed to creating a new string), you might want to use an array of characters instead.
+
+Arrays are more common than tuples, mostly because they are mutable. But there are a few cases where you might prefer tuples:
+
+-   In some contexts, like a return statement, it is syntactically simpler to create a tuple than an array.
+    
+-   If you are passing a sequence as an argument to a function, using tuples reduces the potential for unexpected behavior due to aliasing.
+    
+-   For performance reasons. The compiler can specialize on the type.
+
+Because tuples are immutable, they don’t provide functions like `sort!` and `reverse!`, which modify existing arrays. But Julia provides the built-in function `sort`, which takes an array and returns a new array with the same elements in sorted order, and `reverse`, which takes any sequence and returns a sequence of the same type in reverse order.
+
+
+#### Debugging (12)
+Arrays, dictionaries and tuples are examples of _data structures_; in this lecture we are starting to see compound data structures, like arrays of tuples, or dictionaries that contain tuples as keys and arrays as values. Compound data structures are useful, but they are prone to what I call _shape errors_; that is, errors caused when a data structure has the wrong type, size, or structure. For example, if you are expecting an array with one integer and I give you a plain old integer (not in an array), it won’t work.
+
+Julia allows to attach a type to elements of a sequence. How this is done is detailed in [Multiple Dispatch](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#chap17). Specifying the type eliminates a lot of shape errors.
+
+#### Glossary (12)
+#### tuple
+
+An immutable sequence of elements where every element can have its own type.
+
+#### tuple assignment
+
+An assignment with a sequence on the right side and a tuple of variables on the left. The right side is evaluated and then its elements are assigned to the variables on the left.
+
+#### gather
+
+The operation of assembling a variable-length argument tuple.
+
+#### scatter
+
+The operation of treating a sequence as a list of arguments.
+
+#### zip object
+
+The result of calling a built-in function `zip`; an object that iterates through a sequence of tuples.
+
+#### iterator
+
+An object that can iterate through a sequence, but which does not provide array operators and functions.
+
+#### data structure
+
+A collection of related values, often organized in array, dictionaries, tuples, etc.
+
+#### shape error
+
+An error caused because a value has the wrong shape; that is, the wrong type or size.
+
+
+
+#### 13. How to choose between data structures 
+
+How should you choose? The first step is to think about the operations you will need to implement for each data structure. For the prefixes, we need to be able to remove words from the beginning and add to the end. For example, if the current prefix is “Half a”, and the next word is “bee”, you need to be able to form the next prefix, “a bee”.
+
+Your first choice might be an array, since it is easy to add and remove elements.
+
+For the collection of suffixes, the operations we need to perform include adding a new suffix (or increasing the frequency of an existing one), and choosing a random suffix.
+
+Adding a new suffix is equally easy for the array implementation or the histogram. Choosing a random element from an array is easy; choosing from a histogram is harder to do efficiently (see [Exercise 13-7](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#ex13-7)).
+
+So far we have been talking mostly about ease of implementation, but there are other factors to consider in choosing data structures. One is run time. Sometimes there is a theoretical reason to expect one data structure to be faster than other; for example, I mentioned that the `in` operator is faster for dictionaries than for arrays, at least when the number of elements is large.
+
+But often you don’t know ahead of time which implementation will be faster. One option is to implement both of them and see which is better. This approach is called _benchmarking_. A practical alternative is to choose the data structure that is easiest to implement, and then see if it is fast enough for the intended application. If so, there is no need to go on. If not, there are tools, like the `Profile` module, that can identify the places in a program that take the most time.
+
+The other factor to consider is storage space. For example, using a histogram for the collection of suffixes might take less space because you only have to store each word once, no matter how many times it appears in the text. In some cases, saving space can also make your program run faster, and in the extreme, your program might not run at all if you run out of memory. But for many applications, space is a secondary consideration after run time.
+
+One final thought: in this discussion, I have implied that we should use one data structure for both analysis and generation. But since these are separate phases, it would also be possible to use one structure for analysis and then convert to another structure for generation. This would be a net win if the time saved during generation exceeded the time spent in conversion.
+
+
+
+#### Debugging (13)
+When you are debugging a program, and especially if you are working on a hard bug, there are five things to try:
+
+Reading
+
+Examine your code, read it back to yourself, and check that it says what you meant to say.
+
+Running
+
+Experiment by making changes and running different versions. Often if you display the right thing at the right place in the program, the problem becomes obvious, but sometimes you have to build scaffolding.
+
+Ruminating
+
+Take some time to think! What kind of error is it: syntax, runtime, or semantic? What information can you get from the error messages, or from the output of the program? What kind of error could cause the problem you’re seeing? What did you change last, before the problem appeared?
+
+Rubberducking
+
+If you explain the problem to someone else, you sometimes find the answer before you finish asking the question. Often you don’t need the other person; you could just talk to a rubber duck. And that’s the origin of the well-known strategy called rubber duck debugging. I am not making this up; see [https://en.wikipedia.org/wiki/Rubber_duck_debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging).
+
+Retreating
+
+At some point, the best thing to do is back off, undoing recent changes, until you get back to a program that works and that you understand. Then you can start rebuilding.
+
+Beginning programmers sometimes get stuck on one of these activities and forget the others. Each activity comes with its own failure mode.
+
+For example, reading your code might help if the problem is a typographical error, but not if the problem is a conceptual misunderstanding. If you don’t understand what your program does, you can read it 100 times and never see the error, because the error is in your head.
+
+Running experiments can help, especially if you run small, simple tests. But if you run experiments without thinking or reading your code, you might fall into a pattern I call “random walk programming”, which is the process of making random changes until the program does the right thing. Needless to say, random walk programming can take a long time.
+
+You have to take time to think. Debugging is like an experimental science. You should have at least one hypothesis about what the problem is. If there are two or more possibilities, try to think of a test that would eliminate one of them.
+
+But even the best debugging techniques will fail if there are too many errors, or if the code you are trying to fix is too big and complicated. Sometimes the best option is to retreat, simplifying the program until you get to something that works and that you understand.
+
+Beginning programmers are often reluctant to retreat because they can’t stand to delete a line of code (even if it’s wrong). If it makes you feel better, copy your program into another file before you start stripping it down. Then you can copy the pieces back one at a time.
+
+Finding a hard bug requires reading, running, ruminating, and sometimes retreating. If you get stuck on one of these activities, try the others.
+
+
+#### Glossary (13)
+
+#### deterministic
+
+Pertaining to a program that does the same thing each time it runs, given the same inputs.
+
+#### pseudorandom
+
+Pertaining to a sequence of numbers that appears to be random, but is generated by a deterministic program.
+
+#### default value
+
+The value given to an optional parameter if no argument is provided.
+
+#### override
+
+To replace a default value with an argument.
+
+#### benchmarking
+
+The process of choosing between data structures by implementing alternatives and testing them on a sample of the possible inputs.
+
+#### rubber duck debugging
+
+Debugging by explaining your problem to an inanimate object such as a rubber duck. Articulating the problem can help you solve it, even if the rubber duck doesn’t know Julia.
+
+
+
+### 14. Files
+
+#### Persistence
+
+Most of the programs we have seen so far are transient in the sense that they run for a short time and produce some output, but when they end, their data disappears. If you run the program again, it starts with a clean slate.
+
+Other programs are _persistent_: they run for a long time (or all the time); they keep at least some of their data in permanent storage (a hard drive, for example); and if they shut down and restart, they pick up where they left off.
+
+Examples of persistent programs are operating systems, which run pretty much whenever a computer is on, and web servers, which run all the time, waiting for requests to come in on the network.
+
+One of the simplest ways for programs to maintain their data is by reading and writing _text files_. We have already seen programs that read text files; in this chapter we will see programs that write them.
+
+An alternative is to store the state of the program in a database. In this chapter I will also present how to use a simple database.
+
+
+A text file is a sequence of characters stored on a permanent medium like a hard drive, or flash memory. We saw how to open and read a file in [Reading Word Lists](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#reading_word_lists).
+
+
+#### Filenames and Paths
+Files are organized into _directories_ (also called “folders”). Every running program has a “current directory”, which is the default directory for most operations. For example, when you open a file for reading, Julia looks for it in the current directory.
+
+A string like `"/home/ben"` that identifies a file or directory is called a _path_.
+
+A simple filename, like `memo.txt` is also considered a path, but it is a _relative path_ because it relates to the current directory. If the current directory is `/home/ben`, the filename `memo.txt` would refer to `/home/ben/memo.txt`.
+
+A path that begins with `/` does not depend on the current directory; it is called an _absolute path_. To find the absolute path to a file, you can use `abspath`:
+
+```
+julia> abspath("memo.txt")
+"/home/ben/memo.txt"
+```
+
+
+#### Catching Exceptions
+
+A lot of things can go wrong when you try to read and write files. If you try to open a file that doesn’t exist, you get a `SystemError`:
+
+```
+julia> fin = open("bad_file")
+ERROR: SystemError: opening file "bad_file": No such file or directory
+```
+
+If you don’t have permission to access a file:
+
+```
+julia> fout = open("/etc/passwd", "w")
+ERROR: SystemError: opening file "/etc/passwd": Permission denied
+```
+
+
+To avoid these errors, you could use functions like `ispath` and `isfile`, but it would take a lot of time and code to check all the possibilities.
+
+It is easier to go ahead and try—and deal with problems if they happen—which is exactly what the `try` statement does. The syntax is similar to an `if` statement:
+
+```
+try
+    fin = open("bad_file.txt")
+catch exc
+    println("Something went wrong: $exc")
+end
+```
+Julia starts by executing the `try` clause. If all goes well, it skips the `catch` clause and proceeds. If an exception occurs, it jumps out of the `try` clause and runs the `catch` clause.
+
+Handling an exception with a `try` statement is called _catching_ an exception. In this example, the except clause prints an error message that is not very helpful. In general, catching an exception gives you a chance to fix the problem, or try again, or at least end the program gracefully.
+
+
+In code that performs state changes or uses resources like files, there is typically clean-up work (such as closing files) that needs to be done when the code is finished. Exceptions potentially complicate this task, since they can cause a block of code to exit before reaching its normal end. The `finally` keyword provides a way to run some code when a given block of code exits, regardless of how it exits:
+
+```
+f = open("output.txt")
+try
+    line = readline(f)
+    println(line)
+finally
+    close(f)
+end
+```
+
+The function `close` will always be executed.
+
+
+
+
+#### Databases
+A _database_ is a file that is organized for storing data. Many databases are organized like a dictionary in the sense that they map from keys to values. The biggest difference between a database and a dictionary is that the database is on disk (or other permanent storage), so it persists after the program ends.
+
+
+#### Command Objects
+
+Most operating systems provide a command-line interface, also known as a _shell_. Shells usually provide commands to navigate the file system and launch applications. For example, in Unix you can change directories with `cd`, display the contents of a directory with `ls`, and launch a web browser by typing (for example) `firefox`.
+
+Any program that you can launch from the shell can also be launched from Julia using a _command object_:
+
+```
+julia> cmd = `echo hello`
+```
+
+Backticks are used to delimit the command.
+
+The function `run` executes the command:
+
+```
+julia> run(cmd);
+hello
+```
+
+#### Modules
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

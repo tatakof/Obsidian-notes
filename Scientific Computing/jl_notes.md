@@ -568,6 +568,8 @@ function capitalizeall(t)
     uppercase.(t)
 end
 
+```
+
 
 
 
@@ -705,3 +707,64 @@ false
 In this case we would say that the two arrays are _equivalent_, because they have the same elements, but not _identical_, because they are not the same object. If two objects are identical, they are also equivalent, but if they are equivalent, they are not necessarily identical.
 
 To be precise an object has a value. If you evaluate `[1, 2, 3]`, you get an array object whose value is a sequence of integers. If another array has the same elements, we say it has the same value, but it is not the same object.
+
+
+
+### Meaning of the `=>` operator
+
+#### In dictionaries
+```
+julia> eng2sp
+Dict{Any,Any} with 1 entry:
+  "one" => "uno"
+```
+
+This output format is also an input format. For example, you can create a new dictionary with three items:
+
+```
+julia> eng2sp = Dict("one" => "uno", "two" => "dos", "three" => "tres")
+Dict{String,String} with 3 entries:
+  "two"   => "dos"
+  "one"   => "uno"
+  "three" => "tres"
+```
+
+
+### Meaning of the $\in$ operator
+
+#### In dictionaries
+Now you can use the `∈` operator to see whether something appears as a _key_ in the dictionary:
+
+```
+julia> "one" ∈ ks
+true
+julia> "uno" ∈ ks
+false
+```
+
+The `∈` operator uses different algorithms for arrays and dictionaries. For arrays, it searches the elements of the array in order, as in [Searching](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#searching). As the array gets longer, the search time gets longer in direct proportion.
+
+For dictionaries, Julia uses an algorithm called a _hash table_ that has a remarkable property: the `∈` operator takes about the same amount of time no matter how many items are in the dictionary.
+
+#### In arrays
+The `∈` operator uses different algorithms for arrays and dictionaries. For arrays, it searches the elements of the array in order, as in [Searching](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#searching). As the array gets longer, the search time gets longer in direct proportion.
+
+
+
+### The `error()` function
+The `error` function is used to produce an `ErrorException` that interrupts the normal flow of control. In this case it has the message `"LookupError"`, indicating that a key does not exist.
+```
+function reverselookup(d, v)
+    for k in keys(d)
+        if d[k] == v
+            return k
+        end
+    end
+    error("LookupError")
+end
+```
+
+
+
+### How to do reverse lookup in dictionaries
+Julia provides an optimized way to do a reverse lookup: `findall(isequal(3), h)`.
