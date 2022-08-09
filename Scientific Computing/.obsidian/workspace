@@ -4,8 +4,9 @@
     "type": "split",
     "children": [
       {
-        "id": "9f853e8ddf0487a4",
+        "id": "0791e46e3831e555",
         "type": "leaf",
+        "dimension": 77.47747747747748,
         "state": {
           "type": "markdown",
           "state": {
@@ -18,6 +19,7 @@
       {
         "id": "f57ffd224e040c58",
         "type": "leaf",
+        "dimension": 22.52252252252252,
         "state": {
           "type": "markdown",
           "state": {
@@ -141,17 +143,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "9f853e8ddf0487a4",
+  "active": "0791e46e3831e555",
   "lastOpenFiles": [
     "jl_notes.md",
     "programming_concepts.md",
+    "dp_resources.md",
+    "DifferentiableProgrammingRoadMap.md",
     "jl_tutorial.md",
     "Python_notes.md",
     "Untitled 5.md",
     "Tree-of-Modelling-Techniques.md",
     "JuliaRoadMap.md",
-    "R_wizardry.md",
-    "sm_R.md",
-    "RRoadMap.md"
+    "R_wizardry.md"
   ]
 }

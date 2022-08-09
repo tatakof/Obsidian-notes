@@ -212,6 +212,54 @@ The key aspects of the process are:
 
 
 
+
+### Working with objects
+When you start working with objects, you are likely to encounter some new exceptions. If you try to access a field that doesn’t exist, you get:
+
+```
+julia> p = Point(3.0, 4.0)
+Point(3.0, 4.0)
+julia> p.z = 1.0
+ERROR: type Point has no field z
+Stacktrace:
+ [1] setproperty!(::Point, ::Symbol, ::Float64) at ./sysimg.jl:19
+ [2] top-level scope at none:0
+```
+
+If you are not sure what type an object is, you can ask:
+
+```
+julia> typeof(p)
+Point
+```
+
+You can also use `isa` to check whether an object is an instance of a type:
+
+```
+julia> p isa Point
+true
+```
+
+If you are not sure whether an object has a particular attribute, you can use the built-in function `fieldnames`:
+
+```
+julia> fieldnames(Point)
+(:x, :y)
+```
+
+or the function `isdefined`:
+
+```
+julia> isdefined(p, :x)
+true
+julia> isdefined(p, :z)
+false
+```
+
+The first argument can be any object; the second argument is a symbol, `:` followed by the name of the field.
+
+
+
 ### Useful things julia provides
 Julia provides the function `factorial` to calculate the factorial of an integer number.
 
@@ -671,8 +719,53 @@ What...is your name? Arthur, King of the Britons!
 "Arthur, King of the Britons!"
 ```
 
+### The `::` use (Type declarations)
 
-#### The `!` use
+The `::` operator attaches _type annotations_ to expressions and variables:
+
+```
+julia> (1 + 2) :: Float64
+ERROR: TypeError: in typeassert, expected Float64, got Int64
+julia> (1 + 2) :: Int64
+3
+```
+
+This helps to confirm that your program works the way you expect.
+
+The `::` operator can also be appended to the left-hand side of an assignment, or as part of a declaration.
+
+```
+julia> function returnfloat()
+           x::Float64 = 100
+           x
+       end
+returnfloat (generic function with 1 method)
+julia> x = returnfloat()
+100.0
+julia> typeof(x)
+Float64
+```
+
+The variable `x` is always of type `Float64` and the value is converted to a floating point if needed.
+
+A type annotation can also be attached to the header of a function definition:
+
+```
+function sinc(x)::Float64
+    if x == 0
+        return 1
+    end
+    sin(x)/(x)
+end
+```
+
+The return value of `sinc` is always converted to type `Float64`.
+
+The default behavior in Julia when types are omitted is to allow values to be of any type (`Any`).
+
+
+
+### The `!` use
 As a style convention in Julia, `!` is appended to names of functions that modify their arguments.
 
 

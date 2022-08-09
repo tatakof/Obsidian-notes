@@ -63,6 +63,28 @@ A program that arranges jobs or a computer's operations into an appropriate sequ
 Schedulling is the action of assigning resources to perform tasks. The resources may be processors, or other things. The tasks may be threads, processes or data flows. The scheduler is the process that carries out the activity of scheduling.  
 
 
+### Constructor 
+When a struct is used as a function for creating objects, it is called a constructor. Constructors return objects. 
+
+
+### Instantiation 
+Creating a new object is called _instantiation_, and the object is an _instance_ of the type.
+
+When you print an instance, Julia tells you what type it belongs to and what the values of the atributes are.
+
+Every object is an instance of some type, so “object” and “instance” are interchangeable. But in this chapter I use “instance” to indicate that I am talking about a programmer-defined type.
+
+
+### Object Diagram
+A state diagram that shows an object and its fields is called an _object diagram_
+![[Pasted image 20220716160338.png]]
+
+
+
+### Iterator
+An iterable is an object that can be treated as a sequence.
+
+
 ### Function
 A named sequence of statements that performs some useful operation. Functions may or may not take arguments and may or may not produce a result.
 
@@ -2720,41 +2742,111 @@ hello
 
 #### Modules
 
+Julia introduces modules to create separate variable workspace, i.e. new global scopes.
+
+
+A module starts with the keyword `module` and ends with `end`. Naming conflicts are avoided between your own top-level definitions and those found in somebody else’s code. `import` allows to control which names from other modules are visible and `export` specifies which of your names are public, i.e. can be used outside the module without being prefixed with the name of the module.
+
+```
+module LineCount
+    export linecount
+
+    function linecount(filename)
+        count = 0
+        for line in eachline(filename)
+            count += 1
+        end
+        count
+    end
+end
+```
+
+The module `LineCount` object provides `linecount`:
+
+```
+julia> using LineCount
+
+julia> linecount("wc.jl")
+11
+```
+
+
+
+#### Debugging (14)
+When you are reading and writing files, you might run into problems with whitespace. These errors can be hard to debug because spaces, tabs and newlines are normally invisible:
+
+```
+julia> s = "1 2\t 3\n 4";
+
+julia> println(s)
+1 2     3
+ 4
+```
+
+The built-in functions `repr` or `dump` can help. It takes any object as an argument and returns a string representation of the object.
+
+```
+julia> repr(s)
+"\"1 2\\t 3\\n 4\""
+julia> dump(s)
+String "1 2\t 3\n 4"
+```
+
+This can be helpful for debugging.
+
+One other problem you might run into is that different systems use different characters to indicate the end of a line. Some systems use a newline, represented `\n`. Others use a return character, represented `\r`. Some use both. If you move files between different systems, these inconsistencies can cause problems.
+
+For most systems, there are applications to convert from one format to another. You can find them (and read more about this issue) at [https://en.wikipedia.org/wiki/Newline](https://en.wikipedia.org/wiki/Newline). Or, of course, you could write one yourself.
+
+#### Glossary (14)
+
+##### persistent
+
+Pertaining to a program that runs indefinitely and keeps at least some of its data in permanent storage.
+
+##### text file
+
+A sequence of characters stored in permanent storage like a hard drive.
+
+##### directory
+
+A named collection of files, also called a folder.
+
+##### path
+
+A string that identifies a file.
+
+##### relative path
+
+A path that starts from the current directory.
+
+##### absolute path
+
+A path that starts from the topmost directory in the file system.
+
+##### catch
+
+To prevent an exception from terminating a program using the `try ... catch ... finally` statements.
+
+##### database
+
+A file whose contents are organized like a dictionary with keys that correspond to values.
+
+##### shell
+
+A program that allows users to type commands and then executes them by starting other programs.
+
+##### command object
+
+An object that represents a shell command, allowing a Julia program to run commands and read the results.
 
 
 
 
+### 15. Structs and objects  
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 15 EN ADELANTE !!!!!!!!
-### Struct 
-
+#### Composite types
 A programmer-defined _composite type_ is also called a _struct_. The `struct` definition for a point looks like this:
 
 ```
@@ -2769,6 +2861,18 @@ The header indicates that the new struct is called `Point`. The body defines the
 
 A struct is like a factory for creating objects. To create a point, you call `Point` as if it were a function having as arguments the values of the fields. When `Point` is used as a function, it is called a _constructor_.
 
+```
+julia> p = Point(3.0, 4.0)
+Point(3.0, 4.0)
+```
+
+Creating a new object is called _instantiation_, and the object is an _instance_ of the type.
+
+When you print an instance, Julia tells you what type it belongs to and what the values of the atributes are.
+
+
+#### Structs are Immutable
+
 You can get the values of the fields using `.` notation:
 
 ```
@@ -2777,7 +2881,14 @@ julia> x = p.x
 julia> p.y
 4.0
 ```
-The expression `p.x` means, “Go to the object `p` refers to and get the value of `x`.” In the example, we assign that value to a variable named `x`. There is no conflict between the variable `x` and the field `x`.
+The expression `p.x` means, “Go to the object `p` refers to and get the value of `x`.” In the example, we assign that value to a variable named `x`. There is no conflict between the variable `x` and the _field_ `x`.
+
+You can use dot notation as part of any expression. For example:
+
+```
+julia> distance = sqrt(p.x^2 + p.y^2)
+5.0
+```
 
 
 **Structs are however by default immutable**, after construction the fields can not change value:
@@ -2786,6 +2897,7 @@ The expression `p.x` means, “Go to the object `p` refers to and get the value 
 julia> p.y = 1.0
 ERROR: setfield! immutable struct of type Point cannot be changed
 ```
+
 This may seem odd at first, but it has several advantages:
 
 -   It can be more efficient.
@@ -2794,27 +2906,371 @@ This may seem odd at first, but it has several advantages:
     
 -   Code using immutable objects can be easier to reason about.
 
-### Constructor 
-When a struct is used as a function for creating objects, it is called a constructor. Constructors return objects. 
+
+#### Mutable Structs
+
+Where required, mutable composite types can be declared with the keyword `mutable struct`. Here is the definition of a mutable point:
+
+```
+mutable struct MPoint
+    x
+    y
+end
+```
+
+You can assign values to an instance of a mutable struct using dot notation:
+
+```
+julia> blank = MPoint(0.0, 0.0)
+MPoint(0.0, 0.0)
+julia> blank.x = 3.0
+3.0
+julia> blank.y = 4.0
+4.0
+```
 
 
-### Instantiation 
-Creating a new object is called _instantiation_, and the object is an _instance_ of the type.
-
-When you print an instance, Julia tells you what type it belongs to and what the values of the atributes are.
-
-Every object is an instance of some type, so “object” and “instance” are interchangeable. But in this chapter I use “instance” to indicate that I am talking about a programmer-defined type.
+An object that is a field of another object is _embedded_.
 
 
-### Object Diagram
-A state diagram that shows an object and its fields is called an _object diagram_
-![[Pasted image 20220716160338.png]]
+#### Instances as Arguments
+
+You can pass an instance as an argument in the usual way. For example:
+
+```
+function printpoint(p)
+    println("($(p.x), $(p.y))")
+end
+```
+
+`printpoint` takes a `Point` as an argument and displays it in mathematical notation. To invoke it, you can pass `p` as an argument:
+
+```
+julia> printpoint(blank)
+(3.0, 4.0)
+```
+
+If a mutable struct object is passed to a function as an argument, the function can modify the fields of the object. For example, `movepoint!` takes a mutable `Point` object and two numbers, `dx` and `dy`, and adds the numbers to respectively the `x` and the `y` attribute of the `Point`:
+
+```
+function movepoint!(p, dx, dy)
+    p.x += dx
+    p.y += dy
+    nothing
+end
+```
+
+Here is an example that demonstrates the effect:
+
+```
+julia> origin = MPoint(0.0, 0.0)
+MPoint(0.0, 0.0)
+julia> movepoint!(origin, 1.0, 2.0)
+
+julia> origin
+MPoint(1.0, 2.0)
+```
+
+Inside the function, `p` is an alias for `origin`, so when the function modifies `p`, `origin` changes.
+
+Passing an immutable `Point` object to `movepoint!` causes an error:
+
+```
+julia> movepoint!(p, 1.0, 2.0)
+ERROR: setfield! immutable struct of type Point cannot be changed
+```
+
+You can however modify the value of a mutable attribute of an immutable object.
+
+WARNING. You cannot reassign a mutable attribute of an immutable object:
+```
+julia> box.corner = MPoint(1.0, 2.0)
+ERROR: setfield! immutable struct of type Rectangle cannot be changed
+```
+
+
+#### Instances as return values
+Functions can return instances. For example, `findcenter` takes a `Rectangle` as an argument and returns a `Point` that contains the coordinates of the center of the rectangle:
+
+```
+function findcenter(rect)
+    Point(rect.corner.x + rect.width / 2, rect.corner.y + rect.height / 2)
+end
+```
+
+The expression `rect.corner.x` means, “Go to the object `rect` refers to and select the field named `corner`; then go to that object and select the field named `x`.”
+
+
+#### Copying
+Aliasing can make a program difficult to read because changes in one place might have unexpected effects in another place. It is hard to keep track of all the variables that might refer to a given object.
+
+Copying an object is often an alternative to aliasing. Julia provides a function called `deepcopy` that can duplicate any object:
+
+```
+julia> p1 = MPoint(3.0, 4.0)
+MPoint(3.0, 4.0)
+julia> p2 = deepcopy(p1)
+MPoint(3.0, 4.0)
+julia> p1 ≡ p2
+false
+julia> p1 == p2
+false
+```
+
+The `≡` operator indicates that `p1` and `p2` are not the same object, which is what we expected. But you might have expected `==` to yield `true` because these points contain the same data. In that case, you will be disappointed to learn that for mutable objects, the default behavior of the `==` operator is the same as the `===` operator; it checks object identity, not object equivalence. That’s because for mutable composite types, Julia doesn’t know what should be considered equivalent. At least, not yet.
+
+
+#### Debugging (15)
+When you start working with objects, you are likely to encounter some new exceptions. If you try to access a field that doesn’t exist, you get:
+
+```
+julia> p = Point(3.0, 4.0)
+Point(3.0, 4.0)
+julia> p.z = 1.0
+ERROR: type Point has no field z
+Stacktrace:
+ [1] setproperty!(::Point, ::Symbol, ::Float64) at ./sysimg.jl:19
+ [2] top-level scope at none:0
+```
+
+If you are not sure what type an object is, you can ask:
+
+```
+julia> typeof(p)
+Point
+```
+
+You can also use `isa` to check whether an object is an instance of a type:
+
+```
+julia> p isa Point
+true
+```
+
+If you are not sure whether an object has a particular attribute, you can use the built-in function `fieldnames`:
+
+```
+julia> fieldnames(Point)
+(:x, :y)
+```
+
+or the function `isdefined`:
+
+```
+julia> isdefined(p, :x)
+true
+julia> isdefined(p, :z)
+false
+```
+
+The first argument can be any object; the second argument is a symbol, `:` followed by the name of the field.
+
+
+#### Glossary (15)
+
+##### struct
+
+A composite type.
+
+##### constructor
+
+A function with the same name as a type that creates instances of the type.
+
+##### instance
+
+An object that belongs to a type.
+
+##### instantiate
+
+To create a new object.
+
+##### attribute or field
+
+One of the named values associated with an object.
+
+##### embedded object
+
+An object that is stored as a field of another object.
+
+##### deep copy
+
+To copy the contents of an object as well as any embedded objects, and any objects embedded in them, and so on; implemented by the `deepcopy` function.
+
+##### object diagram
+
+A diagram that shows objects, their fields, and the values of the fields.
 
 
 
-### Iterator
-An iterable is an object that can be treated as a sequence.
 
-ESTE CAP ESTA TERMINADO? BUSCAR LO ULTIMO ESCRITO EN THINK JULIA
 
+### 16. Structs and Functions 
+Now that we know how to create new composite types, the next step is to write functions that take programmer-defined objects as parameters and return them as results. In this chapter I also present “functional programming style” and two new program development plans.
+
+
+#### Pure Functions
+In the next few sections, we’ll write two functions that add time values. They demonstrate two kinds of functions: pure functions and modifiers. They also demonstrate a development plan I’ll call _prototype and patch_, which is a way of tackling a complex problem by starting with a simple prototype and incrementally dealing with the complications.
+
+Here is a simple prototype of `addtime`:
+
+```
+function addtime(t1, t2)
+    MyTime(t1.hour + t2.hour, t1.minute + t2.minute, t1.second + t2.second)
+end
+```
+
+The function creates a new `MyTime` object, initializes its fields, and returns a reference to the new object. This is called a _pure function_ because it does not modify any of the objects passed to it as arguments and it has no effect, like displaying a value or getting user input, other than returning a value.
+
+#### Modifiers
+Sometimes it is useful for a function to modify the objects it gets as parameters. In that case, the changes are visible to the caller. Functions that work this way are called _modifiers_.
+
+Anything that can be done with modifiers can also be done with pure functions. In fact, some programming languages only allow pure functions. There is some evidence that programs that use pure functions are faster to develop and less error-prone than programs that use modifiers. But modifiers are convenient at times, and functional programs tend to be less efficient.
+
+In general, I recommend that you write pure functions whenever it is reasonable and resort to modifiers only if there is a compelling advantage. This approach might be called a _functional programming style_.
+
+#### Prototyping versus Planning
+The development plan I am demonstrating is called “prototype and patch”. For each function, I wrote a prototype that performed the basic calculation and then tested it, patching errors along the way.
+
+This approach can be effective, especially if you don’t yet have a deep understanding of the problem. But incremental corrections can generate code that is unnecessarily complicated—since it deals with many special cases—and unreliable—since it is hard to know if you have found all the errors.
+
+An alternative is _designed development_, in which high-level insight into the problem can make the programming much easier.
+
+...
+
+Ironically, sometimes making a problem harder (or more general) makes it easier (because there are fewer special cases and fewer opportunities for error).
+
+#### Debugging (16)
+A `MyTime` object is well-formed if the values of `minute` and `second` are between 0 and 60 (including 0 but not 60) and if `hour` is positive. `hour` and `minute` should be integral values, but we might allow `second` to have a fraction part.
+
+Requirements like these are called _invariants_ because they should always be true. To put it a different way, if they are not true, something has gone wrong.
+
+Writing code to check invariants can help detect errors and find their causes. For example, you might have a function like `isvalidtime` that takes a `MyTime` object and returns `false` if it violates an invariant:
+
+```
+function isvalidtime(time)
+    if time.hour < 0 || time.minute < 0 || time.second < 0
+        return false
+    end
+    if time.minute >= 60 || time.second >= 60
+        return false
+    end
+    true
+end
+```
+At the beginning of each function you could check the arguments to make sure they are valid:
+
+```
+function addtime(t1, t2)
+    if !isvalidtime(t1) || !isvalidtime(t2)
+        error("invalid MyTime object in add_time")
+    end
+    seconds = timetoint(t1) + timetoint(t2)
+    inttotime(seconds)
+end
+```
+
+Or you could use an `@assert` macro, which checks a given invariant and throws an exception if it fails:
+
+```
+function addtime(t1, t2)
+    @assert(isvalidtime(t1) && isvalidtime(t2), "invalid MyTime object in add_time")
+    seconds = timetoint(t1) + timetoint(t2)
+    inttotime(seconds)
+end
+```
+
+`@assert` macros are useful because they distinguish code that deals with normal conditions from code that checks for errors.
+
+#### Glossary (16)
+
+##### prototype and patch
+
+A development plan that involves writing a rough draft of a program, testing, and correcting errors as they are found.
+
+##### designed development
+
+A development plan that involves high-level insight into the problem and more planning than incremental development or prototype development.
+
+##### pure function
+
+A function that does not modify any of the objects it receives as arguments. Most pure functions are fruitful.
+
+##### modifier
+
+A function that changes one or more of the objects it receives as arguments. Most modifiers are void; that is, they return `nothing`.
+
+##### functional programming style
+
+A style of program design in which the majority of functions are pure.
+
+##### invariant
+
+A condition that should never change during the execution of a program.
+
+
+### 17. Multiple Dispatch
+In Julia you have the ability to write code that can operate on different types. This is called generic programming.
+
+In this chapter I will discuss the use of type declarations in Julia and I will introduce methods which are ways to implement different behavior for a function depending on the types of its arguments. This is called multiple dispatch.
+
+#### Type Declarations
+The `::` operator attaches _type annotations_ to expressions and variables:
+
+```
+julia> (1 + 2) :: Float64
+ERROR: TypeError: in typeassert, expected Float64, got Int64
+julia> (1 + 2) :: Int64
+3
+```
+
+This helps to confirm that your program works the way you expect.
+
+The `::` operator can also be appended to the left-hand side of an assignment, or as part of a declaration.
+
+```
+julia> function returnfloat()
+           x::Float64 = 100
+           x
+       end
+returnfloat (generic function with 1 method)
+julia> x = returnfloat()
+100.0
+julia> typeof(x)
+Float64
+```
+
+The variable `x` is always of type `Float64` and the value is converted to a floating point if needed.
+
+A type annotation can also be attached to the header of a function definition:
+
+```
+function sinc(x)::Float64
+    if x == 0
+        return 1
+    end
+    sin(x)/(x)
+end
+```
+
+The return value of `sinc` is always converted to type `Float64`.
+
+The default behavior in Julia when types are omitted is to allow values to be of any type (`Any`).
+
+
+### Methods
+type declarations can and should be added for performance reasons to the fields in a struct definition. e.g.
+
+```
+using Printf
+
+struct MyTime
+    hour :: Int64
+    minute :: Int64
+    second :: Int64
+end
+
+function printtime(time)
+    @printf("%02d:%02d:%02d", time.hour, time.minute, time.second)
+end
+```
 
