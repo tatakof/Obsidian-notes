@@ -1,3 +1,7 @@
+### Dynamically typed language
+Dynamically-typed languages are those (like Julia) where the interpreter assigns variables a type at runtime based on the variable's value at the time.
+
+
 ### Callback: 
 	FROM WIKIPEDIA
 In computer programming, a callback, also known as a "call-after" function, is **any reference to executable code that is passed as an argument to other code; that other code is expected to call back (execute) the code at a given time**.
@@ -3273,4 +3277,318 @@ function printtime(time)
     @printf("%02d:%02d:%02d", time.hour, time.minute, time.second)
 end
 ```
+
+To add a _method_ to the function `printtime` that only accepts as argument a `MyTime` object, all we have to do is append `::` followed by `MyTime` to the argument `time` in the function definition:
+
+```
+function printtime(time::MyTime)
+    @printf("%02d:%02d:%02d", time.hour, time.minute, time.second)
+end
+```
+
+A method is a function definition with a specific _signature_: `printtime` has one argument of type `MyTime`.
+
+By the way, optional arguments are implemented as syntax for multiple method definitions. For example, this definition:
+
+```
+function f(a=1, b=2)
+    a + 2b
+end
+```
+
+translates to the following three methods:
+
+```
+f(a, b) = a + 2b
+f(a) = f(a, 2)
+f() = f(1, 2)
+```
+
+These expressions are valid Julia method definitions. This is a shorthand notation for defining functions/methods.
+
+
+#### Constructors
+A _constructor_ is a special function that is called to create an object.
+
+The default constructor methods of `MyTime` have the following signatures:
+
+```
+MyTime(hour, minute, second)
+MyTime(hour::Int64, minute::Int64, second::Int64)
+```
+
+We can also add our own _outer constructor_ methods:
+
+```
+function MyTime(time::MyTime)
+    MyTime(time.hour, time.minute, time.second)
+end
+```
+
+This method is called a _copy constructor_ because the new `MyTime` object is a copy of its argument.
+
+To enforce invariants, we need _inner constructor_ methods:
+
+```
+struct MyTime
+    hour :: Int64
+    minute :: Int64
+    second :: Int64
+    function MyTime(hour::Int64=0, minute::Int64=0, second::Int64=0)
+        @assert(0 ≤ minute < 60, "Minute is not between 0 and 60.")
+        @assert(0 ≤ second < 60, "Second is not between 0 and 60.")
+        new(hour, minute, second)
+    end
+end
+```
+
+An inner constructor method is always defined inside the block of a type declaration and it has access to a special function called `new` that creates objects of the newly declared type.
+
+Warning. The default constructor is not available if any inner constructor is defined. You have to write explicitly all the inner constructors you need.
+
+## NEED TO RE READ CUZ U DONT UNDERSTAND SH1T AND ARE AVOIDING PARTS
+
+### Operator overloading
+By defining operator methods, you can specify the behavior of operators on programmer-defined types. For example, if you define a method named `+` with two `MyTime` arguments, you can use the `+` operator on `MyTime` objects.
+
+Adding to the behavior of an operator so that it works with programmer-defined types is called _operator overloading_.
+
+
+
+### Multiple Dispatch
+The choice of which method to execute when a function is applied is called _dispatch_. Julia allows the dispatch process to choose which of a function’s methods to call based on the number of arguments given, and on the types of all of the function’s arguments. Using all of a function’s arguments to choose which method should be invoked is known as _multiple dispatch_.
+
+
+### Generic Programming
+Multiple dispatch is useful when it is necessary, but (fortunately) it is not always necessary. Often you can avoid it by writing functions that work correctly for arguments with different types.
+
+Functions that work with several types are called _polymorphic_. Polymorphism can facilitate code reuse.
+
+In general, if all of the operations inside a function work with a given type, the function works with that type.
+
+The best kind of polymorphism is the unintentional kind, where you discover that a function you already wrote can be applied to a type you never planned for.
+
+
+### Interface and implementation
+One of the goals of multiple dispatch is to make software more maintainable, which means that you can keep the program working when other parts of the system change, and modify the program to meet new requirements.
+
+A design principle that helps achieve that goal is to keep interfaces separate from implementations. This means that the methods having an argument annotated with a type should not depend on how the fields of that type are represented.
+
+For example, in this chapter we developed a struct that represents a time of day. Methods having an argument annotated with this type include `timetoint`, `isafter`, and `+`.
+
+We could implement those methods in several ways. The details of the implementation depend on how we represent `MyTime`. In this chapter, the fields of a `MyTime` object are `hour`, `minute`, and `second`.
+
+As an alternative, we could replace these fields with a single integer representing the number of seconds since midnight. This implementation would make some functions, like `isafter`, easier to write, but it makes other functions harder.
+
+After you deploy a new type, you might discover a better implementation. If other parts of the program are using your type, it might be time-consuming and error-prone to change the interface.
+
+But if you designed the interface carefully, you can change the implementation without changing the interface, which means that other parts of the program don’t have to change.
+
+
+### Debugging (17)
+Calling a function with the correct arguments can be difficult when more than one method for the function is specified. Julia allows to introspect the signatures of the methods of a function.
+
+To know what methods are available for a given function, you can use the function `methods`:
+
+```
+julia> methods(printtime)
+# 2 methods for generic function "printtime":
+[1] printtime(time::MyTime) in Main at REPL[3]:2
+[2] printtime(time) in Main at REPL[4]:2
+```
+
+In this example, the function `printtime` has 2 methods: one with a `MyTime` argument and one with an `Any` argument.
+
+
+#### Glossary (17)
+
+#### type annotation
+The operator `::` followed by a type indicating that an expression or a variable is of that type.
+
+#### method
+A definition of a possible behavior for a function.
+
+#### dispatch
+The choice of which method to execute when a function is executed.
+
+#### signature
+The number and type of the arguments of a method allowing the dispatch to select the most specific method of a function during the function call.
+
+#### outer constructor
+Constructor defined outside the type definition to define convenience methods for creating an object.
+
+#### inner constructor
+Constructor defined inside the type definition to enforce invariants or to construct self-referential objects.
+
+#### default constructor
+Inner constructor that is available when no programmer-defined inner constructors are provided.
+
+#### copy constructor
+Outer constructor method of a type with as only argument an object of the type. It creates a new object that is a copy of the argument.
+
+#### operator overloading
+Adding to the behavior of an operator like `+` so it works with a programmer-defined type.
+
+#### multiple dispatch
+Dispatch based on all of a function’s arguments.
+
+#### generic programming
+Writing code that can work with more than one type.
+
+
+
+### Subtyping
+In the previous chapter we introduced the multiple dispatch mechanism and polymorphic methods. Not specifying the type of the arguments results in a method that can be called with arguments of any type. Specifying a subset of allowed types in the signature of a method is a logical next step.
+
+...
+
+The variables `suit_names` and `rank_names` are global variables. The `const` declaration means that the variable can only be assigned once. This solves the performance problem of global variables.
+
+```
+const suit_names = ["♣", "♦", "♥", "♠"]
+const rank_names = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+```
+
+...
+
+### Unit Testing
+_Unit testing_ allows you to verify the correctness of your code by comparing the results of your code to what you expect. This can be useful to be sure that your code still is correct after modifications, and it is also a way to predefine the correct behaviour of your code during development.
+
+Simple unit testing can be performed with the `@test` macros:
+
+```
+julia> using Test
+
+julia> @test Card(1, 4) < Card(2, 4)
+Test Passed
+julia> @test Card(1, 3) < Card(1, 4)
+Test Passed
+```
+
+`@test` returns a `"Test Passed"` if the expression following it is `true`, a `"Test Failed"` if it is `false`, and an `"Error Result"` if it could not be evaluated.
+
+
+### Abstract Types and Subtyping
+...
+So we need a way to group related _concrete types_. In Julia this is done by defining an _abstract type_ that serves as a parent for both `Deck` and `Hand`. This is called _subtyping_
+...
+
+### Type diagrams
+So far we have seen stack diagrams, which show the state of a program, and object diagrams, which show the attributes of an object and their values. These diagrams represent a snapshot in the execution of a program, so they change as the program runs.
+
+They are also highly detailed; for some purposes, too detailed. A _type diagram_ is a more abstract representation of the structure of a program. Instead of showing individual objects, it shows types and the relationships between them.
+
+There are several kinds of relationship between types:
+
+-   Objects of a concrete type might contain references to objects of another type. For example, each Rectangle contains a reference to a Point, and each Deck contains references to an array of Cards. This kind of relationship is called _HAS-A_, as in, “a Rectangle has a Point”.
+    
+-   A concrete type can have an abstract type as a supertype. This relationship is called _IS-A_, as in, “a Hand is a kind of a CardSet.”
+    
+-   One type might depend on another in the sense that objects of one type take objects of the second type as parameters, or use objects of the second type as part of a computation. This kind of relationship is called a _dependency_.
+
+
+![[Pasted image 20220810113747.png]]
+
+The arrow with a hollow triangle head represents an IS-A relationship; in this case it indicates that Hand has as supertype CardSet.
+
+The standard arrow head represents a HAS-A relationship; in this case a Deck has references to Card objects.
+
+The star (`*`) near the arrow head is a _multiplicity_; it indicates how many Cards a Deck has. A multiplicity can be a simple number, like `52`, a range, `like 5:7` or a star, which indicates that a Deck can have any number of Cards.
+
+There are no dependencies in this diagram. They would normally be shown with a dashed arrow. Or if there are a lot of dependencies, they are sometimes omitted.
+
+A more detailed diagram might show that a Deck actually contains an array of Cards, but built-in types like array and dictionnaries are usually not included in type diagrams.
+
+### Debugging (18)
+Any time you are unsure about the flow of execution through your program, the simplest solution is to add print statements at the beginning of the relevant methods. If `shuffle!` prints a message that says something like `Running shuffle! Deck`, then as the program runs it traces the flow of execution.
+
+As better alternative, you can also use the `@which` macro:
+
+```
+julia> @which sort!(hand)
+sort!(hand::Hand) in Main at REPL[5]:1
+```
+
+So the `sort!` method for `hand` is the one having as argument an object of type `Hand`.
+
+...
+
+### Data encapsulation
+The previous chapters demonstrate a development plan we might call “type-oriented design”. We identified objects we needed—like `Point`, `Rectangle` and `MyTime`—and defined structs to represent them. In each case there is an obvious correspondence between the object and some entity in the real world (or at least a mathematical world).
+
+But sometimes it is less obvious what objects you need and how they should interact. In that case you need a different development plan. In the same way that we discovered function interfaces by encapsulation and generalization, we can discover type interfaces by _data encapsulation_.
+
+...
+
+This example suggests a development plan for designing types:
+
+-   Start by writing functions that read and write global variables (when necessary).
+    
+-   Once you get the program working, look for associations between global variables and the functions that use them.
+    
+-   Encapsulate related variables as fields of a struct.
+    
+-   Transform the associated functions into methods with as argument objects of the new type.
+
+
+### Glossary (18)
+
+#### encode
+
+To represent one set of values using another set of values by constructing a mapping between them.
+
+#### unit testing
+
+Standardized way to test the correctness of code.
+
+#### veneer
+
+A method or function that provides a different interface to another function without doing much computation.
+
+#### subtyping
+
+The ability to define a hierarchy of related types.
+
+#### abstract type
+
+A type that can act as a parent for another type.
+
+#### concrete type
+
+A type that can be constructed.
+
+#### subtype
+
+A type that has as parent an abstract type.
+
+#### supertype
+
+An abstract type that is the parent of another type.
+
+#### IS-A relationship
+
+A relationship between a subtype and its supertype.
+
+#### HAS-A relationship
+
+A relationship between two types where instances of one type contain references to instances of the other.
+
+#### dependency
+
+A relationship between two types where instances of one type use instances of the other type, but do not store them as fields.
+
+#### type diagram
+
+A diagram that shows the types in a program and the relationships between them.
+
+#### multiplicity
+
+A notation in a type diagram that shows, for a HAS-A relationship, how many references there are to instances of another class.
+
+#### data encapsulation
+
+A program development plan that involves a prototype using global variables and a final version that makes the global variables into instance fields.
+
+
+### 19. The Goodies: Syntax
 

@@ -6,11 +6,11 @@
       {
         "id": "0791e46e3831e555",
         "type": "leaf",
-        "dimension": 77.47747747747748,
+        "dimension": 55.85585585585585,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "programming_concepts.md",
+            "file": "SSH.md",
             "mode": "source",
             "source": false
           }
@@ -19,7 +19,7 @@
       {
         "id": "f57ffd224e040c58",
         "type": "leaf",
-        "dimension": 22.52252252252252,
+        "dimension": 44.14414414414414,
         "state": {
           "type": "markdown",
           "state": {
@@ -75,8 +75,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 244.5,
-    "collapsed": true
+    "width": 244.5
   },
   "right": {
     "id": "05a607f0c33ccdf3",
@@ -92,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "programming_concepts.md",
+                "file": "SSH.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,7 +108,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "programming_concepts.md",
+                "file": "SSH.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,7 +131,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "programming_concepts.md"
+                "file": "SSH.md"
               }
             }
           }
@@ -145,15 +144,15 @@
   },
   "active": "0791e46e3831e555",
   "lastOpenFiles": [
-    "jl_notes.md",
     "programming_concepts.md",
     "dp_resources.md",
     "DifferentiableProgrammingRoadMap.md",
+    "fai_classes.md",
+    "jl_notes.md",
     "jl_tutorial.md",
     "Python_notes.md",
     "Untitled 5.md",
     "Tree-of-Modelling-Techniques.md",
-    "JuliaRoadMap.md",
-    "R_wizardry.md"
+    "JuliaRoadMap.md"
   ]
 }
