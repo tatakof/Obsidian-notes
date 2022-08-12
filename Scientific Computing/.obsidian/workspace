@@ -4,26 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "0791e46e3831e555",
+        "id": "85414bac705a3850",
         "type": "leaf",
-        "dimension": 55.85585585585585,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "SSH.md",
+            "file": "bayes_posterior.md",
             "mode": "source",
             "source": false
           }
         }
       },
       {
-        "id": "f57ffd224e040c58",
+        "id": "30bed79fb78c9bdd",
         "type": "leaf",
-        "dimension": 44.14414414414414,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "jl_notes.md",
+            "file": "bayes_bayesian-inference.md",
             "mode": "source",
             "source": false
           }
@@ -75,7 +73,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 244.5
+    "width": 244.5,
+    "collapsed": true
   },
   "right": {
     "id": "05a607f0c33ccdf3",
@@ -91,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SSH.md",
+                "file": "bayes_bayesian-inference.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +107,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SSH.md",
+                "file": "bayes_bayesian-inference.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +130,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SSH.md"
+                "file": "bayes_bayesian-inference.md"
               }
             }
           }
@@ -142,17 +141,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "0791e46e3831e555",
+  "active": "30bed79fb78c9bdd",
   "lastOpenFiles": [
-    "programming_concepts.md",
-    "dp_resources.md",
-    "DifferentiableProgrammingRoadMap.md",
-    "fai_classes.md",
-    "jl_notes.md",
-    "jl_tutorial.md",
-    "Python_notes.md",
-    "Untitled 5.md",
-    "Tree-of-Modelling-Techniques.md",
-    "JuliaRoadMap.md"
+    "bayes_calibration.md",
+    "bayes_bayesian-inference.md",
+    "bayes_posterior.md",
+    "BayesianModelingRoadmap.md",
+    "bayes_likelihood.md",
+    "betancourt-dudas.md",
+    "bayes_prior.md",
+    "bayes_observational-process.md",
+    "bayes_data-generating-process.md",
+    "bayes_limitations-obs-models.md"
   ]
 }

@@ -23,7 +23,9 @@ The probability distribution that exactly captures the observational process in 
 
 
 - Observational model 
-This small world defines an *observational MODEL* consisting of individual data generating process that each define a possible mathematical narrative of how the data could be generated. m' so the observational MODEL consists of individual probability distributions over the observation space that each define a possible mathematical narrative of how the data could be generated'. 
+This small world defines an *observational MODEL* consisting of individual data generating process that each define a possible mathematical narrative of how the data could be generated. m' so the observational MODEL consists of individual probability distributions over the observation space that each define a possible mathematical narrative of how the data could be generated'.  I think this is 
+$$
+\pi_{\mathcal{S}}(\tilde{y} \mid \theta)$$
 
 
 

@@ -2,6 +2,12 @@ Keep reading at:
 Probabilistic Modeling and statistical inference#1.3.1, The generative structure of an observational model.  
 
 
+- The Prior Distribution [[bayes_prior]]
+- The Likelihood Function [[bayes_likelihood]]
+- The Posterior Distribution [[bayes_posterior]]
+
+
+- Bayesian Calibration [[bayes_calibration]]
 
 - To do: [[bayes_toDo]]
 - To read: [[bayes_toRead]]
@@ -61,9 +67,12 @@ Statistical relationships vs causal structure [[bayes_statistical-relationship-v
 	- Information criterions and Cross validation, model selection and forecast, info theory [[bayes_IC-CV]]
 
 - Observational process  [[bayes_observational-process]]
-
+- Limitations of Observational Models [[bayes_limitations-obs-models]]
 - True data generating process [[bayes_data-generating-process]]
 - Generative modeling [[bayes_generative-modeling]]
+- Model-Based inferences [[bayes_model-based-inferences]]
+
+
 
 - Markov Chain Monte Carlo
 	- Convergence [[baye_MC-convergence]]

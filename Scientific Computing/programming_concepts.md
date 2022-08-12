@@ -51,15 +51,21 @@ In simple settings, the resulting value is usually one of various primitive type
 
 Almost anywhere you can put a value, you can put an arbitrary expression, with one exception: the left side of an assignment statement has to be a variable name. Any other expression on the left side is a syntax error (we will see exceptions to this rule later).
 
+
+
 ### Syntax
 The syntax of a computer language is the set of rules that defines the combinations of symbols that are considered to be correctly structured statements or expressions in that language. Applies to programming languages, source code and markup languages. 
+
 
 
 ### Primitive data types
 Primitive data types are a set of basic data types from which all other data types are constructed. Specifically it often refers to the limited set of data representations in use by a particular processor, which all compiled programs must use. 
 
+
+
 ### Infix operator
 A function of two arguments, with the name of the function written between the arguments. e.g. `+` (yes, that's a function, an anonymous function??) 
+
 
 
 ### Scheduler
@@ -67,8 +73,11 @@ A program that arranges jobs or a computer's operations into an appropriate sequ
 Schedulling is the action of assigning resources to perform tasks. The resources may be processors, or other things. The tasks may be threads, processes or data flows. The scheduler is the process that carries out the activity of scheduling.  
 
 
+
 ### Constructor 
 When a struct is used as a function for creating objects, it is called a constructor. Constructors return objects. 
+
+
 
 
 ### Instantiation 
@@ -79,14 +88,20 @@ When you print an instance, Julia tells you what type it belongs to and what the
 Every object is an instance of some type, so “object” and “instance” are interchangeable. But in this chapter I use “instance” to indicate that I am talking about a programmer-defined type.
 
 
+
+
 ### Object Diagram
 A state diagram that shows an object and its fields is called an _object diagram_
 ![[Pasted image 20220716160338.png]]
 
 
 
+
+
 ### Iterator
 An iterable is an object that can be treated as a sequence.
+
+
 
 
 ### Function
@@ -143,7 +158,7 @@ The name of the variable we pass as an argument (`michael`) has nothing to do wi
 
 
 
-Variables and parameters are local
+**Variables and parameters are local**
 When you create a variable inside a function, it is _local_, which means that it only exists inside the function. For example:
 
 ```
@@ -178,6 +193,8 @@ Parameters are also local. For example, outside `printtwice`, there is no such t
 
 #### Function definition
 A statement that creates a new function, specifying its name, parameters, and the statements it contains.
+
+
 
 
 #### Function object
@@ -297,10 +314,7 @@ equivalent to type conversion?
 ### Generator
 something that will give a list of items when asked to (i.e., object = generator())
 
-----------------------------------------------------
-Concepts from Think Julia https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#chap19
 
-FALTA DE 3 A 14!
 
 ### Program
 A _program_ is a sequence of instructions that specifies how to perform a computation. The computation might be something mathematical, such as solving a system of equations or finding the roots of a polynomial, but it can also be a symbolic computation, such as searching for and replacing text in a document, or something graphical, like processing an image or playing a video.
@@ -367,6 +381,46 @@ The meaning of a computer program is unambiguous and literal, and can be underst
 
 Formal languages are more dense than natural languages, so it takes longer to read them. Also, the structure is important, so it is not always best to read from top to bottom, left to right. Instead, you’ll learn to parse the program in your head, identifying the tokens and interpreting the structure. Finally, the details matter. Small errors in spelling and punctuation, which you can get away with in natural languages, can make a big difference in a formal language.
 
+
+## Errors
+Three kinds of errors can occur in a program: syntax errors, runtime errors, and semantic errors. It is useful to distinguish between them in order to track them down more quickly.
+
+#### Syntax error
+An error in a program that makes it impossible to parse (and therefore impossible to interpret).
+
+“Syntax” refers to the structure of a program and the rules about that structure. For example, parentheses have to come in matching pairs, so `(1 + 2)` is legal, but `8)` is a syntax error.
+
+If there is a syntax error anywhere in your program, Julia displays an error message and quits, and you will not be able to run the program. During the first few weeks of your programming career, you might spend a lot of time tracking down syntax errors. As you gain experience, you will make fewer errors and find them faster.
+
+
+##### Left side of assignment operator
+Almost anywhere you can put a value, you can put an arbitrary expression, with one exception: the left side of an assignment statement has to be a variable name. Any other expression on the left side is a syntax error (we will see exceptions to this rule later).
+
+
+#### Runtime error
+
+The second type of error is a runtime error, so called because the error does not appear until after the program has started running. These errors are also called _exceptions_ because they usually indicate that something exceptional (and bad) has happened.
+
+Runtime errors are rare in the simple programs you will see in the first few chapters, so it might be a while before you encounter one.
+
+An error that is detected while the program is running.
+
+
+#### Semantic error
+
+The third type of error is “semantic”, which means related to meaning. If there is a semantic error in your program, it will run without generating error messages, but it will not do the right thing. It will do something else. Specifically, it will do what you told it to do.
+
+Identifying semantic errors can be tricky because it requires you to work backward by looking at the output of the program and trying to figure out what it is doing.
+
+
+An error in a program that makes it do something other than what the programmer intended
+
+semantics is The meaning of a program.
+
+----------------------------------------------------
+Concepts from Think Julia https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#chap19
+
+FALTA DE 3 A 14!
 
 ### Syntax
 
@@ -3591,4 +3645,510 @@ A program development plan that involves a prototype using global variables and 
 
 
 ### 19. The Goodies: Syntax
+
+This chapter and the next discuss the things I have left out in the previous chapters:
+
+-   syntax supplements
+    
+-   functions, types and macros directly available in `Base`
+    
+-   functions, types and macros in the Standard Library.
+
+
+### Named Tuples
+
+You can name the components of a tuple, creating a named tuple:
+
+```
+julia> x = (a=1, b=1+1)
+(a = 1, b = 2)
+julia> x.a
+1
+```
+
+With named tuples, fields can be accessed by name using dot syntax `(x.a)`.
+
+### Functions
+
+Function in Julia can be defined by a compact syntax.
+
+```
+julia> f(x,y) = x + y
+f (generic function with 1 method)
+```
+
+#### Anonymous Functions
+
+We can define a function without specifying a name:
+
+```
+julia> x -> x^2 + 2x - 1
+#1 (generic function with 1 method)
+julia> function (x)
+           x^2 + 2x - 1
+       end
+#3 (generic function with 1 method)
+```
+
+These are example of _anonymous functions_. Anonymous functions are often used as an argument to another function:
+
+```
+julia> using Plots
+
+julia> plot(x -> x^2 + 2x - 1, 0, 10, xlabel="x", ylabel="y")
+```
+
+#### Keyword Arguments
+Function arguments can also be named:
+
+```
+julia> function myplot(x, y; style="solid", width=1, color="black")
+           ###
+       end
+myplot (generic function with 1 method)
+julia> myplot(0:10, 0:10, style="dotted", color="blue")
+```
+
+_Keyword arguments_ in a function are specified after a semicolon in the signature but can be called with a comma.
+
+
+#### Closures
+
+A _closure_ is a technique allowing a function to capture a variable defined outside the calling scope of the function.
+
+```
+julia> foo(x) = ()->x
+foo (generic function with 1 method)
+
+julia> bar = foo(1)
+#1 (generic function with 1 method)
+
+julia> bar()
+1
+```
+
+In this example, the function `foo` returns an anonymous function that has access to the `x` argument of the function `foo`. `bar` points to the anonymous function and returns the value of the argument of `foo`.
+
+### Blocks
+
+A _block_ is a way to group a number of statements. A block starts with the keyword `begin` and ends with `end`.
+
+In [Case Study: Interface Design](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#chap04) the `@svg` macro was introduced:
+
+```
+🐢 = Turtle()
+@svg begin
+    forward(🐢, 100)
+    turn(🐢, -90)
+    forward(🐢, 100)
+end
+```
+
+In this example, the macro `@svg` has a single argument, i.e. a block grouping 3 function calls.
+
+
+#### `let` Blocks
+
+A `let` block is useful to create new bindings, i.e. locations that can refer to values.
+
+```
+julia> x, y, z = -1, -1, -1;
+
+julia> let x = 1, z
+           @show x y z;
+       end
+x = 1
+y = -1
+ERROR: UndefVarError: z not defined
+julia> @show x y z;
+x = -1
+y = -1
+z = -1
+```
+
+In the example, the first `@show` macro, shows the local `x`, the global `y` and the undefined local `z`. The global variables are untouched.
+
+#### `do` Blocks
+
+...
+
+### Control Flow
+
+#### Ternary Operator
+
+The _ternary operator_, `?:`, is an alternative to an `if-elseif` statement used when you need to make a choice between single expression values.
+
+```
+julia> a = 150
+150
+julia> a % 2 == 0 ? println("even") : println("odd")
+even
+```
+
+The expression before the `?` is a condition expression. If the condition is `true`, the expression before the `:` is evaluated, otherwise, the expression after the `:` is evaluated.
+
+
+#### Short-Circuit Evaluation
+
+The operators `&&` and `||` do a _short-circuit evaluation_: a next argument is only evaluated when it is needed to determine the final value.
+
+For example, a recursive factorial routine could be defined like this:
+
+```
+function fact(n::Integer)
+    n >= 0 || error("n must be non-negative")
+    n == 0 && return 1
+    n * fact(n-1)
+end
+```
+
+
+#### Tasks (aka Coroutines)
+...
+
+### Types
+
+#### Primitive Types
+
+A concrete type consisting of plain old bits is called a _primitive type_. Unlike most languages, with Julia you can declare your own primitive types. The standard primitive types are defined in the same way:
+
+```
+primitive type Float64 <: AbstractFloat 64 end
+primitive type Bool <: Integer 8 end
+primitive type Char <: AbstractChar 32 end
+primitive type Int64 <: Signed 64 end
+```
+
+The number in the statements specifies how many bits are required.
+
+The following example creates a primitive type `Byte` and a constructor:
+
+```
+julia> primitive type Byte 8 end
+
+julia> Byte(val::UInt8) = reinterpret(Byte, val)
+Byte
+julia> b = Byte(0x01)
+Byte(0x01)
+```
+
+The function `reinterpret` is used to store the bits of an unsigned integer with 8 bits (`UInt8`) into the byte.
+
+
+#### Parametric Types
+
+Julia’s type system is _parametric_, meaning that types can have parameters.
+
+Type parameters are introduced after the name of the type, surrounded by curly braces:
+
+```
+struct Point{T<:Real}
+    x::T
+    y::T
+end
+```
+
+This defines a new parametric type, `Point{T<:Real}`, holding two "coordinates" of type `T`, which can be any type having `Real` as supertype.
+
+```
+julia> Point(0.0, 0.0)
+Point{Float64}(0.0, 0.0)
+```
+
+In addition to composite types, abstract types and primitive types can also have a type parameter.
+
+Tip
+
+Having concrete types for struct fields is absolutely recommended for performance reasons, so this is a good way to make `Point` both fast and flexible.
+
+#### Type Unions
+
+...
+
+### Methods
+
+#### Parametric Methods
+
+...
+
+#### Function-like Objects
+...
+
+
+### Constructors
+
+Parametric types can be explicitly or implicitly constructed:
+
+```
+julia> Point(1,2)         # implicit T
+Point{Int64}(1, 2)
+julia> Point{Int64}(1, 2) # explicit T
+Point{Int64}(1, 2)
+julia> Point(1,2.5)       # implicit T
+ERROR: MethodError: no method matching Point(::Int64, ::Float64)
+```
+
+...
+
+### Conversion and Promotion
+
+Julia has a system for promoting arguments to a common type. This is not done automatically but can be easily extended.
+
+#### Conversion
+
+A value can be converted from one type to another:
+
+```
+julia> x = 12
+12
+julia> typeof(x)
+Int64
+julia> convert(UInt8, x)
+0x0c
+julia> typeof(ans)
+UInt8
+```
+
+...
+
+#### Promotion
+
+_Promotion_ is the conversion of values of mixed types to a single common type:
+
+```
+julia> promote(1, 2.5, 3)
+(1.0, 2.5, 3.0)
+```
+
+Methods for the `promote` function are normally not directly defined, but the auxiliary function `promote_rule` is used to specify the rules for promotion:
+
+```
+promote_rule(::Type{Float64}, ::Type{Int32}) = Float64
+```
+
+
+### Metaprogramming
+
+Julia code can be represented as a data structure of the language itself. This allows a program to transform and generate its own code.
+
+#### Expressions
+
+Every Julia program starts as a string:
+
+```
+julia> prog = "1 + 2"
+"1 + 2"
+```
+
+The next step is to parse each string into an object called an _expression_, represented by the Julia type `Expr`:
+
+```
+julia> ex = Meta.parse(prog)
+:(1 + 2)
+julia> typeof(ex)
+Expr
+julia> dump(ex)
+Expr
+  head: Symbol call
+  args: Array{Any}((3,))
+    1: Symbol +
+    2: Int64 1
+    3: Int64 2
+```
+
+The `dump` function displays expr objects with annotations.
+
+Expressions can be constructed directly by prefixing with `:` inside parentheses (i guess this is :("1+2") or something like that) or using a quote block
+
+```
+julia> ex = quote
+           1 + 2
+       end;
+```
+
+#### `eval`
+
+Julia can evaluate an expression object using `eval`:
+
+```
+julia> eval(ex)
+3
+```
+
+Every module has its own `eval` function that evaluates expressions in its scope.
+
+**Warning.** When you are using a lot of calls to the function `eval`, often this means that something is wrong. `eval` is considered “evil”.
+
+#### Macros
+...
+
+#### Generated Functions
+...
+
+### Missing Values
+
+_Missing values_ can be represented via the `missing` object, which is the singleton instance of the type `Missing`.
+
+Arrays can contain missing values:
+
+```
+julia> a = [1, missing]
+2-element Array{Union{Missing, Int64},1}:
+ 1
+  missing
+```
+
+The element type of such an array is `Union{Missing, T}`, with `T` the type of the non-missing values.
+
+Reduction functions return `missing` when called on arrays which contain missing values
+
+```
+julia> sum(a)
+missing
+```
+
+In this situation, use the `skipmissing` function to skip missing values:
+
+```
+julia> sum(skipmissing([1, missing]))
+1
+```
+
+
+### Glossary (19)
+
+#### closure
+
+Function that captures variables from its defining scope.
+
+#### let block
+
+Block allocating new variable bindings.
+
+#### anonymous function
+
+Function defined without being given a name.
+
+#### named tuple
+
+Tuple with named components.
+
+#### keyword arguments
+
+Arguments identified by name instead of only by position.
+
+#### do block
+
+Syntax construction used to define and call an anonymous function which looks like a normal code block.
+
+#### ternary operator
+
+Control flow operator taking three operands to specify a condition, an expression to be executed when the condition yields `true` and an expression to be executed when the condition yields `false`.
+
+#### short-circuit evaluation
+
+Evaluation of a boolean operator for which the second argument is executed or evaluated only if the first argument does not suffice to determine the value of the expression.
+
+#### task (aka coroutine)
+
+Control flow feature that allows computations to be suspended and resumed in a flexible manner.
+
+#### primitive type
+
+Concrete type whose data consists of plain old bits.
+
+#### type union
+
+Type which includes as objects all instances of any of its type parameters.
+
+#### parametric type
+
+Type that is parameterized.
+
+#### functor
+
+Object with an associated method, so that it is callable.
+
+#### conversion
+
+Conversion allows to convert a value from one type to another.
+
+#### promotion
+
+Converting values of mixed types to a single common type.
+
+#### expression
+
+Julia type that holds a language construct.
+
+#### macro
+
+Way to include generated code in the final body of a program.
+
+#### generated functions
+
+Functions capable of generating specialized code depending on the types of the arguments.
+
+#### missing values
+
+Instances that represent data points with no value.
+
+
+### 20. The goodies: Base and Standard Library
+Julia comes with batteries included. The `Base` module contains the most useful functions, types and macros. These are directly available in Julia.
+
+Julia provides also a large number of specialized modules in its Standard Library (Dates, Distributed Computing, Linear Algebra, Profiling, Random Numbers, …​). Functions, types and macros defined in the Standard Library have to be imported before they can be used:
+
+-   `import _Module_` imports the module, and `_Module.fn_(x)` calls the function `_fn_`
+    
+-   `using _Module_` imports all exported `_Module_` functions, types and macros.
+
+### Measuring Performance
+...
+
+### Collections and Data Structures
+...
+
+### Mathematics
+...
+
+### Strings
+...
+
+### Arrays
+...
+
+### Interfaces
+...
+
+### Interactive Utilities
+...
+
+
+
+
+### Glosssary (20)
+#### regex
+
+Regular expression, a sequence of characters that define a search pattern.
+
+#### matrix
+
+Two-dimensional array.
+
+#### intermediate representation
+
+Data structure used internally by a compiler to represent source code.
+
+#### machine code
+
+Language instructions that can be executed directly by a computer’s central processing unit.
+
+#### debug logging
+
+Storing debug messages in a log.
+
+
+
+### Debugging (21)
 
