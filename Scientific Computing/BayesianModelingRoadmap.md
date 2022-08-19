@@ -1,13 +1,16 @@
 Keep reading at: 
 Probabilistic Modeling and statistical inference#1.3.1, The generative structure of an observational model.  
 
-
-- The Prior Distribution [[bayes_prior]]
-- The Likelihood Function [[bayes_likelihood]]
-- The Posterior Distribution [[bayes_posterior]]
-
-
-- Bayesian Calibration [[bayes_calibration]]
+- Bayesian inference [[bayes_bayesian-inference]]
+	- The Prior Distribution [[bayes_prior]]
+	- The Likelihood Function [[bayes_likelihood]]
+	- The Posterior Distribution [[bayes_posterior]]
+	
+	- The Prior Predictive Distribution [[bayes_prior-predictive-dist]]
+	- The Posterior Predictive Distribution [[bayes_posterior-predictive-dist]]
+	
+	- Bayesian Calibration [[bayes_calibration]]
+	- Can we trust our inferences? [[bayes_trust-inferences]]
 
 - To do: [[bayes_toDo]]
 - To read: [[bayes_toRead]]
@@ -20,6 +23,8 @@ Probabilistic Modeling and statistical inference#1.3.1, The generative structure
 	- Why bayesian statistics [[bayes_why-bayes]]
 	- why causal inference [[bayes_why-causal-inference]]
 	- why generative models [[bayes_why-generative-model]]
+	- why we use the posterior mean [[bayes_why-posterior-mean]]
+
 - WTF we are doing when we are modeling [[WTF_modeling]]
 
 - Generalization of our inferences: [[bayes_generalization]]

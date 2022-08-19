@@ -77,6 +77,13 @@ I guess a problem that is not well-posed in the sense of Hadamard??
 #### Closed-Form solution
 An equation is said to be a closed-form solution if it solves a given problem in terms of functions and mathematical operations from a given generally-accepted set. For example, an infinite su, would generally not be considered closed-form. However, the choice of what to call a closed-form and what not is rather arbitrary since a new "closed-form" function could simply be defined in terms of the infinite sum. Due to the lack of specifitiy in the above definition, different branches of mathematics often adopt more precise meanings of the term closed-form to apply to concepts therein. 
 
+### Closed-form expression
+
+
+In mathematics, a closed-form expression is a mathematical expression that uses a finite number of standard operations. It may contain constants, variables, certain well-known operations (e.g., + − × ÷), and functions (e.g., nth root, exponent, logarithm, trigonometric functions, and inverse hyperbolic functions), **but usually no limit, differentiation, or integration**. The set of operations and functions may vary with author and context
+Equations or systems too complex for closed-form or analytic solutions can often be analysed by mathematical modelling and computer simulation. 
+
+An equation is said to be a closed-form solution if it solves a given problem in terms of functions and mathematical operations from a given generally-accepted set. For example, an infinite sum would generally not be considered closed-form. However, the choice of what to call closed-form and what not is rather arbitrary since a new "closed-form" function could simply be defined in terms of the infinite sum.
 
 
 #### Operation

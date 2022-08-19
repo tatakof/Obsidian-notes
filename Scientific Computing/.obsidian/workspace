@@ -4,24 +4,26 @@
     "type": "split",
     "children": [
       {
-        "id": "85414bac705a3850",
+        "id": "372a55f391c1c83c",
         "type": "leaf",
+        "dimension": 34.366925064599485,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bayes_posterior.md",
+            "file": "bayes_trust-inferences.md",
             "mode": "source",
             "source": false
           }
         }
       },
       {
-        "id": "30bed79fb78c9bdd",
+        "id": "35b86cd6db920fae",
         "type": "leaf",
+        "dimension": 65.63307493540051,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bayes_bayesian-inference.md",
+            "file": "bayes_calibration.md",
             "mode": "source",
             "source": false
           }
@@ -90,7 +92,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bayes_bayesian-inference.md",
+                "file": "bayes_calibration.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,7 +109,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "bayes_bayesian-inference.md",
+                "file": "bayes_calibration.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -130,7 +132,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "bayes_bayesian-inference.md"
+                "file": "bayes_calibration.md"
               }
             }
           }
@@ -141,17 +143,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "30bed79fb78c9bdd",
+  "active": "35b86cd6db920fae",
   "lastOpenFiles": [
-    "bayes_calibration.md",
-    "bayes_bayesian-inference.md",
-    "bayes_posterior.md",
+    "diskstation.md",
     "BayesianModelingRoadmap.md",
-    "bayes_likelihood.md",
-    "betancourt-dudas.md",
-    "bayes_prior.md",
-    "bayes_observational-process.md",
-    "bayes_data-generating-process.md",
-    "bayes_limitations-obs-models.md"
+    "bayes_calibration.md",
+    "bayes_trust-inferences.md",
+    "math_concepts.md",
+    "bayes_posterior-predictive-dist.md",
+    "bayes_bayesian-inference.md",
+    "bayes_prior-predictive-dist.md",
+    "bayes_why-posterior-mean.md",
+    "math_linear-algebra.md"
   ]
 }

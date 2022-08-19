@@ -55,7 +55,8 @@ Root mean square error (RMSE), also called the L2 norm, and mean absolute differ
 
 
 
-
+### The problem with metrics in AI
+[[dl_the-problem-with-metrics]]
 
 
 
