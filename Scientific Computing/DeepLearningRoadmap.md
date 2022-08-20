@@ -4,6 +4,8 @@
 - On creating good validation sets [[dl_creating-good-validation-sets]]
 - Resources [[dl_resources]]
 
+- Generative vs discriminative models [[dl_generative-vs-discriminative]]
+
 - Geometric deep learning !!!!!!!!! [[dl_geometric]]
 
 - Why's

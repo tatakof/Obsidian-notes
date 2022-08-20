@@ -279,7 +279,19 @@ Because we have two natural probability distributions over the model configurati
 
 
 
+# 4 Comparing Asymptotic Apples to Preasymptotic Oranges
+[[bayes_asymptotics]]
 
+
+
+
+# 5 Conclusion
+
+Bayesian inference is a versatile methodology for fusing information from observations and domain expertise into coherent inferences and decision-making processes. The probabilistic foundations of the methodology ensure that the mechanisms for evaluating, analyzing, and criticizing inferences are all implemented by natural operations in probability theory.
+
+Conceptually this makes Bayesian computation particularly well-suited to automation once a complete Bayesian model has been specified. In practice automated computation can’t quite be realized, but with the careful utilization of modern tools we can get impressively close. At the same time, carefully designed probabilistic programming languages provide the means for practitioners to specify the broad extent of models that arise in applications.
+
+Together probabilistic programming and state-of-the-art Bayesian computational methods provide a platform for implementing Bayesian inference in practice. In particular, their combination is the basis for Stan [[14](https://betanalpha.github.io/assets/case_studies/modeling_and_inference.html#ref-Stan:2018)].
 
 
 

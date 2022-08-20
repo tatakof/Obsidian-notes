@@ -12,6 +12,9 @@ Probabilistic Modeling and statistical inference#1.3.1, The generative structure
 	- Bayesian Calibration [[bayes_calibration]]
 	- Can we trust our inferences? [[bayes_trust-inferences]]
 
+
+- Asymptotics [[bayes_asymptotics]]
+
 - To do: [[bayes_toDo]]
 - To read: [[bayes_toRead]]
 - Things I don't understand: [[bayes_dont-understand]]

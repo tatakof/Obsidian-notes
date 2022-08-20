@@ -78,3 +78,52 @@ We can even use Bayesian calibration to quantify how faithfully our computationa
 
 As we fit each posterior distribution for each simulated observation we can evaluate the computational performance. At a very high level we can see if it even successfully ran to completion, if it never finished within a reasonable time frame, or if it encountered a software failure due to bugs, exhausted memory resources, and the like. Going further we can evaluate any self-diagnostics in completed fits, such as the potential scare reduction factor for general Markov chain Monte Carlo algorithms or divergences and energy fractions of missing information in Hamiltonian Monte Carlo. If our tool proves robust to all of the potential posterior distribution behaviors across the simulated observations then we have some assurance that it should perform well enough for any real observations, at least if our model is sufficiently accurate.
 
+What can we do, however, if our computational tool isn’t self-diagnostic? Fortunately Bayesian inference provides a subtle consistency property that allows us to check _any_ method capable of generating posterior samples.
+
+Regardless of our particular model, averaging the posterior distributions fit from observations simulated from the prior predictive distribution will _always_ recover the prior distribution,
+
+$$
+\pi_{\mathcal{S}}(\theta') 
+= 
+\int \mathrm{d} y \, \mathrm{d} \theta \,
+\pi_{\mathcal{S}} (\theta' \mid y) \, \pi_{\mathcal{S}} (y, \theta).
+$$
+
+In particular this implies that the ensemble of posterior samples, θ~′,
+
+$$
+\begin{align*}
+\tilde{\theta} &\sim \pi_{\mathcal{S}}(\theta)
+\\
+\tilde{y} &\sim \pi_{\mathcal{S}}(y \mid \tilde{\theta})
+\\
+\tilde{\theta}' &\sim \pi(\theta \mid \tilde{y}),
+\end{align*}
+$$
+
+will follow the same distribution as as the incident samples from the prior distribution, θ~. Any deviation between the two samples indicates that either our simulations are incorrect, our fit is using an inconsistent model from the simulations, or that our computational tool is generating biased samples.
+
+_Simulated-based calibration_ [[13](https://betanalpha.github.io/assets/case_studies/modeling_and_inference.html#ref-TaltsEtAl:2018)] compares the ensemble posterior sample and the prior sample using _ranks_. For each simulated observation we generate R samples from the corresponding posterior distribution,
+
+$$
+\begin{align*}
+\tilde{\theta} &\sim \pi_{\mathcal{S}}(\theta)
+\\
+\tilde{y} &\sim \pi_{\mathcal{S}}(y \mid \tilde{\theta})
+\\
+(\tilde{\theta}'_{1}, \ldots, \tilde{\theta}'_{R}) 
+&\sim \pi(\theta \mid \tilde{y}),
+\end{align*}
+$$
+
+and compute the rank of the prior sample within the posterior samples, i.e. the number of posterior samples larger than the prior sample,
+
+$$
+\rho = \sharp \left\{ \tilde{\theta} < \tilde{\theta}'_{r} \right\}.
+$$
+If the ensemble posterior sample and the prior sample are equivalent then these ranks will be uniformly distributed. The uniformity of the ranks itself is straightforward to analyze visually by histogramming the ranks for each parameter in the model configuration space.
+
+![[Pasted image 20220819094304.png]]
+
+Here the grey band demonstrates the expected variation of ranks distributed according to an exact uniform distribution. Deviation outside of these bands, especially systematic deviation of many bins at once, indicates computational problems. See [[13](https://betanalpha.github.io/assets/case_studies/modeling_and_inference.html#ref-TaltsEtAl:2018)] for further discussion of common systematic deviations and their interpretations.
+
