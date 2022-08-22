@@ -9,7 +9,19 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bayes_generative-modeling.md",
+            "file": "State Space Models.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      },
+      {
+        "id": "1fb2b881f4750046",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "ssm_software.md",
             "mode": "source",
             "source": false
           }
@@ -78,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bayes_generative-modeling.md",
+                "file": "ssm_software.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -95,7 +107,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "bayes_generative-modeling.md",
+                "file": "ssm_software.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +130,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "bayes_generative-modeling.md"
+                "file": "ssm_software.md"
               }
             }
           }
@@ -129,17 +141,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "eb508ab1ee582998",
+  "active": "1fb2b881f4750046",
   "lastOpenFiles": [
+    "State Space Models.md",
+    "ssm_basic-theory.md",
+    "ssm_kalman-filter.md",
+    "bayes_generative-modeling.md",
     "diskstation.md",
     "Untitled 6.md",
     "Untitled 5.md",
     "bayes_decision-making.md",
     "Architectures.md",
-    "Audio device.md",
-    "bayes_generative-modeling.md",
-    "DeepLearningRoadmap.md",
-    "bayes_data-generating-process.md",
-    "dl_generative-vs-discriminative.md"
+    "Audio device.md"
   ]
 }

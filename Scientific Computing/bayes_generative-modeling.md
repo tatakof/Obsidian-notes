@@ -1,8 +1,11 @@
 # Definitions
 - Generative model in machine learning: 
 	In machine learning a generative model is typically defined as a probabilistic model of all quantities that vary from observation to observation; in other words a model over the entire observational space, Y [[1](https://betanalpha.github.io/assets/case_studies/generative_modeling.html#ref-Bishop:2006)]. For example given an observational space parameterized by two variables y=(y1,y2) the conditional model π(y1|y2;θ) would not be generative because it lacks a probabilistic model for y2. Such incomplete model specifications, often denoted _discriminative_ models, commonly arise in regression modeling where the observational space Y×X separates into variates, y∈Y, and covariates, x∈X, and only the conditional relationship π(y|x;θ) is modeled.
-- Narratively generative: 
-	
+- Narratively generative:
+	In applied statistical settings "generative" more commonly refers not to how a model is implemented but rather how the model is _interpreted_. Here generative describes models that follow the progressive structure of some assumed data generating process; in other words they model not just the outcome of a measurement but also the internal composition of that measurement. I will refer to this notion of generative as _narratively generative_.
+
+- _Narratively generative structure_ of a model:
+	In statistics and computer science causality typically refers not to all possible influences but rather to only those influences that are explicitly modeled. In any practical model we ignore an infinity of physical interactions that we assume are too weak to meaningful affect a given data generating process.
 	
 
 
@@ -193,9 +196,54 @@ An insightful parameterization of the observational and model configuration spac
 Stories proceed in a sequence of causes and effects, with each constituent story capturing one, the other, or both in the progression of the narrative. These constituent stories are often presented in a strict temporal order, but non-chronological presentation can be a useful technique for emphasizing certain aspects of the larger story.
 
 
+Similarly narratively generative models do not need to follow an absolute chronological progression. More generally the sequential structure of a narratively generative model is constrained by only the influences between the constituent models that are captured in their conditional dependencies. Component models that depend on the outcomes of other component models must be placed later in the progression.
+
+This ordering of the component models, and the mathematical stories they capture, is often said to define the _causal structure_ of the data generating process. L**ike "generative" the term "causal" is used inconsistently across fields** which often causes, pun absolutely intended, confusion. For example in physics causality refers to _all_ of the possible physical influences that one system can exert an other, limited largely by physical distance between the two systems and the speed with which interactions can be exchanged across that distance. **On the other hand in statistics and computer science causality typically refers not to all possible influences but rather to only those influences that are explicitly modeled. In any practical model we ignore an infinity of physical interactions that we assume are too weak to meaningful affect a given data generating process.**
+
+To avoid any confusion between these different notions of causality I will refer to the this latter interpretation as defining the _narratively generative structure_ of a model.
 
 
+## 2.3 Serialization
 
+As we discussed above narratives often naturally decompose into constituent stories. In many cases those constituent stories can also be decomposed into even smaller, more confined stories. Epic fiction can span multiple books, each book spanning multiple chapters, each chapter spanning multiple encounters, and so on. Plays are organized into acts, each of which is organized into scenes.
 
+Similarly **if the component models from which a narratively generative model is built are also narratively generative then they too can be decomposed into smaller component models. If any of those smaller component models are narratively generative then they can be further decomposed, and so on. In other words narrative generativity is often _recursive_.**
 
+![[Pasted image 20220821150106.png]]
+
+Such recursive, narratively generative structure can drastically facilitate the development of expansive, intricate, and yet self-consistent narratives.
+
+For example instead of trying to build a narrative by piecing together detailed scenes in sequential order, it is often much more productive to _outline_ the overarching plot as a sequence of broad arcs, each of which can then be elaborated into more smaller scenes that are more manageable to construct in the necessary detail. Likewise the most effective way to develop a sophisticated probabilistic model is often to first develop a crude model of the entire data generating story before refining the initial component models of that basic narrative into more elaborate models until the overall model is rich enough to capture the relevant behaviors. As our applications grow in complexity building models from the top down is often much less overwhelming then trying to build them from the bottom up!
+
+![[Pasted image 20220821150630.png]]
+
+Even in the cases where bottom up development is more effective than top down development, however, any recursive, narratively generative structure can still be useful. In particular the recursive structure might motivate a useful _modular_ approach. Instead of assembling the final model variable-by-variable modular construction first assembles the variables into intermediate component models, or modules. These component models can then be assembled into larger component models, which can then be assembled into even larger component models, and so on, until we finally piece the full model together from the largest component models.
+
+![[Pasted image 20220821150707.png]]
+
+Because we have to assemble only a small number of modules together at each stage this modular approach compartmentalizes the model building complexity which often makes the task much more manageable in practice. Moreover while many modules need to be built custom for each particular application, some modules that capture more universal behavior can be used repeatedly not only within a single model but also across different models. Once we familiarize ourselves with the properties of one of these general components it becomes available for any future modeling problem.
+
+## 2.4 Writing To The Audience
+Every story can be told at different levels of sophistication. The richer our vocabulary the more intricate of a story we can tell, but the most detailed story isn't always the most appropriate for a given audience. Similarly the most sophisticated model that we can construct isn't always the most effective model for a given application. Sometimes a relatively simple model, which captures the most relevant behavior without introducing extraneous complexity, is most appropriate.
+
+**In statistical applications the appropriate level of detail is often determined by the measurement process itself.** Any finite measurement resolves the latent structure of an observed system only so well, and realized observations are sensitive to only those features of the system that manifest strongly enough in the measurement process. The more precise the measurement process the finer the details that we can resolve.
+
+![[Pasted image 20220821155558.png]]
+
+Too much sophistication in our story telling can be not only wasteful but also computationally problematic. When a complex model is only weakly informed by observations the resulting likelihood functions are prone to strong degeneracies that can frustrate accurate and efficient computation.
+
+Consequently our priority is usually not to build the most complex model possible but rather to build a narratively generative model that self-consistently captures the most pronounced features of the observed system, perhaps in addition to any weaker features that might be of particular inferential interest. The recursive modeling building strategy that we discussed in [Section 2.3](https://betanalpha.github.io/assets/case_studies/generative_modeling.html#sec:recursion) is especially helpful here; by iteratively refining an initial crude model we can self-consistently incorporate more and more detail until we've converged to the necessary level of sophistication.
+
+**Narratively generative models built in this way will rarely depend on the fundamental degrees of freedom of the system being studied, assuming that those degrees of freedom even exist. Instead these coarse-grained models capture the mutually compatible features that _emerge_ from those degrees of freedom at a given resolution, or in other words the _emergent phenomena_.**
+
+All of this said we have to keep in mind that a narratively generative model motivated by the limitations of one measurement process will not necessarily be sufficient for modeling the outcomes of _other_ measurement processes. For example if we repeat a measurement then the combined observations may be able to resolve more detailed structure. In this case we might have to further refine the initial model in order to draw inferences that can take advantage of the additional information in the combined observations.
+
+**Similarly if our inferential goals depend on details that fall below the resolution of a given measurement process then our initial model may provide only a washed-out approximation of that relevant structure. In order to accurately quantify uncertainty about those finer details we would need to once again further refine the initial model until we've reached a sufficient level of sophistication.**
+
+## 2.5 Mixed Genres
+While many stories naturally separate into constituent stories, some stories are indivisible. Similarly not every probabilistic model will be narratively generative. If we do not understand some aspect of a data generating processes well enough then we may not be able to motivate component models with any useful narratively generative structure.
+
+Moreover some stories that can be divided are still best told all at once. Likewise not every narratively generative model needs to be decomposed into simpler models. As we saw in [Section 2.4](https://betanalpha.github.io/assets/case_studies/generative_modeling.html#sec:resolution), when a measurement process is not able to resolve the resulting substructure such a decomposition can introduce unnecessary complexity that can be more harmful than beneficial.
+
+In general a narratively generative model will decompose into a mixture of both narratively generative and non-narratively generative component models. Some of the narratively generative component models might then further decompose into one-dimensional conditional distributions but some might be best left whole. This results in directed graphical model representations with separate nodes for each variable and nodes that encapsulate multiple variables, respectively. At the same time the non-narratively generative components will also define nodes that encapsulate multiple variables. The broader definition of directed graphical models that I introduced in my [product space case study](https://betanalpha.github.io/assets/case_studies/generative_modeling.html#https://betanalpha.github.io/assets/case_studies/probability_on_product_spaces.html) can accommodate all of these nodes, making it particularly useful for working with models that capturing the intricate complexity of realistic applications.
 
