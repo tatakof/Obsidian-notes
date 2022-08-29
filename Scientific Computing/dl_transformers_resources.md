@@ -21,6 +21,8 @@ https://docs.fast.ai/tutorial.transformers.html
 
 https://amarsaini.github.io/Epoching-Blog/jupyter/nlp/pytorch/fastai/huggingface/2021/06/27/NLP-from-Scratch-with-PyTorch-FastAI-and-HuggingFace.html
 
+https://medium.com/@antonio.lopardo/the-basics-of-language-modeling-1c8832f21079
+
 
 transformer models for textual data prediction:
 https://neptune.ai/blog/transformer-models-for-textual-data-prediction 
@@ -38,7 +40,9 @@ https://chriskhanhtran.github.io/posts/spanberta-bert-for-spanish-from-scratch/
 
 https://skimai.com/how-to-train-electra-language-model-for-spanish/
 
+https://huggingface.co/llange/xlm-roberta-large-spanish-clinical
 
+https://huggingface.co/xlm-roberta-large-finetuned-conll02-spanish
 
 pretrained text-generation models
 https://transformer.huggingface.co/

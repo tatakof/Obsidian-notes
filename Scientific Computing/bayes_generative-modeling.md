@@ -243,7 +243,81 @@ All of this said we have to keep in mind that a narratively generative model mot
 ## 2.5 Mixed Genres
 While many stories naturally separate into constituent stories, some stories are indivisible. Similarly not every probabilistic model will be narratively generative. If we do not understand some aspect of a data generating processes well enough then we may not be able to motivate component models with any useful narratively generative structure.
 
-Moreover some stories that can be divided are still best told all at once. Likewise not every narratively generative model needs to be decomposed into simpler models. As we saw in [Section 2.4](https://betanalpha.github.io/assets/case_studies/generative_modeling.html#sec:resolution), when a measurement process is not able to resolve the resulting substructure such a decomposition can introduce unnecessary complexity that can be more harmful than beneficial.
+Moreover some stories that can be divided are still best told all at once. Likewise not every narratively generative model needs to be decomposed into simpler models. As we saw in [Section 2.4](https://betanalpha.github.io/assets/case_studies/generative_modeling.html#sec:resolution), **when a measurement process is not able to resolve the resulting substructure such a decomposition can introduce unnecessary complexity that can be more harmful than beneficial.**
 
 In general a narratively generative model will decompose into a mixture of both narratively generative and non-narratively generative component models. Some of the narratively generative component models might then further decompose into one-dimensional conditional distributions but some might be best left whole. This results in directed graphical model representations with separate nodes for each variable and nodes that encapsulate multiple variables, respectively. At the same time the non-narratively generative components will also define nodes that encapsulate multiple variables. The broader definition of directed graphical models that I introduced in my [product space case study](https://betanalpha.github.io/assets/case_studies/generative_modeling.html#https://betanalpha.github.io/assets/case_studies/probability_on_product_spaces.html) can accommodate all of these nodes, making it particularly useful for working with models that capturing the intricate complexity of realistic applications.
+
+![[Pasted image 20220829075408.png]]
+
+**Critically having some non-narratively generative component models does not, and should not, prevent us from modeling other components narratively generatively where ever possible.** In the social sciences, for example, the latent phenomenology is often far too complex to be modeled with anything but a heuristic model that captures some of the more pronounced emergent behaviors. **That heuristic component model, however, can often be paired with a narratively generative component models of the rest of the measurement process.** **By exploiting our domain expertise of both the experimental design, _and how that design was actually implemented_, these narratively generative component models can account for important selection biases and contaminations that would otherwise corrupt the relationship between observations and the heuristic phenomenological model.**
+
+In other words "narratively generative" is not a binary qualification of a probabilistic model. Some models have deeper narratively generative structure than others, but that doesn't necessarily make them more useful. Narrative generativity is not a goal in of itself but rather a tool to help coalesce our domain expertise and facilitate the development of the most useful model possible in any given application.
+
+
+## 2.6 A Tangled Web
+
+... Likewise some of the most useful narratively generative models consistently incorporate multiple measurement processes into a single, coherent model.
+
+![[Pasted image 20220829075810.png]]
+
+By restricting any shared behavior to the same component models a narratively generative model automatically captures the interactions between multiple measurement processes. (m' like theta3 here?). **Critically inferences from the combined model _automatically_ incorporate any correlations between observations realized from those measurement processes. In other words incorporating the narratively generative structure of multiple measurement processes into a single narratively generative model implements _data fusion_.**
+
+One way to build a narratively generative model that consistently incorporates multiple measurement processes is to first build a model for one measurement process and then construct branches where the remaining measurement processes diverge.
+
+
+![[Pasted image 20220829080314.png]]
+
+Alternatively we can build narratively generative models for each measurement process and then merge them together by consolidating any repeated component models into one.
+
+![[Pasted image 20220829080359.png]]
+
+To see the utility of modeling all of the relevant measurement processes at the same time see let's consider a simple example with two observational models that share a common parameter, π(y1∣θ1,ϕ) and π(y2∣θ2,ϕ), and a separable prior model
+
+$$
+\pi(\theta_{1}, \theta_{2}, \phi) =
+\pi(\theta_{1}) \, \pi(\theta_{2}) \, \pi(\phi).
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

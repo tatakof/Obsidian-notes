@@ -765,6 +765,48 @@ The default behavior in Julia when types are omitted is to allow values to be of
 
 
 
+
+### The `:` use 
+The `:` character has two syntactic purposes in Julia. The first form creates a [`Symbol`](https://docs.julialang.org/en/v1/base/base/#Core.Symbol), an [interned string](https://en.wikipedia.org/wiki/String_interning) used as one building-block of expressions:
+
+```julia-repl
+julia> s = :foo
+:foo
+
+julia> typeof(s)
+Symbol
+```
+
+The [`Symbol`](https://docs.julialang.org/en/v1/base/base/#Core.Symbol) constructor takes any number of arguments and creates a new symbol by concatenating their string representations together:
+
+```julia-repl
+julia> :foo == Symbol("foo")
+true
+
+julia> Symbol("func",10)
+:func10
+
+julia> Symbol(:var,'_',"sym")
+:var_sym
+```
+
+Note that to use `:` syntax, the symbol's name must be a valid identifier. Otherwise the `Symbol(str)` constructor must be used.
+
+In the context of an expression, symbols are used to indicate access to variables; when an expression is evaluated, a symbol is replaced with the value bound to that symbol in the appropriate [scope](https://docs.julialang.org/en/v1/manual/variables-and-scoping/#scope-of-variables).
+
+Sometimes extra parentheses around the argument to `:` are needed to avoid ambiguity in parsing:
+
+```julia-repl
+julia> :(:)
+:(:)
+
+julia> :(::)
+:(::)
+```
+
+
+
+
 ### The `!` use
 As a style convention in Julia, `!` is appended to names of functions that modify their arguments.
 

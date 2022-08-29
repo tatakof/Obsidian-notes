@@ -4,24 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "eb508ab1ee582998",
+        "id": "86effadaef7f1db8",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "State Space Models.md",
-            "mode": "source",
-            "source": false
-          }
-        }
-      },
-      {
-        "id": "1fb2b881f4750046",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "ssm_software.md",
+            "file": "bayes_workflow.md",
             "mode": "source",
             "source": false
           }
@@ -90,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ssm_software.md",
+                "file": "bayes_workflow.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,7 +95,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ssm_software.md",
+                "file": "bayes_workflow.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -130,7 +118,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ssm_software.md"
+                "file": "bayes_workflow.md"
               }
             }
           }
@@ -141,17 +129,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "1fb2b881f4750046",
+  "active": "86effadaef7f1db8",
   "lastOpenFiles": [
-    "State Space Models.md",
-    "ssm_basic-theory.md",
-    "ssm_kalman-filter.md",
     "bayes_generative-modeling.md",
-    "diskstation.md",
-    "Untitled 6.md",
-    "Untitled 5.md",
-    "bayes_decision-making.md",
-    "Architectures.md",
-    "Audio device.md"
+    "programming_concepts.md",
+    "jl_notes.md",
+    "bayes_probabilistic-computation.md",
+    "jl_tutorial.md",
+    "radian.md",
+    "dl_transformers_resources.md",
+    "dl_transformers.md",
+    "bayes_trust-inferences.md",
+    "BayesianModelingRoadmap.md"
   ]
 }

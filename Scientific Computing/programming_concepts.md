@@ -3709,7 +3709,7 @@ myplot (generic function with 1 method)
 julia> myplot(0:10, 0:10, style="dotted", color="blue")
 ```
 
-_Keyword arguments_ in a function are specified after a semicolon in the signature but can be called with a comma.
+_Keyword arguments_ are named arguments in a function and are specified after a semicolon in the signature but can be called with a comma.
 
 
 #### Closures

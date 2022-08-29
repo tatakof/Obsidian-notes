@@ -13,6 +13,9 @@ Probabilistic Modeling and statistical inference#1.3.1, The generative structure
 	- Can we trust our inferences? [[bayes_trust-inferences]]
 
 
+
+- Probabilistic Computation [[bayes_probabilistic-computation]]
+
 - Asymptotics [[bayes_asymptotics]]
 
 - To do: [[bayes_toDo]]
