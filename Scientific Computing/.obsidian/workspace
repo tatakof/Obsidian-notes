@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "86effadaef7f1db8",
+        "id": "fb1910535ec51ae9",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bayes_workflow.md",
+            "file": "jl_notes.md",
             "mode": "source",
             "source": false
           }
@@ -78,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bayes_workflow.md",
+                "file": "jl_notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -95,7 +95,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "bayes_workflow.md",
+                "file": "jl_notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +118,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "bayes_workflow.md"
+                "file": "jl_notes.md"
               }
             }
           }
@@ -129,17 +129,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "86effadaef7f1db8",
+  "active": "fb1910535ec51ae9",
   "lastOpenFiles": [
-    "bayes_generative-modeling.md",
     "programming_concepts.md",
     "jl_notes.md",
-    "bayes_probabilistic-computation.md",
+    "Untitled 7.md",
     "jl_tutorial.md",
-    "radian.md",
-    "dl_transformers_resources.md",
-    "dl_transformers.md",
-    "bayes_trust-inferences.md",
-    "BayesianModelingRoadmap.md"
+    "math_concepts.md",
+    "JuliaRoadMap.md",
+    "R_wizardry.md",
+    "bayes_workflow.md",
+    "bayes_generative-modeling.md",
+    "bayes_probabilistic-computation.md"
   ]
 }

@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "a00208365a1dfb8b",
+        "id": "4717b20a094f1328",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Reunión 2022-08-23.md",
+            "file": "F. Hepatica y epidemias masterclass.md",
             "mode": "source",
             "source": false
           }
@@ -61,7 +61,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 100,
     "collapsed": true
   },
   "right": {
@@ -78,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Reunión 2022-08-23.md",
+                "file": "F. Hepatica y epidemias masterclass.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -95,7 +95,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Reunión 2022-08-23.md",
+                "file": "F. Hepatica y epidemias masterclass.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +118,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Reunión 2022-08-23.md"
+                "file": "F. Hepatica y epidemias masterclass.md"
               }
             }
           }
@@ -129,8 +129,13 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "a00208365a1dfb8b",
+  "active": "4717b20a094f1328",
   "lastOpenFiles": [
+    "Animal Movement Masterclass.md",
+    "F. Hepatica y epidemias masterclass.md",
+    "Paper notes.md",
+    "papers_morales-2005.md",
+    "Reunión 2022-08-23.md",
     "Reunion 2022-08-11.md"
   ]
 }

@@ -388,3 +388,20 @@ sum(is.na(dataset$variable))
 data  <- read_csv(path_to_data) %>%
     select(matches("acc|mag|pitch|roll"))
 ```
+
+
+### Rename columns of a list of datasets using a vector of different names
+```
+# Get file paths
+paths  <- dir_ls(here('data', 'dec'))  
+
+# Get file names
+file_names <- map(path, basename)
+
+
+# Define how acc and datetime columns will be named in the final df
+var_names_acc <- str_c('acc_x_', file
+var_names_dt <- str_c('datetime_', file_names)
+
+
+```

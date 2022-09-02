@@ -8,6 +8,9 @@ https://github.com/sswatson/cheatsheets/blob/master/jpr-cheatsheet.pdf
 https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#chap01
 
 
+https://juliadatascience.io/
+
+
 
 Check this first: 
 https://syl1.gitbook.io/julia-language-a-concise-tutorial/

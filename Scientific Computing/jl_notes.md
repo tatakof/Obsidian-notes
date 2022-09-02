@@ -531,6 +531,9 @@ You don’t have to memorize this list. In most development environments, keywor
 
 
 
+### Scope
+see [[programming_concepts#Scope in relation to functions]]
+In julia, functions create a local scope
 
 
 
@@ -689,7 +692,13 @@ The syntax of a `for` statement is similar to a function definition. It has a he
 
 
 
+### Julia's multiple dispatch
 
+a concrete type is a type with no subtypes, e.g. int64 is a concrete type
+
+```
+subtype(Int64)
+```
 
 
 ## Useful things
@@ -845,6 +854,18 @@ To be precise an object has a value. If you evaluate `[1, 2, 3]`, you get an arr
 
 
 
+
+### Meaning of the `->` operator
+The -> syntax is used to write an anonymous function
+An anonymous function is simply a function without a name, whos main pupose is to define a function as briefly as possible for local use, after which is discarded. 
+
+```
+x -> x^2
+# meaning for input x return x^2
+```
+
+
+
 ### Meaning of the `=>` operator
 
 #### In dictionaries
@@ -903,3 +924,37 @@ end
 
 ### How to do reverse lookup in dictionaries
 Julia provides an optimized way to do a reverse lookup: `findall(isequal(3), h)`.
+
+
+### Meaning of square brackets `[]` in function definition
+
+`[]` mean that the argument is optional. e.g.
+
+in the definition of the `join` function we have
+
+```
+join([io::IO,] iterator [, delim [, last]])
+```
+
+This means that only the iterator is a must include arguments and the others are optional. 
+
+
+
+### Getting the methods of a function
+the methods of a function is the code in its code body. A function can have more than one method, and in that case it's called a generic function. 
+```
+methods(functionname)
+```
+
+
+### Comprehension
+
+#### function comprehension 
+
+
+
+
+
+
+
+### Data science in Julia

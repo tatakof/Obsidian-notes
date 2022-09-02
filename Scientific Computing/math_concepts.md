@@ -150,3 +150,28 @@ to get the reciprocal of X, just do $1/X$. Simple AF.
 ### Function composition. 
 Take the result of one function and pass it to the next, take again the result of this and pass it to a new function. Iterate. 
 
+
+
+### Simplex
+In [geometry](https://en.wikipedia.org/wiki/Geometry "Geometry"), a **simplex** (plural: **simplexes** or **simplices**) is a generalization of the notion of a [triangle](https://en.wikipedia.org/wiki/Triangle "Triangle") or [tetrahedron](https://en.wikipedia.org/wiki/Tetrahedron "Tetrahedron") to arbitrary [dimensions](https://en.wikipedia.org/wiki/Dimensions "Dimensions"). The simplex is so-named because it represents the simplest possible [polytope](https://en.wikipedia.org/wiki/Polytope "Polytope") made with [line segments](https://en.wikipedia.org/wiki/Line_segments "Line segments") in any given dimension.
+
+For example,
+
+-   a 0-simplex is a [point](https://en.wikipedia.org/wiki/Point_(mathematics) "Point (mathematics)"),
+-   a 1-simplex is a [line segment](https://en.wikipedia.org/wiki/Line_segment "Line segment"),
+-   a 2-simplex is a [triangle](https://en.wikipedia.org/wiki/Triangle "Triangle"),
+-   a 3-simplex is a [tetrahedron](https://en.wikipedia.org/wiki/Tetrahedron "Tetrahedron"),
+-   a 4-simplex is a [5-cell](https://en.wikipedia.org/wiki/5-cell "5-cell").
+
+Specifically, a **_k_-simplex** is a _k_-dimensional [polytope](https://en.wikipedia.org/wiki/Polytope "Polytope") which is the [convex hull](https://en.wikipedia.org/wiki/Convex_hull "Convex hull") of its _k_ + 1 [vertices](https://en.wikipedia.org/wiki/Vertex_(geometry) "Vertex (geometry)").
+
+
+
+### Regular simplex
+A **regular simplex**[[1]](https://en.wikipedia.org/wiki/Simplex#cite_note-1) is a simplex that is also a [regular polytope](https://en.wikipedia.org/wiki/Regular_polytope "Regular polytope"). A regular _k_-simplex may be constructed from a regular (_k_ − 1)-simplex by connecting a new vertex to all original vertices by the common edge length.
+
+
+### Probability simplex
+The **standard simplex** or **probability simplex**[[2]](https://en.wikipedia.org/wiki/Simplex#cite_note-Boyd-2) is the _k - 1_ dimensional simplex whose vertices are the _k_ standard [unit vectors](https://en.wikipedia.org/wiki/Unit_vectors "Unit vectors"), or
+![[Pasted image 20220830114038.png]]
+

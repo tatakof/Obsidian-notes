@@ -215,6 +215,14 @@ A function signature (or type signature, or method signature) **defines input an
 
 
 
+### Generic Functions
+functions that can have more than one method
+
+
+### Function method
+the method of a function is the code in its code body
+
+
 ### Flow of execution
 The order statements run in.
 
@@ -286,7 +294,18 @@ Void functions might display something on the screen or have some other effect, 
 
 
 
-#### Why Functions
+### Scope (in relation to functions)
+The term scope refers to which variables can be accessed in a particular block of code (the program as a whole is also a code block). Scope can be global (to the whole program) or local (to a particular code block)
+
+### Global variables
+variables that are accessible to the whole program 
+
+### Local variables
+Some code blocks introduce a local scope. A local variable is one that cannot be accessed by code outside the code block that introduces the local scope.
+
+
+
+### Why Functions
 It may not be clear why it is worth the trouble to divide a program into functions. There are several reasons:
 
 -   Creating a new function gives you an opportunity to name a group of statements, which makes your program easier to read and debug.
