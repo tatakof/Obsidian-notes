@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "F. Hepatica y epidemias masterclass.md",
+            "file": "notas odd proyecto fasciola.md",
             "mode": "source",
             "source": false
           }
@@ -61,7 +61,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 100,
+    "width": 173.5,
     "collapsed": true
   },
   "right": {
@@ -78,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "F. Hepatica y epidemias masterclass.md",
+                "file": "notas odd proyecto fasciola.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -95,7 +95,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "F. Hepatica y epidemias masterclass.md",
+                "file": "notas odd proyecto fasciola.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +118,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "F. Hepatica y epidemias masterclass.md"
+                "file": "notas odd proyecto fasciola.md"
               }
             }
           }
@@ -131,10 +131,12 @@
   },
   "active": "4717b20a094f1328",
   "lastOpenFiles": [
+    "notas ODD proyecto doctoral.md",
+    "notas odd proyecto fasciola.md",
+    "papers_morales-2005.md",
     "Animal Movement Masterclass.md",
     "F. Hepatica y epidemias masterclass.md",
     "Paper notes.md",
-    "papers_morales-2005.md",
     "Reunión 2022-08-23.md",
     "Reunion 2022-08-11.md"
   ]

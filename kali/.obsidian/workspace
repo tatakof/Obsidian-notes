@@ -1,15 +1,15 @@
 {
   "main": {
-    "id": "600f7e60cdf3932d",
+    "id": "b7d2412587fa1278",
     "type": "split",
     "children": [
       {
-        "id": "fb1910535ec51ae9",
+        "id": "a1929b3e9dfaa02c",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bayes_workflow.md",
+            "file": "bandit.md",
             "mode": "source",
             "source": false
           }
@@ -19,15 +19,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "2bee6b06a6ef2b2b",
+    "id": "9a4cd7e975c3d712",
     "type": "split",
     "children": [
       {
-        "id": "1342c4fad68ce5ed",
+        "id": "b80d4e338905effd",
         "type": "tabs",
         "children": [
           {
-            "id": "efdde37267eb8fff",
+            "id": "45e7fb37ddec8604",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -35,7 +35,7 @@
             }
           },
           {
-            "id": "414625f490586d56",
+            "id": "550327e412fd30b5",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -50,7 +50,7 @@
             }
           },
           {
-            "id": "ce32c41a1c554d36",
+            "id": "21dbde464adb6e51",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -61,24 +61,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 244.5,
-    "collapsed": true
+    "width": 300
   },
   "right": {
-    "id": "05a607f0c33ccdf3",
+    "id": "47761e583bc96993",
     "type": "split",
     "children": [
       {
-        "id": "ee4c32bc5d193750",
+        "id": "ab615abb3d6c227d",
         "type": "tabs",
         "children": [
           {
-            "id": "997d1edd7911dc8b",
+            "id": "a033d7434aa7925f",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bayes_workflow.md",
+                "file": "bandit.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -90,19 +89,19 @@
             }
           },
           {
-            "id": "a299b15e56320081",
+            "id": "ccd744b4d19b9605",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "bayes_workflow.md",
+                "file": "bandit.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "5c2f92bf87a166fe",
+            "id": "c5f15df230fcab9c",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -113,12 +112,12 @@
             }
           },
           {
-            "id": "3431b0a1850ec732",
+            "id": "95850a6ca19a158b",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "bayes_workflow.md"
+                "file": "bandit.md"
               }
             }
           }
@@ -129,17 +128,6 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "fb1910535ec51ae9",
-  "lastOpenFiles": [
-    "bt_towads-a-principled-bayesian-workflow.md",
-    "bayes_workflow.md",
-    "R Installations.md",
-    "R stuff.md",
-    "notas charla juan 2022-09-08.md",
-    "Python_notes.md",
-    "pop os.md",
-    "Linux-Roadmap.md",
-    "jl_notes.md",
-    "programming_concepts.md"
-  ]
+  "active": "a1929b3e9dfaa02c",
+  "lastOpenFiles": []
 }
