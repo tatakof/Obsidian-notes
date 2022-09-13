@@ -1,3 +1,11 @@
+
+
+
+# Definitions:
+- statistics: In classical statistics, functions of the observational space are know as statistics. 
+- model calibration: determining what outcomes a model might return, rather than any process of modifying a model to achieve a particular outcome. 
+
+
 Principled model development strives for an observational process that captures the relevant structure of the phenomenon, environment, and probe that give rise to the true data generating process. We always have to be careful, to recognize the limitations of the even the most carefully designed observational model in any given analysis.
 
 
@@ -234,4 +242,190 @@ These horns are extremely metal but also indicate that this concentration is lik
 ![[Pasted image 20220912111434.png]]
 
 ### 1.1.3 Prior Predictive Checks
+
+To fully probe the consequences of our prior model, however, we need to investigate its effects on the observational space itself. A _prior predictive check_ considers summary functions that depend only on the observational space,
+
+$$
+\begin{alignat*}{6}
+\hat{t} :\; &Y& &\rightarrow& \; &U \subset Y&
+\\
+&y& &\mapsto& &\hat{t}(y)&,
+\end{alignat*}
+$$
+and the corresponding pushforward of the prior model, $\pi_{\hat{t}(Y)}(t)$. In classical statistics functions of the observational space are also know as _statistics_, so to avoid any confusion with prior pushforward checks I will refer to these summary functions as _summary statistics_.
+
+Pushing the complete Bayesian model, πS(y,θ), forward along a summary statistic is equivalent to pushing the prior predictive distribution,
+
+$$
+\begin{align*}
+\pi_{\mathcal{S}}(y)
+&= \int \mathrm{d} \theta \, \pi_{\mathcal{S}}(y, \theta)
+\\
+&= \int \mathrm{d} \theta \,
+\pi_{\mathcal{S}}(y \mid \theta) \, \pi_{\mathcal{S}}(\theta),
+\end{align*}
+$$
+
+along that statistic. **Consequently we can also interpret prior predictive checks as investigating the structure of the prior predictive distribution and looking for an excess of extreme predictions.**
+
+**Constructing an interpretable yet informative summary statistic is very much an art where we can fully employ our creativity to define useful real-valued summaries or even structured multidimensional summaries like a histograms or empirical cumulative distribution functions.** The orthodox frequentist literature also provides a surprising wealth of inspiration as classic estimators define summary statistics with very clear interpretations. For example empirical means and medians are sensitive to the centrality of the prior predictive distribution along specific components of the observational space, with the empirical standard deviation and quartiles sensitive to the breadth of the distributions. We can be more creative, however, when the observational space is more structured. Empirical correlograms, for example, can summarize the structure of time series data while analysis of variance statistics can summarize heterogeneity between groups.
+
+Because summary statistics are defined with respect to only the observational space the thresholds we need to complete the prior predictive checks need to be informed only by knowledge of the observational space itself. Consequently it can be easier to elicit these thresholds than the thresholds for prior pushforward checks, which require understanding the structure of the complete Bayesian model. This is especially true when working with domain experts more familiar with the experiment than with models of the latent phenomena.
+
+**Importantly prior predictive checks are a technique for comparing our model assumptions to our domain expertise, and to _only_ our domain expertise. Allowing comparisons between the prior predictive distribution and any _observed_ data to influence the development of the prior model is a form of _empirical Bayes_ that uses the data twice, once to directly inform the prior model and again to construct the posterior distribution. This over-influence of the observed data is prone to _overfitting_ where we develop a model that is exceptionally good at retrodicting the particular data we observed at the cost of poor predicitons of the rest of the true data generating process.**
+
+One of the nice features of implementing prior pushforward checks and prior predictive checks with samples is that these implementations use progressive information about the complete Bayesian model, allowing us to share computation between the checks. For example, once we've generated a sample from the complete Bayesian model,
+
+$$
+\tilde{\theta} \sim \pi_{\mathcal{S}}(\theta),
+\\
+\ \tilde{y} \sim \pi_{\mathcal{S}}(y \mid \tilde{\theta}),
+$$
+
+**we can use the sampled model configuration for prior pushforward checks and the simulated observation for prior predictive checks without any additional cost. This is even more apparent when the full Bayesian model admits a nice conditional decomposition that allows us to use ancestral sampling, with each conditional sample corresponding to an intermediate pushforward distribution that we can analyze for consistency.**
+
+
+## 1.2 Computational Faithfulness
+A model is only as useful as our ability to wield it. A Bayesian model is only as good as our ability to compute expectation values with respect to the posterior distributions it generates or, more practically, estimate expectation values with quantifiable error.
+
+Given a particular observation, and hence posterior distribution, we can use methods with self-diagnostics, such as Hamiltonian Monte Carlo, to identify inaccurate computation and provide some confidence that we can actually realize faithful inferences.
+
+Before we've made an observation, however, we don't know what shape the likelihood function will take and hence the structure of the posterior density function that our algorithms must manage. Some potential observations, for example, might lead to likelihood functions that strongly concentrate within compact neighborhoods and yield well-behaved posterior density functions, but some might lead to more degenerate likelihood functions that induce more problematic posterior density functions.
+
+![[Pasted image 20220913122330.png]]
+
+**All we can do to assess the faithfulness of our computational methods before we've made an observation is to apply them to posterior density functions arising from a variety of possible data, ideally spanning the worst behaviors we might actually see in practice. What, however, defines the scope of observations that might be realized in an experiment? Within the context of our model it's exactly the prior predictive distribution.**
+
+If we've already addressed the first question and believe that our model is consistent with our domain expertise then we can simulate observations from the prior predictive distribution,
+
+$$
+\tilde{\theta} \sim \pi_{\mathcal{S}}(\theta),
+\ 
+\tilde{y} \sim \pi_{\mathcal{S}}(y \mid \tilde{\theta}),
+$$
+fit the resulting posterior distributions with our chosen computational method,
+$$
+\pi_{\mathcal{S}}(\theta \mid \tilde{y}),
+$$
+and then examine the ensemble behavior of those fits using whatever diagnostics are available. If we've already performed prior checks then the prior predictive samples will already have been generated -- all we have to do is fit the corresponding posteriors.
+
+These assessments, however, are only as good as the self-diagnostic methods available. **Fortunately Bayesian inference implies a subtle consistency property that allows us to carefully assess the accuracy of _any_ algorithm capable of generating posterior samples.**
+
+**An arbitrary Bayesian model guarantees nothing about the behavior of any single posterior distribution, even if the data are simulated from the prior predictive distribution. The _average_ posterior distribution over prior predictive draws, however, will always recover the prior distribution,**
+
+$$
+\begin{align*}
+\pi_{\mathcal{S}}(\theta')
+&=
+\int \mathrm{d} y \, \mathrm{d} \theta \,
+\pi_{\mathcal{S}} (\theta' \mid y) \, \pi_{\mathcal{S}} (y, \theta)
+\\
+&=
+\int \mathrm{d} y \, \pi_{\mathcal{S}} (\theta' \mid y)
+\int \mathrm{d} \theta \, \pi_{\mathcal{S}} (y, \theta)
+\\
+&=
+\int \mathrm{d} y \, \pi_{\mathcal{S}} (\theta' \mid y) \, \pi_{\mathcal{S}} (y).
+\end{align*}
+$$
+
+This implies, for example, that the ensemble of samples from many posterior distributions,
+
+$$
+\begin{align*}
+\tilde{\theta} &\sim \pi_{\mathcal{S}}(\theta)
+\\
+\tilde{y} &\sim \pi_{\mathcal{S}}(y \mid \tilde{\theta})
+\\
+\tilde{\theta}' &\sim \pi(\theta \mid \tilde{y}),
+\end{align*}
+$$
+
+**will be indistinguishable from samples from the prior distribution. Consequently any deviation between the two ensembles indicates that either the prior predictive sampling has been implemented incorrectly or our computational method is generating biased samples.**
+
+_Simulated-based calibration_ [[2](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#ref-TaltsEtAl:2018)] compares the ensemble posterior sample and the prior sample using _ranks_. For each simulated observation we generate R samples from the corresponding posterior distribution,
+
+$$
+\begin{align*}
+\tilde{\theta} &\sim \pi_{\mathcal{S}}(\theta)
+\\
+\tilde{y} &\sim \pi_{\mathcal{S}}(y \mid \tilde{\theta})
+\\\
+(\tilde{\theta}'_{1}, \ldots, \tilde{\theta}'_{R}) &\sim \pi(\theta \mid \tilde{y}),
+\end{align*}
+$$
+and compute the rank of the prior sample within the posterior samples, i.e. the number of posterior samples larger than the prior sample,
+
+$$
+\rho = \sharp \left\{ \tilde{\theta} < \tilde{\theta}'_{r} \right\}.
+$$
+If the ensemble posterior samples and the prior samples are equivalent then these ranks will be uniformly distributed, allowing us to visually examine the equivalence which histograms, empirical cumulative distribution functions, and the like.
+
+For example if the samples are equivalent then each parameter histogram should within the expected statistical variation. Here I use an independent binomial approximation in each bin to estimate the expected variation and visualize it with a gray rectangle.
+
+![[Pasted image 20220913125019.png]]
+
+One of the massive advantages of this approach is that common computational problems manifest in _systematic_ deviations that are easy to spot. For example if our computational method generates samples that are underdispersed then the posterior samples will cluster, concentrating above or below the prior sample more strongly than they should. This tend results in prior ranks that are biased away from the middle and a SBC histogram concentrated at both boundaries.
+
+
+![[Pasted image 20220913125129.png]]
+
+Similarly if the estimated posterior is biased high then the posterior samples will concentrate above the prior sample more strongly than they should, resulting in larger prior ranks and a SBC histogram that concentrates at the right boundary.
+
+![[Pasted image 20220913125221.png]]
+
+Keep in mind that specific behavior depends on our definition of rank -- if the prior ranks are defined as
+
+$$
+\rho = \sharp \left\{ \tilde{\theta} > \tilde{\theta}'_{r} \right\}
+$$
+then a high bias in the posterior fit will manifest in fewer posterior samples smaller than the prior sample, lower prior ranks, and a SBC histogram that concentrates at the _left_ boundary. The rank convention is arbitrary so we just have to make sure that we use one of them consistently.
+
+**For further discussion of common systematic deviations and their interpretations see the simulated-based calibration paper.**
+
+**Technically simulation-based calibration requires exact posterior samples, which are not available if we are using, for example, Markov chain Monte Carlo. To use simulation-based calibration with Markov chain Monte Carlo we have to first thin our Markov chains to remove any effective autocorrelation. See [[2](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#ref-TaltsEtAl:2018)] for more details.**
+
+**The primary limitation of simulation-based calibration is that it assesses the accuracy of a computational method only within the context of the posterior distributions arising from prior predictive observations. If the true data generating process is not well-approximated by one of our model configurations then our assessment of computational faithfulness will have little to no relevance to fits of real data. These checks are strongly recommended but definitely not sufficient until we believe that more model is close enough to the true data generating process.**
+
+## 1.3 Inferential Calibration
+Once we trust our computation, at least within the context of our model, we can consider whether or not the possible posterior distributions we might encounter yield inferences and decisions that are sufficient for the inferential goals of our analysis. Because some observations might be more informative than others we will have to consider ensembles of possible observations, and hence ensembles of posterior distributions and their resulting inferences, just as we did above.
+
+
+_Calibration_ of inferential outcomes is foundational to frequentist statistics, including concepts like coverage of confidence intervals and sample size calculations, false discovery rates, and power calculations of significance tests. Here we take a Bayesian approach to calibration, using the the scope of observations and model configurations quantified by the complete Bayesian model to analyze the range of inferential outcomes, and in particular calibrate them with respect to the simulated truths [[3](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#ref-Betancourt2018a)]. Note that I use calibrate here in the sense of _determining_ what outcomes a model might return, rather than any process of _modifying_ a model to achieve a particular desired outcome.
+
+### 1.3.1 Explicit Calibration
+Calibration formally requires a utility function that quantifies how good an inference or decision is in the context of a simulated truth.
+
+Consider, for example, a _decision making process_ that takes in an observation as input and returns an action from the space of possible actions, A,
+
+$$
+\begin{alignat*}{6}
+a :\; &Y& &\rightarrow& \; &A&
+\\
+&y& &\mapsto& &a(y)&.
+\end{alignat*}
+$$
+This process could be a Bayesian decision theoretical process informed by posterior expectations, but it need not be. It could just as easily be a process to reject or accept a null hypothesis using an orthodox significance test or any heuristic decision rule.
+
+We then define the net benefit of taking action a∈A when the true data generating process is given by the model configuration θ as
+
+$$
+\begin{alignat*}{6}
+U :\; &A \times \mathcal{S}& &\rightarrow& \; &\mathbb{R}&
+\\
+&(a, \theta)& &\mapsto& &U(a, \theta)&.
+\end{alignat*}
+$$
+
+For example this might be a false discovery rate when choosing between two hypotheses or the outcome of an intervention minus any of its implementation costs. In this context the utility of a decision making process for a given observation becomes
+
+$$
+\begin{alignat*}{6}
+U :\; &Y \times \Theta& &\rightarrow& \; &\mathbb{R}&
+\\
+&(y, \theta)& &\mapsto& &U(a(y), \theta)&.
+\end{alignat*}
+$$
+
+In practice we don't know what the true data generating process is and before the measurement process resolves we don't know what the observed data will be, either. If we assume that our model is rich enough to capture the true data generating process, however, then the complete Bayesian model quantifies reasonable possibilities. Consequently we can construct a distribution of possible utilities by pushing the complete Bayesian model forward along the utility function to give πU(A,S)
 

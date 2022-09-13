@@ -59,3 +59,6 @@ https://extensions.gnome.org/extension/3960/transparent-top-bar-adjustable-trans
 ### Connect to wifi through terminal
 https://www.linuxfordevices.com/tutorials/ubuntu/connect-wifi-terminal-command-line
 
+
+### Synaptic package manager
+install it from pop shop

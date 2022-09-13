@@ -694,6 +694,29 @@ The syntax of a `for` statement is similar to a function definition. It has a he
 
 ### Julia's multiple dispatch
 
+
+In Julia we have many functions with the same name that take different numbers and types of arguments. At runtime, julia looks at the arguments that we passed a given function and uses those arguments and their types to dispatch the correct method. In multiple dispatch, multiple inputs are used to determine the correct method, which is in contrast with single dispatch of OOP where only 1 argument is used to determine which method to use. 
+
+
+By calling `methods()` on a function, we can see how many existing definitions we have for that function. 
+
+e.g.
+```
+methods(+)
+```
+
+We can also use the `@which` macro to learn which method we are using when we call a function. e.g.
+
+```
+@which 3 + 3
+```
+
+
+
+
+
+
+...
 a concrete type is a type with no subtypes, e.g. int64 is a concrete type
 
 ```
