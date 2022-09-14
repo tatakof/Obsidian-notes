@@ -13,8 +13,14 @@ Probabilistic Modeling and statistical inference#1.3.1, The generative structure
 	- Can we trust our inferences? [[bayes_trust-inferences]]
 
 
+- Bayes M categories: [[bayes_M-categories]]
 
 - Probabilistic Computation [[bayes_probabilistic-computation]]
+	
+
+- Computational faithfulness: [[bayes_computational-faithfulness]]
+	- Z-scores [[bayes_z-scores]]
+	- Posterior contraction [[bayes_posterior-contraction]]
 
 - Asymptotics [[bayes_asymptotics]]
 

@@ -4,6 +4,12 @@
 # Definitions:
 - statistics: In classical statistics, functions of the observational space are know as statistics. 
 - model calibration: determining what outcomes a model might return, rather than any process of modifying a model to achieve a particular outcome. 
+- Posterior Z-score: The posterior z-score quantifies how accurately the posterior recovers the true model configuration along this coordinate. Smaller values indicate a posterior that more strongly concentrates around the true value while larger values indicate a posterior that concentrates elsewhere. Note that the posterior z-score captures neither the bias nor the precision of the posterior distribution but rather a combination of the two.
+- Posterior contraction of a given parameter: Posterior contraction quantifies how much the likelihood function from a given observation informs the given function. Posterior contraction near zero indicates that the data provide little information beyond the domain expertise encoded in the prior model, while posterior contraction near one indicates observations that are much more informative relative to the prior model.  
+- M Categories: classification for the relationship between an observational model and the true data generating process.
+	- M-Closed: The ideal, and largely unattainable, circumstance where our model contains the true data generating process. 
+	- M-Open: The more practical circumstance where our model doesn't contain the true data generating process. 
+	- M-good enough: where the model is sufficient for our particular analysis. 
 
 
 Principled model development strives for an observational process that captures the relevant structure of the phenomenon, environment, and probe that give rise to the true data generating process. We always have to be careful, to recognize the limitations of the even the most carefully designed observational model in any given analysis.
@@ -428,4 +434,153 @@ U :\; &Y \times \Theta& &\rightarrow& \; &\mathbb{R}&
 $$
 
 In practice we don't know what the true data generating process is and before the measurement process resolves we don't know what the observed data will be, either. If we assume that our model is rich enough to capture the true data generating process, however, then the complete Bayesian model quantifies reasonable possibilities. Consequently we can construct a distribution of possible utilities by pushing the complete Bayesian model forward along the utility function to give πU(A,S)
+
+![[Pasted image 20220914190532.png]]
+
+$$
+\tilde{\theta} \sim \pi_{\mathcal{S}}(\theta)
+\\
+\tilde{y} \sim \pi_{\mathcal{S}}(y \mid \tilde{\theta})
+\\\
+U(a(\tilde{y}), \tilde{\theta}).
+$$
+
+![[Pasted image 20220914190615.png]]
+
+**This distribution of utilities is particularly useful for understanding how sensitive the measurement process is to the relevant features of the latent system that we're studying. By carefully quantifying what we want to learn in the experiment into an explicit utility function we can formalize how capable our model is at answering those questions.** (BUT FKING HOW)
+
+Note the importance of accurate computation. If our computational methods didn't provide a faithful picture of each possible posterior distribution then we would derive only biased utility distributions that would give us a misleading characterization of our inferences and their consequences.
+
+**For example our decision may be whether or not the true data generating process falls into an irrelevant region near a baseline model configuration, Θirrelevant or a relevant region further away, Θrelevant. The utility function would then be some combination of the false discovery rate, how often we choose the relevant region when the true data generating process lies in the irrelevant region, and the true discovery rate, how often we choose the relevant region when the true data generating process lies in the relevant region.**
+
+By simulating from the prior predictive distribution and running our decision making process we can generate binary values of the indicator functions.
+
+$$
+\mathbb{I}[ \text{decide relevant} \mid \pi^{\dagger} \in \Theta_{\text{irrelevant}} ]
+$$
+and
+
+$$
+\mathbb{I}[ \text{decide relevant} \mid \pi^{\dagger} \in \Theta_{\text{relevant}} ].
+$$
+
+**The average of these outcomes then estimate Bayesian false discovery rates and Bayesian true discovey rates of the decision making process.**
+
+### 1.3.2 A Bayesian Eye Chart
+Regardless of the specific goals of an analysis we are often interested in the general behavior of the posterior distribution induced by possible observations, especially any pathological behavior that might manifest from our model assumptions. Conveniently there are two characteristics of the posterior distribution that can identify a variety of possible problems.
+
+First let's consider the _posterior z__-score_ of a given parameter in the model configuration space,
+
+$$
+z[f \mid \tilde{y}, \theta^{\dagger}] =
+\frac{ \mathbb{E}_{\mathrm{post}}[f \mid \tilde{y}] - f(\theta^{\dagger}) }
+{ \mathbb{s}_{\mathrm{post}}[f \mid \tilde{y} ] },
+$$
+where θ† is the parameter corresponding to the true data generating process and spost the standard deviation of the function f. **The posterior z-score quantifies how accurately the posterior recovers the true model configuration along this coordinate. Smaller values indicate a posterior that more strongly concentrates around the true value while larger values indicate a posterior that concentrates elsewhere. Note that the posterior z-score captures neither the bias nor the precision of the posterior distribution but rather a combination of the two.**
+
+Likewise the _posterior contraction_ of a given parameter,
+
+$$
+c[f \mid \tilde{y}] = 1 -
+\frac{ \mathbb{V}_{\mathrm{post}}[f \mid \tilde{y} ] }
+{ \mathbb{V}_{\mathrm{prior}}[f \mid \tilde{y} ] },
+$$
+
+where V denotes the variance, **quantifies how much the likelihood function from a given observation informs the given function. Posterior contraction near zero indicates that the data provide little information beyond the domain expertise encoded in the prior model, while posterior contraction near one indicates observations that are much more informative relative to the prior model.**
+
+**These two posterior characterizations can identify an array of pathological behaviors that are prone to compromising our inferences. For example a posterior distribution with a high posterior z-score and a high posterior contraction is being forced away from the true value by the observed data and overfitting, at least if the prior model contains the true value. Likewise a posterior distribution with a small posterior z-score and a small posterior contraction is only poorly informed by the observations. On the other hand a posterior distribution with both a small posterior z-score and a large posterior contraction indicates ideal learning behavior. A posterior distribution with a large posterior z-score and a small posterior contraction indicates that the prior model conflicts with the true value.**
+
+![[Pasted image 20220914193453.png]]
+
+Indeed we can identify all of these pathological behaviors by plotting the two characteristics of a given posterior distribution against each other.
+
+![[Pasted image 20220914193538.png]]
+
+If we fit the posterior distribution corresponding to an ensemble of simulations from the prior predictive distribution
+
+$$
+\tilde{\theta} \sim \pi_{\mathcal{S}}(\theta)
+\\
+\tilde{y} \sim \pi_{\mathcal{S}}(y \mid \tilde{\theta}),
+
+$$
+then we can visualize the entire distribution of possible posterior behaviors,
+
+$$
+z[f \mid \tilde{y}, \tilde{\theta}_{n}]
+\  
+c[f \mid \tilde{y} ],
+$$
+
+with a scatter plot and quickly identify potential problems with our experimental design. **Note that by sampling true model configurations from the prior model we cannot get posterior behaviors that consistently fall into the "Bad Prior Model" neighborhood.**
+
+For example the following scatter plot indicates that the posteriors arising from most prior predictive observations concentrate around the true value reasonably well. It also shows, however, that occasionally the posteriors will strongly more concentrate, and when they do they are prone to concentrating away from the true value and overfitting.
+
+![[Pasted image 20220914193956.png]]
+
+**Where good values transition into bad values depends entirely on the needs of a given application, but I typically start to worry when I see small excesses above a z-score of 4 or large excesses above a z-score of 3.**
+
+**We can follow up on any problematic fits by investigating the corresponding observations, and the likelihood functions they induce (m' so each observation induces a likelihood function?), to see exactly what is leading the posterior distribution astray.**
+
+![[Pasted image 20220914194207.png]]
+
+### 1.3.3 The Limitations of Calibration
+**Whether frequentist or Bayesian, model-based calibration is well-defined _only within the context of the assumed model_. In general these calibrations have no application to data generating processes outside of the observational model, at least not unless we expand the model and recompute the calibration to see what the change might be.**
+
+
+**Consequently any modification to the phenomena, environment, or experimental probe spanned by the model will in general invalidate a Bayesian calibration.** For example even if the latent phenomena are the same, varying environments and experimental probes can lead to very different utilities. What is good enough to answer questions in one particular comtext may not be sufficient to answer questions in different contexts!
+
+Because at least some aspect of the phenomena, environment, and probe are unique to each experiment this means that we cannot rely on black box calibrations derived from default, and typically unquestioned, models. The most robust calibrations are derived from bespoke models capturing the particular circumstances of each application.
+
+The validity of even a bespoke calibration, however, presumes that with enough effort we can actually build a model that captures the true data generating process. A valid calibration requires that we model sufficiently well not only the experimental _design_ but also the often surprising ways that design is actually _implemented_ in practice. Calibrations derived before the data are collected are necessarily optimistic; we can fully understand the utility of our inferences only after we can investigate the revelations hiding in the observed data itself.
+
+### 1.4.1 So Close, Yet So Far Away
+
+In order to critique the adequacy of a given model we have to be able to compare it to the true data generating process.
+
+#### 1.4.1.1 All Models Are Wrong
+
+If our model were sufficiently rich then our observational model πS(y;θ)
+
+would contain the true data generating process, π†; in other words the true data generating process would be one of the data generating processes in our model,
+
+$$
+\pi^{\dagger} = \pi_{\mathcal{S}}(y; \theta^{\dagger}), \, \theta^{\dagger} \in \Theta.
+$$
+![[Pasted image 20220914203028.png]]
+
+Calibrations with respect to this model would then accurately reflect the inferential consequences over actual observations.
+
+**Reality, however, is far richer than any model we could feasibly implement. Consequently any practical observational model will never exactly contain the true data generating process.**
+
+![[Pasted image 20220914203429.png]]
+
+**In this more realistic scenario posterior distributions can't concentrate around the true data generating process no matter the realized observation. _At best_ the posterior distributions will be able to concentrate around the model configurations that best approximate the true data generating process.**
+
+![[Pasted image 20220914203506.png]]
+
+**When the model doesn't contain the true data generating process we can't say much about how meaningful the answers to Questions 1-3 will be to real experiments. In this circumstance model-based calibrations can be arbitrarily distant from how our inferences would actually resolve when applied to real observations.**
+
+#### 1.4.1.2 But Some Are Useful
+The calibrations might be reasonable however, if the model captures the structure of the true data generating process that influences our desired inferences.
+
+For example most physical systems that we might analyze are well-defined by Newtownian mechanics to extremely small precision. Even though we know that Newtownian mechanics breaks down at extremely small temporal and spatial scales, it is more than sufficient for most analyses _unless we need to resolve a system at those scales_. In other words the error inherent to phenomenological models based on Newtownian mechanics will be nearly impossible to resolve with most experimental probes.
+
+**The same consideration holds for how we model the latent environment and experimental probe itself. Many experimental probes, for example, are well-approximated by modeling the variation in experimental outcomes with normal probability density functions that emerge from more complex latent interactions. Unless the experimental probe is precise enough, however, we won't be able to resolve the error inherent to this approximation in practice.**
+
+**A model that doesn't capture every precise detail of the true data generating process can still be useful if it captures the details _relevant_ to our particular analysis goals.** To paraphrase George Box, our model is probably wrong but it might still be useful.
+
+**Consequently in practice we shouldn't be asking whether or not our model contains the true data generating process but rather whether or not our model is _close enough_ to the true data generating process _in the directions that matter_.** Consider, for example, conceptually separating the space of all data generating processes P into the features relevant to our analysis goals and the features irrelevant to our analysis goals. In this context we can decompose the distance from a model to the true data generating process, or the total _misfit_, into a _relevant misfit_ and an _irrelevant misfit_.
+
+**A model with both a large relevant misfit and a large irrelevant misfit will yield misleading model-based calibrations as well as ineffective inferences from actual observations.**
+
+![[Pasted image 20220914204636.png]]
+
+**A model with a small relevant misfit, however, will give useful calibrations and inferences _for our particular analysis goals_ no matter how large the irrelevant misfit might be.**
+
+![[Pasted image 20220914204744.png]]
+
+In the Bayesian statistical literature the relationship between an observational model and the true data generating process is often classified with the M categories [[4](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#ref-BernardoEtAl:2009)]. The ideal, and largely unattainable, circumstance where our model contains the true data generating process is known as the _M__-closed_ setting, while the more practical circumstance where our model doesn't contain the true data generating process is known as the _M__-open_ setting.
+
+In this case study we'll consider a compromise between these two extremes, a _M__-good enough_ setting where our model is sufficient for our particular analysis.
 

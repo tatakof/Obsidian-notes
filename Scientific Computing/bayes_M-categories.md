@@ -1,0 +1,4 @@
+- M Categories: classification for the relationship between an observational model and the true data generating process.
+	- M-Closed: The ideal, and largely unattainable, circumstance where our model contains the true data generating process. 
+	- M-Open: The more practical circumstance where our model doesn't contain the true data generating process. 
+	- M-good enough: where the model is sufficient for our particular analysis. 

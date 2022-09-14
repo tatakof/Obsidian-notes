@@ -69,10 +69,6 @@ and we are gonna add a new entry into our settings.
 }
 
 
-"terminal.integrated.env.osx": {
-	"R_HOME": ""
-}
-
 
 and what we are doing is saying that when it opens a new terminal make sure that terminal knows about a variable called R_HOME and that R_HOME is suppoused to point to the top level of the R installation we have on our system. 
 

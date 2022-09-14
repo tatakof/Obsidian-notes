@@ -4,12 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "fb1910535ec51ae9",
+        "id": "17d71213b9ea851c",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
             "file": "bayes_workflow.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      },
+      {
+        "id": "c00cc8a1677b4d43",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "bayes_M-categories.md",
             "mode": "source",
             "source": false
           }
@@ -129,17 +141,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "fb1910535ec51ae9",
+  "active": "17d71213b9ea851c",
   "lastOpenFiles": [
-    "jl_notes.md",
-    "pop os.md",
+    "bayes_M-categories.md",
     "bayes_workflow.md",
-    "bt_towads-a-principled-bayesian-workflow.md",
-    "R Installations.md",
-    "R stuff.md",
-    "notas charla juan 2022-09-08.md",
-    "Python_notes.md",
-    "Linux-Roadmap.md",
-    "programming_concepts.md"
+    "BayesianModelingRoadmap.md",
+    "bayes_posterior-contraction.md",
+    "bayes_z-scores.md",
+    "bayes_Zscores.md",
+    "bayes_computational-faithfulness.md",
+    "radian.md",
+    "jl_notes.md",
+    "pop os.md"
   ]
 }
