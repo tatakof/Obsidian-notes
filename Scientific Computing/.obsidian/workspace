@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bayes_workflow.md",
+            "file": "radian.md",
             "mode": "source",
             "source": false
           }
@@ -73,7 +73,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 244.5,
+    "width": 100,
     "collapsed": true
   },
   "right": {
@@ -90,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bayes_workflow.md",
+                "file": "radian.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,7 +107,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "bayes_workflow.md",
+                "file": "radian.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -130,7 +130,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "bayes_workflow.md"
+                "file": "radian.md"
               }
             }
           }
@@ -143,15 +143,15 @@
   },
   "active": "17d71213b9ea851c",
   "lastOpenFiles": [
-    "bayes_M-categories.md",
+    "Useful-Bash-stuff.md",
     "bayes_workflow.md",
+    "bayes_KL-divergence.md",
+    "bayes_M-categories.md",
     "BayesianModelingRoadmap.md",
     "bayes_posterior-contraction.md",
     "bayes_z-scores.md",
     "bayes_Zscores.md",
     "bayes_computational-faithfulness.md",
-    "radian.md",
-    "jl_notes.md",
-    "pop os.md"
+    "radian.md"
   ]
 }

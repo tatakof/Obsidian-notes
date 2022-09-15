@@ -584,3 +584,39 @@ In the Bayesian statistical literature the relationship between an observational
 
 In this case study we'll consider a compromise between these two extremes, a _M__-good enough_ setting where our model is sufficient for our particular analysis.
 
+#### 1.4.1.3 Apples and Oranges
+To determine whether or not our model is "good enough" we need to be able to make a more formal comparison between our model and the true data generating process. **This is complicated, however, by the fact that a probabilistic model and a single true data generating process are _different_ objects**.
+
+**A probabilistic model is based on an observational model which itself is a _subset_ of the space of all data generating processes. A true data generating process, however, is just a point in this space. The only formal way to compare a set and a point is inclusion -- is the point within the set or not -- but we saw in the previous section that this was too crude of a comparison for our needs.**
+
+In order to make more sophisticated comparisons we need to manipulate one, or even both, of these objects into the same form that we can then compare in a well-posed way. The most straightforward way to achieve this is to reduce our model into a single _predictive_ data generating process, πpred.
+
+For example any single configuration of our model θ∈Θ defines a possible predictive distribution,
+$$
+\pi^{\text{pred}}(y) = \pi(y ; \theta).
+$$
+Typically we use inferences informed by an observation, y~, to select a predictive distribution compatible with our inferences. We could, for instance, select a predictive distribution with a frequentist estimator,
+$$
+\pi^{\text{pred}}(y \mid \tilde{y}) = \pi(y ; \hat{\theta}(\tilde{y})),
+$$
+or a posterior expectation value,
+$$
+\pi^{\text{pred}}(y \mid \tilde{y}) = \pi(y ; \mathbb{m}_{\text{post}}[\theta]),
+$$
+where
+
+$$
+\mathbb{m}_{\text{post}}[\theta] = \mathbb{E}_{\pi(\theta \mid \tilde{y})} [\theta].
+$$
+**In the Bayesian context we have two other natural ways to reduce the entire model into a single predictive distribution: the prior predictive distribution and the posterior predictive distribution. The former is informed by only the model assumptions while the latter also incorporates what we learn from any observed data. Consequently it is the posterior predictive distribution that best resolves the full inferential consequences of our model.**
+
+Regardless of which prediction strategy we choose we still need to find a way of comparing the predictive data generating process to the true data generating process, ideally focusing on the aspects relevant to our analysis goals.
+
+### 1.4.2 If Everyone Else Jumped Off A Bridge
+In science and industry there is a strong aspiration is to reduce comparisons of any sort to a single number, if not a binary classification between "same" and "different". Reducing a comparison to something quantitative, however, often requires jettisoning crucial information and consequently compromising the original purpose of the comparison.
+
+In this section we'll strive for a numerical quantification of proximity between a predictive distribution and a true data generating process, ultimately deriving many of the popular model comparison approaches in the statistics literature while also investigating why they don't provide the critical information we need. For a more detailed discussion of this derivation along with extensive references see [[5](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#ref-Betancourt:2015b)].
+
+Because we will not be using any of the techniques introduced here in the ultimately workflow this section can be skipped. It does, however, help to contextualize how these popular methods relate to that workflow and hence will be useful when communicating the workflow to others.
+
+#### 1.4.2.1 Assessing Predictive Distributions
