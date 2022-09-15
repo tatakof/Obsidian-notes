@@ -15,6 +15,9 @@ Probabilistic Modeling and statistical inference#1.3.1, The generative structure
 
 - Bayes M categories: [[bayes_M-categories]]
 
+
+- Kullback-Leibler Divergence: [[bayes_KL-divergence]]
+
 - Probabilistic Computation [[bayes_probabilistic-computation]]
 	
 

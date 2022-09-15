@@ -9,19 +9,19 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "radian.md",
+            "file": "bayes_workflow.md",
             "mode": "source",
             "source": false
           }
         }
       },
       {
-        "id": "c00cc8a1677b4d43",
+        "id": "010d29a5db3afaee",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bayes_M-categories.md",
+            "file": "bayes_KL-divergence.md",
             "mode": "source",
             "source": false
           }
@@ -90,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "radian.md",
+                "file": "bayes_workflow.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,7 +107,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "radian.md",
+                "file": "bayes_workflow.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -130,7 +130,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "radian.md"
+                "file": "bayes_workflow.md"
               }
             }
           }
@@ -143,15 +143,15 @@
   },
   "active": "17d71213b9ea851c",
   "lastOpenFiles": [
-    "Useful-Bash-stuff.md",
-    "bayes_workflow.md",
     "bayes_KL-divergence.md",
-    "bayes_M-categories.md",
+    "bayes_workflow.md",
     "BayesianModelingRoadmap.md",
+    "bayes_M-categories.md",
+    "radian.md",
+    "Useful-Bash-stuff.md",
     "bayes_posterior-contraction.md",
     "bayes_z-scores.md",
     "bayes_Zscores.md",
-    "bayes_computational-faithfulness.md",
-    "radian.md"
+    "bayes_computational-faithfulness.md"
   ]
 }
