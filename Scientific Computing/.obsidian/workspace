@@ -6,6 +6,7 @@
       {
         "id": "17d71213b9ea851c",
         "type": "leaf",
+        "dimension": 57.432432432432435,
         "state": {
           "type": "markdown",
           "state": {
@@ -16,12 +17,13 @@
         }
       },
       {
-        "id": "010d29a5db3afaee",
+        "id": "68a1a3d7d208fe15",
         "type": "leaf",
+        "dimension": 42.567567567567565,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bayes_KL-divergence.md",
+            "file": "bayes_definitions.md",
             "mode": "source",
             "source": false
           }
@@ -143,15 +145,15 @@
   },
   "active": "17d71213b9ea851c",
   "lastOpenFiles": [
-    "bayes_KL-divergence.md",
+    "bayes_definitions.md",
     "bayes_workflow.md",
+    "bayes_generative-modeling.md",
     "BayesianModelingRoadmap.md",
-    "bayes_M-categories.md",
-    "radian.md",
-    "Useful-Bash-stuff.md",
-    "bayes_posterior-contraction.md",
-    "bayes_z-scores.md",
-    "bayes_Zscores.md",
-    "bayes_computational-faithfulness.md"
+    "bayes_data-generating-process.md",
+    "bayes_limitations-obs-models.md",
+    "bayes_observational-process.md",
+    "bayes_generalization.md",
+    "bayes_why-statistics.md",
+    "bayes_bayesian-inference.md"
   ]
 }

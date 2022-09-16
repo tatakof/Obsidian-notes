@@ -772,3 +772,62 @@ These relative predictive performance scores also have the welcome interpretatio
 In practice the only manifestation of the true data generating process to which we have access are actual observations. If we want to utilize relative predictive performance scores in practice then we have to _estimate_ expectations with respect to the true data generating process using only these observations.
 
 #### 1.4.2.3 The Glass Menagerie of Relative Predictive Performance Score Estimators
+
+**Because relative predictive performance scores take the form of an expectation with respect to the true data generating process we can estimate them with Monte Carlo methods using only samples from the true data generating process.** For example if we had many observations 
+
+$$
+\{ \tilde{y}_{1}, \ldots, \tilde{y}_{N} \},
+$$
+
+then we could construct the Monte Carlo estimator
+
+$$
+\hat{\delta} \! \left( \pi \mid\mid \pi^{\text{pred}} \right)
+\equiv
+\sum_{n = 1}^{N} - \log \pi^{\text{pred}} (\tilde{y}_{n}).
+$$
+Because Monte Carlo estimators have quantifiable error this could be quite useful if N were large enough to ensure small errors.
+
+Unfortunately in practice we don't have all that many observations. Typically we are so starved for information that we need to aggregate most, if not all of our data into a single monolithic observation to inform sufficiently precise inferences. **Consequently the most common estimators, also known as _delta estimators_, use just N=1 which results large estimation error.**
+
+The situation is even more dire when we need to derive a predictive distribution from our inference. In this case we are left with no auxiliary observations for estimating relative predictive performance scores at all! Most estimation strategies compensate for the dearth of data by _reusing_ the same observation in some way to both fit and evaluate a model.
+
+_Reuse delta estimators_, for example, simply use the same data set for _both_ inference and evaluation. While convenient this results in biased estimators that are particularly insensitive to overfitting.
+
+_Holdout estimators_ partition a single observation into two groups, one for fitting the model and one for constructing delta estimators of relative predictive performance scores. Although this avoids the bias due to reusing the same observation twice, it introduces its own bias. The problem is that inferences based on subset of the data will not, in general, be characteristic of inferences based on the entirety of the data, especially in complex models. Moreover, the log predictive density evaluated at a subset of the data will not, in general, have any relationship to the log predictive density evaluated over the full data. In other words holdout estimators implicitly estimate the predictive performance in the context of a _a smaller observation_, and we don't know how to correct that to the predictive performance of the full observation except in very simple circumstances.
+
+_Jackknife estimators_ average holdout estimators over many different partitions in order to reduce the variance of the delta estimators. While this averaging can be effective it does not eliminate the bias inherent to holdout estimators. Moreover the averaging requires fitting a model multiple times which can quickly exhaust any available computational resources. Jackknife estimators of any predictive performance scores, not just the particular relative predictive performance score we have been considering, are collectively known as _cross validation_ in the machine learning and statistics literature.
+
+**All of these estimation strategies also presume that we can evaluate the log predictive density function exactly, which is unfortunately unrealistic in the the Bayesian setting. While it is straightforward to simulate from the prior predictive and posterior predictive distributions we cannot derive prior predictive or posterior predictive density functions in closed form in all but the simplest models. Consequently in order to estimate relative predictive performance scores based on these predictive distributions we have to go through the additional challenge of estimating the log densities themselves.**
+
+Interestingly different choices of predictive distribution and estimation strategy reproduce many of the model comparison methods popular in statistics and machine learning. Although they can be derived in multiple ways, this unifying relative predictive performance score perspective helps clarify the assumptions implicit in each choice and hence facilitates comparisons between them.
+
+
+![[Pasted image 20220916093829.png]]
+
+The robust use of relative predictive performance score estimators in practice is both subtle and arduous. If we can even construct an estimator then we still have to carefully quantify its error, including both bias and variance, in order to determine what differences, and hence what ordering of models, is significant. Although some estimation methods do offer heuristics for quantifying some contributions to the overall error, the ultimate success of these heuristics depends on how much those contributions dominate the overall error, which we can rarely if ever quantify.
+
+Most importantly relative predictive performance scores inform only _model comparison_, not the _model criticism_ that we need to address our question. In order to offer constructive criticism we need another way of comparing a predictive distribution to the true data generating process or, more realistically, to the observed data.
+
+### 1.4.3 Posterior Retrodiction Checks
+Although relative predictive performance scores don't ultimately provide a useful tool for model criticism, their derivation does highlight some of the properties we need in a such a tool.
+
+Firstly, we cannot compare a predictive distribution to the true data generating process without, well, already knowing the true data generating process. If we did know the true data generating process then modeling would be completely gratuitous! **In a practical analysis where we don't already know the truth we have to rely on the only manifestation of the true data generating process available: the observed data itself. Consequently any practical model criticism will be limited to comparing a predictive distribution to an observation.**
+
+Secondly, it's difficult to construct a useful quantitative comparison without knowing exactly what deviant behavior we want the comparison to probe. In practice it's often more useful to exploit visual, qualitative comparisons that can exhibit many deviant behaviors at the same time. By focusing on _exploring_ potential limitations instead of explicitly _testing_ for them we can build more flexible methods better equipped for the elaborate model failures that we'll often encounter in practice.
+
+In other words we really want methods to visually compare a predictive distribution to the observed data that can effective display many possible deviant behaviors all at the same time. Fortunately such methods are already ubiquitous in _residual analysis_.
+
+Classical residual analysis arises in _curve fitting models_ where observed data fluctuates around one of a family of possible curves f(x;θ) parameterized by the parameters θ,
+$$
+\pi(y \mid x, \theta) = \text{normal}(y \mid f(x; \theta), \sigma).
+$$
+Given a "best fit" configuration, θ^(y~), we can overlay the curve f(x;θ^(y~)) and the observed data y~ to investigate possible disagreements. While we can't expect that every datum will be close to the best fit curve, especially when we observe many data each with their own opportunity to fluctuate, **the model presumes that these fluctuations will be _uncorrelated_**. **In other words any deficiency of the curve fitting model will manifest as _systematic_ deviations that persist across many values of x is the residual plot.**
+
+For example consider the following residual plot. The scatter of the observed data around the best fit curve seems reasonably uncorrelated. **This doesn't mean that the best fit curve is correct, just that we can't resolve any deviant behavior.**
+
+![[Pasted image 20220916104837.png]]
+
+On the other hand this other residual plot exhibits strong systematic deviations. The data at central values of x are all lower than the best fit line while the data at the peripheral values of x are all higher.
+
+![[Pasted image 20220916104929.png]]
