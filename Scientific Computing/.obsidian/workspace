@@ -4,9 +4,9 @@
     "type": "split",
     "children": [
       {
-        "id": "17d71213b9ea851c",
+        "id": "3b56aebacef7338a",
         "type": "leaf",
-        "dimension": 57.432432432432435,
+        "dimension": 63.288288288288285,
         "state": {
           "type": "markdown",
           "state": {
@@ -17,13 +17,13 @@
         }
       },
       {
-        "id": "68a1a3d7d208fe15",
+        "id": "b40433c79f55d193",
         "type": "leaf",
-        "dimension": 42.567567567567565,
+        "dimension": 36.711711711711715,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bayes_definitions.md",
+            "file": "bayes_posterior-predictive-checks.md",
             "mode": "source",
             "source": false
           }
@@ -143,17 +143,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "17d71213b9ea851c",
+  "active": "3b56aebacef7338a",
   "lastOpenFiles": [
-    "bayes_definitions.md",
+    "bayes_posterior-predictive-checks.md",
     "bayes_workflow.md",
+    "bayes_definitions.md",
+    "jl_fix-slow-package-loading-vscode.md",
+    "jl_notes.md",
     "bayes_generative-modeling.md",
     "BayesianModelingRoadmap.md",
     "bayes_data-generating-process.md",
     "bayes_limitations-obs-models.md",
-    "bayes_observational-process.md",
-    "bayes_generalization.md",
-    "bayes_why-statistics.md",
-    "bayes_bayesian-inference.md"
+    "bayes_observational-process.md"
   ]
 }

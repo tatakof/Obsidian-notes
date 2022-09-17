@@ -87,6 +87,17 @@ _Jackknife estimators_ average holdout estimators over many different partitions
 #### Posterior predictive check
 
 #### Posterior retrodiction checks
+One substantial limitation of this classic residual check is that there isn't a scale that separates significant and insignificant deviations. In the context of the curve fitting model that scale is set by the assumed normal fluctuations of the observational model; deviations much smaller than σ are unresolvable from the noise while deviations much larger than σ are inconsistent with the assumed noise. **In other words these larger deviations indicate either an improbably extreme deviation or some deficiency in either the normal observational model or the shape of the best fit line.**
+
+We can incorporate these scales into residual checks by deriving an entire predictive distribution from our best fit model,
+
+$$
+\pi_{\text{pred}}(y \mid \tilde{y})
+=
+\text{normal}(y \mid f(\hat{\theta}(\tilde{y}), x), \hat{\sigma}(\tilde{y})),
+$$
+and overlaying that against the observed data. Because the predictive distribution in this context isn't being used for making predictions of new observations but rather _retrodictions_ of an existing observation, I will refer to this comparison as a _retrodictive check_.
+
 
 
 #### Simulation based calibration

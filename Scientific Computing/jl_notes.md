@@ -16,7 +16,13 @@ A docstring contains the essential information someone would need to use this fu
 Tip: Writing this kind of documentation is an important part of interface design. A well-designed interface should be simple to explain; if you have a hard time explaining one of your functions, maybe the interface could be improved.
 
 
+In jupyter notebooks only? `?function`  e.g. `?download`
 
+
+### Accesing the terminal from a notebook
+
+only in jupyter notebooks? `;command`  e.g. `;wget <url>`
+similar to pythons `!command`
 
 ### Managing packages
 first enter the pkg REPL by typing `]` in the terminal. 
@@ -929,6 +935,11 @@ For dictionaries, Julia uses an algorithm called a _hash table_ that has a remar
 The `∈` operator uses different algorithms for arrays and dictionaries. For arrays, it searches the elements of the array in order, as in [Searching](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html#searching). As the array gets longer, the search time gets longer in direct proportion.
 
 
+### Meaning of the `...` ("splat" operator)
+What `...` does is that it unwraps a tuple.
+`D = DataFrame(G...)` is equivalent to `DataFrame(G[1],G[2])`
+
+What `...` does is allows you to turn an iterable into an array and vice versa
 
 ### The `error()` function
 The `error` function is used to produce an `ErrorException` that interrupts the normal flow of control. In this case it has the message `"LookupError"`, indicating that a key does not exist.
@@ -976,8 +987,11 @@ methods(functionname)
 
 
 
-
+### Macros
+describe what macros are and explain and give examples of all the macros
 
 
 
 ### Data science in Julia
+
+#### Working with data
