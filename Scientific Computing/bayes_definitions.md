@@ -24,7 +24,7 @@ The probability distribution that exactly captures the observational process in 
 
 
 #### Observational model 
-This small world defines an *observational MODEL* consisting of individual data generating process that each define a possible mathematical narrative of how the data could be generated. m' so the observational MODEL consists of individual probability distributions over the observation space that each define a possible mathematical narrative of how the data could be generated'.  I think this is 
+This small world defines an *observational MODEL* consisting of individual data generating processes that each define a possible mathematical narrative of how the data could be generated. m' so the observational MODEL consists of individual probability distributions over the observation space that each define a possible mathematical narrative of how the data could be generated'.  I think this is 
 $$
 \pi_{\mathcal{S}}(\tilde{y} \mid \theta)$$
 
@@ -110,3 +110,13 @@ $$
 
 Given a "best fit" configuration, θ^(y~), we can overlay the curve f(x;θ^(y~)) and the observed data y~ to investigate possible disagreements. While we can't expect that every datum will be close to the best fit curve, especially when we observe many data each with their own opportunity to fluctuate, the model presumes that these fluctuations will be _uncorrelated_. In other words any deficiency of the curve fitting model will manifest as _systematic_ deviations that persist across many values of x is the residual plot. (from [[bayes_workflow]])
 
+### Ancestral sampling
+
+
+
+### Fitting a model
+With an algorithm locked and loaded we can proceed to _fit_, or estimate expectation values with respect to, the posterior distributions induced from each of our simulated observations,
+
+$$
+\pi_{\mathcal{S}}(\theta \mid \tilde{y}).
+$$

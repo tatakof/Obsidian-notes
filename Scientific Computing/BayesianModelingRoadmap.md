@@ -4,6 +4,10 @@ Probabilistic Modeling and statistical inference#1.3.1, The generative structure
 
 - Definitions: [[bayes_definitions]]
 
+- Troubleshooting: [[bayes_troubleshooting]]
+
+- Bayes fitting: [[bayes_fitting]]
+
 - Bayesian inference [[bayes_bayesian-inference]]
 	- The Prior Distribution [[bayes_prior]]
 	- The Likelihood Function [[bayes_likelihood]]

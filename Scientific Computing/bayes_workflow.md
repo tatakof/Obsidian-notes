@@ -937,3 +937,390 @@ The goal of a principled Bayesian workflow is to guide a practitioner through a 
 ## 2.1 Setting the Stage
 Before we can iterate we need to _initialize_ by defining an appropriate context and an initial model.
 
+In order to define an appropriate context we begin with a conceptual analysis of the model that we would fit without being limited by computational resources, time, and mathematical tools. This _aspirational model_, SA, incorporates all of the systematic effects that might influence the measurement process; it might include heterogeneity across individuals or variation across space and time. We might consider background contributions or any other corruption of the latent phenomena as it interacts with the environment and experimental probe. At the same time we might contemplate increasingly more elaborate models of the latent phenomena itself.
+
+Importantly the aspirational model is purely hypothetical and not something that we would ever actually write down. Reasoning about the the aspirational model forces us to reflect on the subtleties of the latent system being studied and the measurement process being used to probe that system. It is an opportunity to brainstorm so that later in model development we might be prepared with plausible hypotheses for any deviant behavior we observe.
+
+Within this abstract aspirational model we can then build an _explicit_ initial model, S1⊂SA.
+
+![[Pasted image 20220918111952.png]]
+
+The initial model should be just sophisticated enough to incorporate the phenomena of scientific interest, but little else. **It will typically include few, if any, systematic effects and only as much domain expertise as needed to motivate a self-consistent initial prior model. Initial models often take the form of some deterministic phenomenological model with the environment and experimental probe being reduced to normal variation, similar to the curve fitting model we considered in [Section 1.4.3](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:retro_check),**
+
+$$
+\mathcal{S}_{1}(y \mid \psi, \sigma) = \text{normal}(y \mid f(x; \psi), \sigma).
+$$
+
+The _difference_ between the explicit initial model and the conceptual aspirational model, SA∖S1, encapsulates all of the potentially relevant structure ignored by the initial model.
+
+![[Pasted image 20220918113431.png]]
+
+**In particular this abstract difference can be used to motivate summary statistics that isolate these ignored structures, providing the foundations of constructive prior predictive and posterior retrodictive checks. A check isolating possible heterogeneity across groups, for example, is naturally equipped with a possible resolution: the introduction of heterogeneity into the model.**
+
+## 2.2 Computer, Enhance
+**If our initial model proves adequate then we have no need of going further. In the more realistic situation where our initial model proves to be inadequate, then we have to address the revealed inadequacies one way or another. This can mean improving our model, but it could also mean changing the experiment or our inferential goals entirely.**
+
+### Issues with Question One: Domain Expertise Consistency
+
+If we learn that our model is not consistent with our domain expertise then we have to modify the aspects of our model in conflict. This often requires more careful consideration of the prior model, but occasionally it can require modifying the observational model as well. For example an observational model violating known constraints often enough might have to changed to explicitly enforce those constraints.
+
+The identification of exactly where to change our model is facilitated by well-chosen summary functions in prior pushforward and prior predictive checks. **Investment in the design of these summary functions rarely goes unrewarded, if not in the current analysis then in future analyses.**
+
+### Issues with Question Two: Computational Faithfulness
+Insufficient computational tools can be more challenging to address.
+
+If we are proficient in the current algorithms being used then we can consider more sophisticated configurations and implementations of that algorithm. Alternatively we can reparameterize our model configuration space to implicitly reconfigure the algorithm [[10](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#ref-Betancourt:2019)]. At some point we might have to consider new algorithms entirely.
+
+**By investigating the posterior fits to many simulated observations we might be able to identify the structure of the data, and hence the structure of the simulated true model configuration, that frustrates the current algorithm.** **If, and only if, these model configurations are in conflict with our domain expertise then we can then consider suppressing the pathological behavior with a stronger prior model. We have to take care here, however, as we don't want to rationalize erroneous domain expertise just to ameliorate computational issues. The computational issues might trigger more precise domain expertise, but they shouldn't rationalize fantasies.**
+
+Sometimes computational issues cannot be resolved and instead demonstrate that we are not equipped with the resources needed to tackle the presumed analysis. In that case we might have to consider less ambitious inferential goals, and the simpler, more-computationally-friendly models they require.
+
+### Issues with Question Three: Inferential Adequacy
+When model calibration indicates that we are unlikely to meet our inferential goals we need to consider ways to improve our inferences, or weaken the inferential goals entirely.
+
+**Inferences underperform when they cannot exploit enough information about the system being analyzed**. **The only way we can improve our inferences, then, is to incorporate more information into our model**.
+
+**One critical source of information is the domain expertise encoded in the prior model. By reevaluating our domain expertise we might be able to build a more precise prior model that captures more information**. **This is especially critical if we can use our calibrations to identify for what information our inferences are most starved to guide our prior refinement**.
+
+**The other source of information is the observations as encoded in the realized likelihood functions. In particular we can always improve our inferences by considering more elaborate or more precise experimental probes, collecting more data or possibly different kinds of data to better inform the relevant aspects of the true data generating process.** **New data that complements an existing measurement can be particularly effective. For example measurements with the latent phenomena removed or suppressed can help to inform the behavior of the experimental probe or the latent environment, breaking degeneracies that limit how well we can resolve the latent phenomena in the full measurement.**
+
+Finally we have to acknowledge that a better model is not always sufficient to obtain the desired inferences. **Sometimes our initial inferential goals are just too ambitious, and our experiments are too insensitive to the phenomena of interest.** In these cases we might have to use the calibration studies to suggest more realistic goals for the current experiment design.
+
+### Issues with Question Four: Model Adequacy
+
+Finally, if we learn that our model isn't capturing the relevant features of the true data generating process then **we need to _expand_ its boundaries in those relevant directions.**
+
+**Model expansion gives us a sequence of _nested models_, or nested subsets in the space of all possible data generating processes,**
+$$
+\mathcal{S}_{1} \subset \mathcal{S}_{2} \subset \mathcal{S}_{3} \subset \mathcal{P},
+$$
+that hopefully move closer and closer to the true data generating process, at least in the relevant directions.
+
+![[Pasted image 20220919111357.png]]
+
+**This iterative model development can be compared to the basic scientific method where we operationalize the vague “compare hypothesis predictions to experiment" and "form new hypotheses" with posterior retrodictive checks identifying inconsistencies and our aspirational model motivating new hypotheses**. That said the proper implementation of the scientific method is a contentious subject spanning philosophy, science, and statistics...so maybe it's best to avoid such comparisons.
+
+We don't want to add complexity arbitrarily, however, lest we end up with an unwieldy model that isn't even adequate for our inferential goals. Instead **we want to expand our model carefully, prioritizing the features that could alleviate the most extreme observed deviations**.
+
+Fortunately the context of the aspirational model, and the summary statistics it motivates, helps to guide this prioritization and make it less overwhelming. **In particular posterior retrodictive checks based on interpretable summary statistics not only identify potential problems but also suggest the structure needed to resolve those problems. We can then focus on the summary statistics that reveal the strongest deviations, laying a deliberately path through the aspiration model that takes us from our initial model towards the true data generating process.**
+
+**If deviations aren't strong enough to motivate an expansion we can also take a closer look by collecting more data or complementary data that induces more precise inferences. This allows us to not only better resolve the latent phenomenology but also any deficiencies of the current model, and hence motivate more principled improvements.**
+
+## 2.3 Stay Where a Kiss Won't Mislead You
+
+Using the data to both fit and evaluate our model is dangerous, but that danger is unavoidable in practice because we can rarely trust that an experiment will be implemented exactly according to its design. In order to figure out how the experimental design was actually implemented in reality, and reason able the intricate systematic effects that arise as a consequence of that implementation, we need to investigate the observed data. In other words we can't trust any of our model calibrations until we can explore what surprises lurk in the data.
+
+An immediate corollary is that while ideas like preregistration can be helpful for documenting the initial inferential goals of an experiment they are nowhere near _sufficient_ for a successful analysis in practice. Preserving a preregistered model only perpetuates its optimistic assumptions about the realization of an experiment. In practice we almost always have to adapt our model to the peculiarities of the observed data.
+
+Fortunately an principled Bayesian workflow can ameliorate the potential danger of using the data to both inform our posterior distribution and our posterior retrodictive checks. In particular by developing a model through iterative _expansion_ where each model iteration is subsumed _within_ a new model model our inferences can always retreat to the previous model configurations if the added structure doesn't better capture the relevant parts of the true data generating process.
+
+Consider for example the previous model configuration space Θi and the new model configuration space Θi+1. If we restrict ourselves to model expansion then the former will always nest within the latter, Θi⊂Θi+1, and all of the previous model behaviors will be available in the new model as well.
+
+![[Pasted image 20220919121315.png]]
+
+Expansion is made more robust when we use prior models that concentrate around the previous, simpler model, similar to the behavior of _penalized complexity priors_ [[11](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#ref-SimpsonEtAl:2017)] The fact that we prioritized the previous model by trying it first suggests that these prior models are naturally compatible with our domain expertise. **Moreover these prior models are straightforward to implement in practice once we parameterize the new model such that the previous model is recovered when one or more new parameters are set to zero, effectively "turning off" the new structure.**
+
+![[Pasted image 20220919121330.png]]
+
+If the additional flexibility introduced into the new model doesn't improve the fit to the observed data then the posterior distributions will collapse back to simpler model configurations that overlap with the previous model.
+
+![[Pasted image 20220919121344.png]]
+
+When the additional flexibility provides a better, fit, however, the posteriors distributions will venture deeper into the new model.
+
+![[Pasted image 20220919121359.png]]
+
+**If the observational data is consistent with model configurations in the previous and the new model then the posterior distribution will stretch across _both_.**
+
+![[Pasted image 20220919121416.png]]
+
+**Because the posterior distribution quantifies _all_ of the model configurations consistent with an observation, the previous model configurations will continue to influence our inferences _until they are no longer compatible with the data_.** **Consequently the worst outcome of adding unneeded structure is only larger uncertainties**. **This makes Bayesian inference particularly robust against overfitting relative to point estimators that quantify only a single model configuration and are easily seduced by the complexity of the new model**.
+
+In other words the combination of model expansion, parsimonious prior models, and full Bayesian inference makes it harder to reach towards unneeded complexity and limits how iterative model development based on posterior retrodictive checks can overfit. That said, just because overfitting is more difficult doesn't mean that it is impossible. **Extreme realizations of a measurement can mimic systematic behavior so well that even a posterior distribution can be fooled away from a simpler truth.**
+
+**Careful calibrations with simulated data can identify when a model is vulnerable to overfitting, as can posterior predictive checks with held out observations if they are available.** **The best protection, however, is thorough documentation of the model development process that allows a community to leverage their collective domain and statistical expertise to identify any signs of overfitting.**
+
+# 3 Work it, Make it, Do it, Makes Us Harder, Better, Faster, Stronger
+Iterative evaluation and refinement guides the development of Bayesian models appropriate for the bespoke details of a particular application. Implementing that development, however, can be overwhelming given just how many ways a model can be deficient.
+
+In this section I introduce a _principled Bayesian workflow_ that integrates each of the evaluation techniques we have introduced into a coherent sequence of investigations. This workflow can be thought of as a sort of conceptual checklist to help organize all of the ways a model might disappoint you, and hence manage all of the red flags for which you have to be vigilant.
+![[Pasted image 20220919141148.png]]
+
+Each iteration of the workflow proceeds in three phases: the first without considering an explicit model or observed data, the second using a model but no observation, and the third utilizing both. After reviewing each step in these phases we'll review some demonstrative examples of how an iteration might be realized in various circumstances.
+
+In order to implement the steps in this workflow we need access to both _domain expertise_ and _statistical expertise_. **Here domain expertise refers to the experience of those responsible for collecting, curating, or otherwise manipulating the data, as well as stakeholders who will make decisions using the final inferences or any intermediaries who will help stakeholders in that decision-making process.** Statistical expertise refers to proficiency in probabilistic modeling and computation. A robust analysis requires input from both sets of expertise, whether contributed from a single person or multiple individuals in collaboration.
+
+## Pre-Model, Pre-Data
+
+The first phase of this workflow sets the foundations on which we will build our model.
+
+### Step One: Conceptual Analysis
+
+We begin by reasoning about the aspirational model.
+
+In the first iteration we consider exactly what our inferential goals are before contemplating the measurement process, from the latent phenomena of interest through its interactions with the environment and experimental probe and how those interactions manifest as observations.
+
+When we return to this step in future iterations our objective is to expand the aspirational model to encompass any behavior that we had not previously anticipated.
+
+Importantly the outcomes of this step should be only informal, conceptual narratives of the measurement process. All we're trying to do is sit down with the domain experts, whether ourselves or our colleagues, and ask _"How is are data being generated?"_.
+
+**Requirements:** Domain Expertise
+
+### Step Two: Define Observational Space
+
+Given a conceptual understanding of the measurement process we can take our first steps towards a formal mathematical model by defining the observational space, Y in which observations take values. This includes, for example, the number of components and their type, as well as any available metadata informing the context of each component observation.
+
+In later iterations we return to this step only when we expand the observation to include, for example, repeated or complementary measurements.
+
+**Requirements:** Domain Expertise and Statistical Expertise
+
+### Step Three: Construct Summary Statistics
+
+With the observational space formally defined we can construct summary statistics that isolate the consequences of the measurement process that we think will influence our inferential goals, as well as those that we expect to be difficult to model well. These summary statistics then provide the basis for prior predictive checks and posterior retrodictive checks that help to answer [Question One:Domain Expertise Consistency](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:question_one) and [Question Four: Model Adequacy](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:question_four), respectively.
+
+In preparation for prior predictive checks we also want to complement these summary statistics with conceptual thresholds that capture our domain expertise.
+
+**Requirements:** Domain Expertise and Statistical Expertise
+
+## Post-Model, Pre-Data
+
+With the conceptual foundation laid the second phase considers an explicit Bayesian model and its internal consequences.
+
+### Step Four: Model Development
+
+The construction a complete Bayesian model πS(y,θ)
+
+is often facilitated by modeling in stages, first building an observation model, πS(y∣θ), and then building a complementary prior model, πS(θ).
+
+From this perspective the observational model translates the conceptual narrative considered in [Step One](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:conceptual) into formal mathematical narratives of how observations are generated.
+
+In the initial iteration this model should be just sophisticated enough to be able to provide an answer to the inferential questions of interest, although not necessarily a good one. If we return to this step in later iterations then we will need to provide a more detailed translation of those conceptual narratives.
+
+The prior model then complements the observational model with just enough domain expertise to ensure that the complete Bayesian model is well-behaved and compatible with our domain expertise [[12](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#ref-GelmanEtAl:2017a)]. If our initial prior model isn't adequate then when we return to this step in later iterations we will need to incorporate additional information with a more careful prior model that refines our domain expertise.
+
+
+That said, as our models grow in sophistication the story of the data generating process becomes harder and harder to encapsulate entirely within the observational model. Consider, for example, a model that generates each component of the observational space, yn, from a corresponding _local_ parameter, θn,
+$$
+\pi_{\mathcal{S}}(y_{n} | \theta_{n}),
+$$
+while the local parameters are moderated by a _global_ parameter ϕ, parameters,
+$$
+\pi_{\mathcal{S}}(\theta_{n} \mid \phi).
+$$
+In this case our observational model is formally given by only
+$$
+\pi_{\mathcal{S}}(y \mid \theta, \phi) =
+\prod_{n = 1}^{N} \pi_{\mathcal{S}}(y_{n} | \theta_{n})
+$$
+while the prior model is given by
+$$
+\pi_{\mathcal{S}}(\theta, \phi) =
+\left[ \prod_{n = 1}^{N} \pi_{\mathcal{S}}(\theta_{n} \mid \phi) \right]
+\cdot \pi_{\mathcal{S}}(\phi).
+$$
+The data generating narratives, however, might more naturally encapsulate both how the data are generated from the local parameter configurations and how the local parameter configurations are generated from the global parameter configuration,
+
+$$
+\pi_{\mathcal{S}}(y, \theta \mid \phi)
+=
+\prod_{n = 1}^{N}
+\pi_{\mathcal{S}}(y_{n} | \theta_{n}) \, \pi_{\mathcal{S}}(\theta_{n} \mid \phi).
+$$
+We can avoid this ambiguity entirely by developing the complete Bayesian model as a whole, with a conditional decomposition that spans the all of the model configuration and observational spaces,
+$$
+\pi_{\mathcal{S}}(y, \theta, \phi) =
+\left[ \prod_{n = 1}^{N}
+\pi_{\mathcal{S}}(y_{n} | \theta_{n}) \, \pi_{\mathcal{S}}(\theta_{n} \mid \phi)
+\right] \cdot \pi_{\mathcal{S}}(\phi).
+$$
+**Such _generative_ modeling allows us to tell our data generating story sequentially without having to worry about which chapters fall into the prior model and which fall into the observational model.**
+
+**Requirements:** Domain Expertise and Statistical Expertise
+
+### Step Five: Construct Summary Functions
+
+Given an explicit model, and hence model configuration space, we can construct principled summary functions over the model configuration space to set the stage for prior pushforward checks.
+
+**We might also use the structure of the model to introduce new summary statistics for prior predictive and posterior retrodictive checks. For example we might add summary statistics that are sensitive to the heterogeneity of certain components in our model.**
+
+**In future iterations we can also take this opportunity to exploit any information about the deficiencies encountered in previous iterations to motivate new summary functions.**
+
+### Step Six: Simulate Bayesian Ensemble
+
+We are now ready to evaluate the consequences of our model assumptions by investigating the behavior of an ensemble of reasonable model configurations and observations sampled from the Bayesian joint distribution, πS(y,θ).
+
+Given a conditional decomposition of the complete Bayesian model we can readily generate this ensemble with ancestral sampling. In particular if we've specified a prior model and an observational model then we can first simulate model configurations from the prior distribution,
+$$
+\tilde{\theta} \sim \pi_{\mathcal{S}}(\theta),
+$$
+and then observations from the corresponding data generating process,
+$$
+\tilde{y} \sim \pi_{\mathcal{S}}(y \mid \tilde{\theta} ).
+$$
+**Together each simualated pair (y~,θ~)adds an independent sample to our ensemble.**
+
+**Without a useful conditional decomposition we have to consider other means of generating samples from the complete Bayesian model, such as Markov chain Monte Carlo.**
+
+**Requirements:** Statistical Expertise
+
+### Step Seven: Prior Checks
+
+**We can answer [Question One: Domain Expertise Consistency](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:question_one) with the information provided by prior pushforward checks of the summary functions constructed in [Step Five](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:summary-functions) or with prior predictive checks of the summary statistics constructed in [Step Three](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:summary-stats) and [Step Five](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:summary-functions).**
+
+**If the prior predictive checks indicate conflict between the model and our domain expertise then we have to return to [Step Four](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:model-development) and refine our model.**
+
+**Requirements:** Domain Expertise
+
+### Step Eight: Configure Algorithm
+
+Once satisfied with the consistency of the domain expertise in our model we move onto the possible posterior distributions that result from our complete Bayesian model, which itself requires setting up a probabilistic computational algorithm.
+
+Here we specify our algorithm and any configurable settings, for example we might decide to use `Stan` along with its default settings. In future iterations we might have to tweak those settings in response to computational failures.
+
+**Requirements:** Statistical Expertise
+
+### Step Nine: Fit Simulated Ensemble
+
+With an algorithm locked and loaded we can proceed to **_fit_, or estimate expectation values with respect to,** the posterior distributions induced from each of our simulated observations,
+
+$$
+\pi_{\mathcal{S}}(\theta \mid \tilde{y}).
+$$
+**Requirements:** Statistical Expertise
+
+### Step Ten: Algorithmic Calibration
+
+By fitting the entire ensemble of posterior distributions we can probe the utility of our chosen algorithm and help answer [Question Two: Computational Faithfulness](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:question_two), at least within the context of the model assumptions.
+
+For example if the designated computational method features self-diagnostics, such as R^ for Markov chain Monte Carlo in general and divergences for Hamiltonian Monte Carlo in particular, **then we can look for failed diagnostics across the distribution of posterior fits.** **Even if our chosen method doesn't have its own diagnostics we can evaluate its performance by performing simulation-based calibration**.
+
+Failures indicate that we may need return to [Step Eight](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:config-algo) and improve the tuning or implementation the chosen computational method, or select another method altogether.
+
+**We can also correlate failed fits with the corresponding simulated observations and model configurations.** **This can potentially identify poorly-identified likelihood functions that result in posterior distributions pathological to the computational method being used.** The propensity for such poor behavior can then be ameliorated by returning to [Step Four](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:model-development) and incorporating additional domain expertise or even returning to [Step One](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:conceptual) and considering new experimental designs that might result in more manageable likelihood functions.
+
+**Requirements:** Statistical Expertise
+
+### 3.0.1 Step Eleven: Inferential Calibration
+
+Once we trust the faithfulness of our reconstructed posterior distributions we can consider the breadth of inferences they provide to help answer [Question Three: Inferential Adequacy](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:question_three).
+
+**In general we can always consider the distribution of posterior z-scores against posterior contractions to identify common pathologies in our inferences. If there are indications of undesired behavior, such as overfitting or non-identifiability, then our model may not be sufficient.**
+
+**When an explicit decision-making process has been established we can also calibrate the performance of this process by constructing the distribution of utilities over our simulated Bayesian ensemble**. **For example if a discovery claim is to be made then we might compute the corresponding false discovery rates and true discovery rates within the context of our model.** If these utilities are not satisfactory then we have to consider a more informed model or maybe even a different decision-making process.
+
+In either case we might have to return to [Step One](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:conceptual) to consider an improved experimental design or tempered scientific goals. Sometimes we may only need to return to [Step Four](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:model-development) to incorporate additional domain expertise to improve our inferences.
+
+**Requirements:** Domain Expertise and Statistical Expertise
+
+## Post-Model, Post-Data
+
+If [Question One: Domain Expertise Consistency](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:question_one), [Question Two: Computational Faithfulness](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:question_two), and [Question Three: Inferential Adequacy](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:question_three) have been satisfactorily answered within the scope of the model then we can finally proceed to fitting the observed data and confront [Question Four: Model Adequacy](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:question_four). **Once we consider the observed data we introduce a vulnerability to overfitting and so we must be extremely vigilant in how we further develop our model in subsequent iterations of the workflow.**
+
+### Step Thirteen: Diagnose Posterior Fit
+
+**We have to be careful, however, as the algorithmic calibration won't be relevant to the observed data if our model isn't close enough to the true data generating process.** Consequently we need to be careful to check any diagnostics of our computational method on the fit of the observed data as well.
+
+**If any diagnostics indicate poor performance then not only is our computational method suspect but also our model might not be rich enough to capture the relevant details of the observed data. At the very least we should return to [Step Eight](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:config-algo) and enhance our computational method.**
+
+**Requirements:** Statistical Expertise
+
+### Step Fourteen: Posterior Retrodictive Checks
+
+To really get a handle on [Question Four: Model Adequacy](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:question_four) we have to perform careful posterior retrodictive checks for each of our summary statistics.
+
+**If there are indications of problems that we already suspected in our aspirational model then we can return to [Step Four](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:model-development) and augment the model to account for the observed deviant behavior.** **When the behavior is more surprising, however, then we really should go all the way back to [Step One](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:conceptual) and reconsider our conceptual analysis of the experiment to motivate principled model improvements. If the indications are weak then we can also return to [Step One](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:conceptual) to consider expanding our observation to improve our inferences and better resolve the potential deviation.**
+
+**In order to avoid biasing our model development by overfitting to the observed data we have to be careful with what information we take with us when we start a new iteration of the workflow**. **Specifically we want the _qualitative failure_ of a posterior retrodictive check to motivate model expansion, not the _quantiative features of the observed data itself_. In other words a posterior retrodictive check should serve only to trigger our domain expertise, and our domain expertise should then be solely responsible for the continued model development. The more disciplined we can be here the more less vulnerable our model development will be to overfitting.**
+
+**Requirements:** Domain Expertise and Statistical Expertise
+
+### Step Fifteen: Celebrate
+
+Finally if we can make it through the workflow with a model that indicates no deficiencies relevant to our inferential goals then the iterations terminate and we can celebrate a hard-earned success.
+
+**Requirements:** A Tasty Beverage
+
+
+## 3.1 Example Workflow Executions
+
+Each iteration of this principled Bayesian workflow will play out a little bit differently depending on what deficiencies we encounter. Perhaps most importantly the realized workflow will depend on which steps we actually consider. While implementing the entire workflow is the most robust we often have to make compromises due to limited time or computational resources. Or maybe we just want to live dangerously.
+
+### 3.1.1 Total Body Workout
+
+The most robust workflow is a complete workflow. Each iteration resolves differently depending on which step encounters problems.
+
+#### Dealing With Incompatible Model Assumptions
+
+For example consider a model where the consequences of the inherent assumptions are inconsistent with our domain expertise. In that case the prior checks would fail and lead us back to the model development step for the next round of iteration.
+
+![[Pasted image 20220920164628.png]]
+
+#### Dealing With Inadequate Inferences
+
+Similarly if our model isn't expected to be precise enough or answer the questions we need then the inferential calibration would fail. Here we respond by going all the way back to the conceptual analysis to consider experiments with larger observations and, hopefully, enough information to answer our questions.
+
+![[Pasted image 20220920164656.png]]
+
+#### Dealing With An Inadequate Model
+
+A model that doesn't approximately capture the true data generating process well enough should result in a failed posterior retrodictive check.
+
+If the failure was a behavior that we had previously considered then we can restart at the model development step.
+
+![[Pasted image 20220920164721.png]]
+
+When the behavior is more surprising, however, we have to go all the way back up to step one to consider the conceptual context of the observed behavior.
+
+![[Pasted image 20220920164737.png]]
+
+#### Exhaustive Success
+
+The most desirable outcome of the workflow is an iteration that reaches step fifteen after implementing each intermediate step. **This doesn't mean that our model is an exact representation of reality, just one that is good enough for the context of our particular application.**
+
+![[Pasted image 20220920164804.png]]
+
+### 3.1.2 Compromised Integrity
+
+In practice we might have to pick and choose amongst the steps in the complete workflow. Some compromises, however, are more useful than others.
+
+### 3.1.3 Only Fits
+
+Most Bayesian analyses one will encounter in practice just want to build and fit a model without asking too many questions. The utility of these analyses depends on how lucky one gets with that initial model and the robustness of the computational algorithm.
+
+![[Pasted image 20220920164829.png]]
+
+### 3.1.4 Fits With Algorithm Tuning
+
+More sophisticated users might also follow up on diagnostic problems encountered during the fit of the posterior distribution from the observed data, for example by modifying the `adapt_delta` configuration in the dynamic Hamiltonian Monte Carlo implementation in `Stan`, until there are no indications of computational problems.
+
+![[Pasted image 20220920164856.png]]
+
+### 3.1.5 No Calibration
+
+By far the most expensive step of the complete workflow is [Step Nine](https://betanalpha.github.io/assets/case_studies/principled_bayesian_workflow.html#sec:fit-simu) which requires fitting not just one posterior but an entire ensemble of them. Consequently this step, and the calibration steps that proceed it, can be impractical in practice.
+
+Implementing every other step, however, provides much more robustness than a single naive fit alone. This reduced workflow is particularly robust if we are using modeling techniques that have already been studied for their algorithmic and inferential pathologies so that we already know how to implement them effectively.
+
+![[Pasted image 20220920164914.png]]
+
+### 3.1.6 Simulation Study
+
+Complementing a calibration free workflow is a pure simulation study that studies the potential problems of a model, and the experimental design it encodes, solely within the assumptions of that model. This is a powerful way both to evaluate experiments before the experiment is build -- let alone any data are collected -- and to study the behavior of particular modeling techniques in isolation.
+
+![[Pasted image 20220920164946.png]]
+
+**Simulation studies are incredibly useful to help build our understanding and prepare us for more principled modeling. Consequently we should be sure to celebrate these analyses, too.**
+
+![[Pasted image 20220920165001.png]]
+
+# 4 Close Enough For An Effective Demonstration
+
+In order to demonstrate this workflow properly let's a consider a relatively simple example of an analysis that might arise in a science lab. We have been tasked with analyzing data collected by a precocious young student who was instructed to aim a collection of detectors onto a radioactive specimen that emits a constant flow of particles. They dutifully collected data and collated it into a file which has just arrived in our inbox.
+
+
+...
+
+### Step Three: Construct Summary Statistics
+
+There are N=1000 components in each observation, one for each detector. We could analyze each component independently but, because we have assumed that the detectors are all identical, we can analyze their ensemble response with a _histogram_ of their counts. **In other words we consider the histogram of detector counts _as a collection of summary statistics_!**
+

@@ -24,6 +24,15 @@ https://amarsaini.github.io/Epoching-Blog/jupyter/nlp/pytorch/fastai/huggingface
 https://medium.com/@antonio.lopardo/the-basics-of-language-modeling-1c8832f21079
 
 
+
+https://www.geeksforgeeks.org/n-gram-language-modelling-with-nltk/
+
+https://www.analyticsvidhya.com/blog/2021/09/what-are-n-grams-and-how-to-implement-them-in-python/
+
+https://pub.towardsai.net/understand-and-building-n-gram-model-in-nlp-with-python-addddbdb71fc
+
+
+
 transformer models for textual data prediction:
 https://neptune.ai/blog/transformer-models-for-textual-data-prediction 
 

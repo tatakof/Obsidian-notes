@@ -6,7 +6,7 @@
       {
         "id": "3b56aebacef7338a",
         "type": "leaf",
-        "dimension": 63.288288288288285,
+        "dimension": 70.91121495327103,
         "state": {
           "type": "markdown",
           "state": {
@@ -17,13 +17,13 @@
         }
       },
       {
-        "id": "b40433c79f55d193",
+        "id": "d33a8f6e70250ec7",
         "type": "leaf",
-        "dimension": 36.711711711711715,
+        "dimension": 29.088785046728972,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bayes_posterior-predictive-checks.md",
+            "file": "bayes_troubleshooting.md",
             "mode": "source",
             "source": false
           }
@@ -145,15 +145,15 @@
   },
   "active": "3b56aebacef7338a",
   "lastOpenFiles": [
-    "bayes_posterior-predictive-checks.md",
+    "bayes_troubleshooting.md",
     "bayes_workflow.md",
     "bayes_definitions.md",
-    "jl_fix-slow-package-loading-vscode.md",
-    "jl_notes.md",
-    "bayes_generative-modeling.md",
     "BayesianModelingRoadmap.md",
-    "bayes_data-generating-process.md",
-    "bayes_limitations-obs-models.md",
-    "bayes_observational-process.md"
+    "bayes_fitting.md",
+    "dl_transformers_resources.md",
+    "dl_transformers_textual-data-prediction.md",
+    "bayes_posterior-predictive-checks.md",
+    "jl_fix-slow-package-loading-vscode.md",
+    "jl_notes.md"
   ]
 }
