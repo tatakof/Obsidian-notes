@@ -1,3 +1,6 @@
+R wizardry: How to do that thing
+
+
 #### Skipping errors in for loops
 https://stackoverflow.com/questions/14748557/skipping-error-in-for-loop
 

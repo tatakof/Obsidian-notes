@@ -8,6 +8,8 @@ Probabilistic Modeling and statistical inference#1.3.1, The generative structure
 
 - Bayes fitting: [[bayes_fitting]]
 
+- STAN: [[bayes_stan]]
+
 - Bayesian inference [[bayes_bayesian-inference]]
 	- The Prior Distribution [[bayes_prior]]
 	- The Likelihood Function [[bayes_likelihood]]

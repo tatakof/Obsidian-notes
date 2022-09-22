@@ -4,26 +4,26 @@
     "type": "split",
     "children": [
       {
-        "id": "3b56aebacef7338a",
+        "id": "0b46e422bd390ca8",
         "type": "leaf",
-        "dimension": 70.91121495327103,
+        "dimension": 35.43010752688172,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bayes_workflow.md",
+            "file": "bayes_stan.md",
             "mode": "source",
             "source": false
           }
         }
       },
       {
-        "id": "d33a8f6e70250ec7",
+        "id": "6bd864ca88028eb4",
         "type": "leaf",
-        "dimension": 29.088785046728972,
+        "dimension": 64.56989247311829,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bayes_troubleshooting.md",
+            "file": "data-science_writing.md",
             "mode": "source",
             "source": false
           }
@@ -92,7 +92,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bayes_workflow.md",
+                "file": "data-science_writing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,7 +109,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "bayes_workflow.md",
+                "file": "data-science_writing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,7 +132,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "bayes_workflow.md"
+                "file": "data-science_writing.md"
               }
             }
           }
@@ -143,17 +143,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "3b56aebacef7338a",
+  "active": "6bd864ca88028eb4",
   "lastOpenFiles": [
-    "bayes_troubleshooting.md",
-    "bayes_workflow.md",
     "bayes_definitions.md",
+    "bayes_stan.md",
+    "data-science_writing.md",
+    "R_wizardry.md",
+    "bayes_workflow.md",
     "BayesianModelingRoadmap.md",
+    "bayes_troubleshooting.md",
     "bayes_fitting.md",
     "dl_transformers_resources.md",
-    "dl_transformers_textual-data-prediction.md",
-    "bayes_posterior-predictive-checks.md",
-    "jl_fix-slow-package-loading-vscode.md",
-    "jl_notes.md"
+    "dl_transformers_textual-data-prediction.md"
   ]
 }

@@ -120,3 +120,74 @@ With an algorithm locked and loaded we can proceed to _fit_, or estimate expecta
 $$
 \pi_{\mathcal{S}}(\theta \mid \tilde{y}).
 $$
+
+### STAN
+
+
+### JAGS
+
+### CmdStan
+`CmdStan` is the most lightweight interface closest to the core `C++` functionality. `CmdStan` consists of a series of makefiles that allow a Stan program to be compiled into a executable program within a command line environment. Algorithm output is streamed to text files which can be analyzed both during and after the running of an executable. Because `CmdStan` is so lightweight it adds little overhead to the core algorithms and consequently is especially useful in performance-limited applications. The proximity to the core libraries also means that `CmdStan` typically exposes new language and algorithm features first.
+
+### Automatic differentiation
+Critically the Stan Math Library also implements _automatic differentiation_ for all of its functions. Automatic differentiation is a technique for efficiently evaluating the exact values of the gradient of a `C++` function at a given set of inputs. This means that every Stan program defines both a target log probability density function _and_ the corresponding gradient function without any additional effort from the user. This then allows the use of extremely effective gradient-based algorithms like Hamiltonian Monte Carlo without the user having to pour through pages upon pages of analytic derivative calculations.
+
+
+#### Probabilistic programming language
+Earlier I defined Stan as a probabilistic programming language without actually defining what a probabilistic programming language is. Unfortunately as probabilistic programming has become more popular over the past decade so too have the diversity of its interpretations. These different interpretations can make it challenging to understand the properties of a particular language while also complicating comparisons between different languages.
+
+The one unifying aspect of probabilistic programming is the use of computer programs to represent probability distributions and their transformations under various operations. Ambiguities arise, however, when specifying exactly which probability distributions and probabilistic operations are within the scope of a given probabilistic programming language.
+
+Ideally a probabilistic programming language would be able to specify _every_ possible probability distribution over _every_ possible ambient space, along with _every_ possible probabilistic operation from expectations to pushforwards and conditionings.
+![[Pasted image 20220922110354.png]]
+
+Unfortunately the space of all possible probability distributions is littered with distributions whose probabilities cannot be computed, even in principle. At the very least any practical language has to be restricted to the space of _computable_ probability distributions.
+
+![[Pasted image 20220922110408.png]]
+
+Within the space of computable probability distributions most languages focus on product distributions.
+
+![[Pasted image 20220922110440.png]]
+
+The space of product distributions can be further broken down by whether or not the component spaces are continous, discrete, or a mixture of the two.
+
+![[Pasted image 20220922110508.png]]
+Even with a restriction to product spaces a critical limitation of probabilistic programming is which operations we can _faithfully_ implement in practice. The design of a probabilistic programming language has to carefully balance the extent of the language with the reality of the probabilistic computation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Product distributions
+
+
+### Product spaces
+
+### Probability distributions over product spaces. 
+
+### Conditional decomposition
+
+
+### Unnormalized probability density function
+they differ from the target probability density function only by a constant
+$$
+\bar{\pi}(x) \propto \pi(x).
+$$
+
+### Density function
+**A probability density function does, however, provide sufficient information for many probabilistic computational algorithms, in particular Markov chain Monte Carlo. Given a probabilistic program that evaluates the target probability density function these algorithms can generate estimates of expectation values. In fact most of these algorithms need only _unnormalized_ probability density functions that differ from the target probability density function by only a constant,**
+
+$$
+\bar{\pi}(x) \propto \pi(x).
+$$
+**Consequently an even more general target for a probabilistic programming language is an unnormalized probability density function, which I will refer to from here on is as _density function_.**
+
+
