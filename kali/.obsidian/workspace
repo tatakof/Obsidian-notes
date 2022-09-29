@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bandit concepts.md",
+            "file": "password breaker.md",
             "mode": "source",
             "source": false
           }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bandit concepts.md",
+                "file": "password breaker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "bandit concepts.md",
+                "file": "password breaker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "bandit concepts.md"
+                "file": "password breaker.md"
               }
             }
           }
@@ -130,8 +130,8 @@
   },
   "active": "a1929b3e9dfaa02c",
   "lastOpenFiles": [
+    "bandit concepts.md",
     "bandit.md",
-    "regex.md",
-    "bandit concepts.md"
+    "regex.md"
   ]
 }

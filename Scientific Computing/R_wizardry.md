@@ -1,32 +1,31 @@
-R wizardry: How to do that thing
+# R Wizardry: How to do that thing
+
+This post will showcast how to do some very useful things with R, things that probably you wanted to do at some point and maybe couldn't find the way around it.  
 
 
-#### Skipping errors in for loops
-https://stackoverflow.com/questions/14748557/skipping-error-in-for-loop
 
-#### Dynamic variables 
-programmatically define the name of a variable that's at the left side of the assignment operator
+
+### Define variables programmatically  
+Here we want to programmatically define the name of a variable that's at the left side of the assignment operator
 
 **Objective**
-```
 ```r
 for (i in 1:10) {
-
- str_c("variable_", i) <- i
+  # we wish to do somthing like 
+  str_c("variable_", i) <- i
 
 }
 ```
 
 
-
-
-**Solution**
+**Solutions**
 ```r
 for (i in 1:10) {
   assign(paste0("variable_", i), i)
 }
 ```
-or 
+
+or we could do 
 
 ```r
 for(i in 1:10){
@@ -37,9 +36,10 @@ for(i in 1:10){
 
 
 
-#### Programmatically create a named vector
-```
-  level_key <- character_vector_for_values %>% # these are part of the values 
+### Create a named vector Programmatically 
+
+```r
+level_key <- character_vector_for_values %>% # these are part of the values 
     map(~{
       setNames( #setNames(VALUES, NAMES)
 	    # Values
@@ -59,7 +59,7 @@ for(i in 1:10){
 
 
 #### Recode a column using a predefined named vector 
-```
+```r
 
 mutate(
 
@@ -154,6 +154,8 @@ plot.title = element_text(size = 13)
 ```
 
 
+#### Skipping errors in for loops
+https://stackoverflow.com/questions/14748557/skipping-error-in-for-loop
 
 
 ### Advanced R filtering techniques

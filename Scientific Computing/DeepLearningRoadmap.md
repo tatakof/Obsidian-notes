@@ -6,6 +6,10 @@
 
 - Generative vs discriminative models [[dl_generative-vs-discriminative]]
 
+- NLP: [[dl_nlp]]
+
+- Self supervised learning [[dl_self-supervised-learning]]
+
 - Geometric deep learning !!!!!!!!! [[dl_geometric]]
 
 - Why's
@@ -25,6 +29,10 @@
 	- Discriminative Learning Rates: [[dl_discriminative-learning-rates]]
 	- Number of epochs [[dl_number-of-epochs]]
 	- Number of layers [[dl_number-of-layers]]
+	- Test time augmentation (TTA) [[dl_TTA]]
+	- Mixup [[dl_mix-up]]
+	- Label Smoothing: [[dl_label-smoothing]]
+	- Weight Decay: [[dl_weight-decay]]
 - DeepLearning Math
 	- Logarithms [[dl_log]]
 
@@ -92,6 +100,11 @@
 	- FastAI [[fai_objects]] [[fai_methods]]
 	- Other [[dl_libraries]]
 
+
+
+- Collaborative filtering: [[dl_collab]]
+
+
 - Information theory of deep learning [[dl_info-theory]]
 
 
@@ -103,3 +116,6 @@
 
 
 - Deploying DL apps [[dl_deploy-apps]]
+
+
+- Computational Linear Algebra. [[dl_computational-LA]]

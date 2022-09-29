@@ -43,13 +43,13 @@ It turns out we do this with some languages and frameworks. It's pretty cool! Ch
 
 
 
-
+# Programming Basics
 
 ### Expression
 An expression is a syntactic entity in a programming language that *may be evaluated* to determine its value. It's a combination of one or more constants, variables, functions, and operators that the programming language interprets (according to its particular rules of precedence and of association) and computes to produce ("to return", in a stateful environment) another value. 
 In simple settings, the resulting value is usually one of various primitive types, such as numerical, string, boolean, complex data type or other types. 
 
-Almost anywhere you can put a value, you can put an arbitrary expression, with one exception: the left side of an assignment statement has to be a variable name. Any other expression on the left side is a syntax error (we will see exceptions to this rule later).
+Almost anywhere you can put a value, you can put an arbitrary expression, with one exception: the left side of an assignment statement has to be a variable name. Any other expression on the left side is a syntax error (with a few exceptions in some programming languages like R or Julia).
 
 
 
@@ -64,7 +64,7 @@ Primitive data types are a set of basic data types from which all other data typ
 
 
 ### Infix operator
-A function of two arguments, with the name of the function written between the arguments. e.g. `+` (yes, that's a function, an anonymous function??) 
+A function of two arguments, with the name of the function written between the arguments. e.g. `+` (yes, that's a function)
 
 
 

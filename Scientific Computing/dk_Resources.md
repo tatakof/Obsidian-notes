@@ -1,3 +1,19 @@
+remotes containters
+
+
+https://www.youtube.com/watch?v=SMqdC6g6Y2o
+https://www.youtube.com/watch?v=KFyRLxiRKAc&t=1s
+https://www.youtube.com/watch?v=wm7Fy3ZTX_8
+https://www.youtube.com/watch?v=jWZMEenRB8s
+
+
+
+
+
+
+other stuff
+
+
 https://www.youtube.com/watch?v=Z0Tm-Y7vzNQ
 
 https://docs.docker.com/engine/install/linux-postinstall/

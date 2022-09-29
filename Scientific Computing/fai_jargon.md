@@ -104,3 +104,29 @@ Taking a step in the directions opposite to the gradients to make the model para
 
 ### Learning rate 
 The size of the step we take when applying SGD to update the parameters of the model.
+
+
+### Test Time Augmentation (TTA)
+jargon: test time augmentation (TTA): During inference or validation, creating multiple versions of each image, using data augmentation, and then taking the average or maximum of the predictions for each augmented version of the image.
+
+
+### Dot product
+jargon: dot product: The mathematical operation of multiplying the elements of two vectors together, and then summing up the result.
+
+
+### Embedding 
+jargon: Embedding: Multiplying by a one-hot-encoded matrix, using the computational shortcut that it can be implemented by simply indexing directly. This is quite a fancy word for a very simple concept. The thing that you multiply the one-hot-encoded matrix by (or, using the computational shortcut, index into directly) is called the _embedding matrix_.
+
+
+### Token
+jargon: token: One element of a list created by the tokenization process. It could be a word, part of a word (a _subword_), or a single character.
+
+### Word Tokenization with fastai
+
+Rather than providing its own tokenizers, fastai instead provides a consistent interface to a range of tokenizers in external libraries. Tokenization is an active field of research, and new and improved tokenizers are coming out all the time, so the defaults that fastai uses change too. However, the API and options shouldn't change too much, since fastai tries to maintain a consistent API even as the underlying technology changes.
+
+### Numericalization
+_Numericalization_ is the process of mapping tokens to integers. The steps are basically identical to those necessary to create a `Category` variable, such as the dependent variable of digits in MNIST:
+
+1.  Make a list of all possible levels of that categorical variable (the vocab).
+2.  Replace each level with its index in the vocab.

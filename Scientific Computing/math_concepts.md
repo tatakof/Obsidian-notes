@@ -175,3 +175,8 @@ A **regular simplex**[[1]](https://en.wikipedia.org/wiki/Simplex#cite_note-1) is
 The **standard simplex** or **probability simplex**[[2]](https://en.wikipedia.org/wiki/Simplex#cite_note-Boyd-2) is the _k - 1_ dimensional simplex whose vertices are the _k_ standard [unit vectors](https://en.wikipedia.org/wiki/Unit_vectors "Unit vectors"), or
 ![[Pasted image 20220830114038.png]]
 
+### Dot product
+When we multiply two vectors together and add up the results, this is known as the _dot product_. It is used a lot in machine learning, and forms the basis of matrix multiplication. We will be looking a lot more at matrix multiplication and dot products in <>.
+
+jargon: dot product: The mathematical operation of multiplying the elements of two vectors together, and then summing up the result.
+
