@@ -4,24 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "ce516579d95f9ac0",
+        "id": "b535f0aaf71167e5",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "programming_concepts.md",
-            "mode": "source",
-            "source": false
-          }
-        }
-      },
-      {
-        "id": "aa14815beb0140f2",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "writing_how-to-change-julia-version-vscode.md",
+            "file": "dl_transformers_explained.md",
             "mode": "source",
             "source": false
           }
@@ -90,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "writing_how-to-change-julia-version-vscode.md",
+                "file": "dl_transformers_explained.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,7 +95,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "writing_how-to-change-julia-version-vscode.md",
+                "file": "dl_transformers_explained.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -130,7 +118,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "writing_how-to-change-julia-version-vscode.md"
+                "file": "dl_transformers_explained.md"
               }
             }
           }
@@ -141,17 +129,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "aa14815beb0140f2",
+  "active": "b535f0aaf71167e5",
   "lastOpenFiles": [
+    "delete.md",
+    "dl_transformers_explained.md",
+    "programming_concepts.md",
+    "dl_transformers.md",
+    "dl_transformers_resources.md",
+    "writing_transformers.md",
+    "writing_how-to-change-julia-version-vscode.md",
     "writing_programming-concepts.md",
     "writing_bayesian-stacking.md",
-    "programming_concepts.md",
-    "fai_jargon.md",
-    "dl_nlp.md",
-    "R_wizardry.md",
-    "dl_computational-LA.md",
-    "Python_notes.md",
-    "DeepLearningRoadmap.md",
-    "dl_weight-decay.md"
+    "fai_jargon.md"
   ]
 }
