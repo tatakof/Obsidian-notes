@@ -9,7 +9,19 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "dl_transformers_explained.md",
+            "file": "SSH.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      },
+      {
+        "id": "cc0df44eb01228e2",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "writing_ssh_for-data-science.md",
             "mode": "source",
             "source": false
           }
@@ -61,8 +73,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 100,
-    "collapsed": true
+    "width": 317.5
   },
   "right": {
     "id": "05a607f0c33ccdf3",
@@ -78,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "dl_transformers_explained.md",
+                "file": "SSH.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -95,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "dl_transformers_explained.md",
+                "file": "SSH.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "dl_transformers_explained.md"
+                "file": "SSH.md"
               }
             }
           }
@@ -131,15 +142,15 @@
   },
   "active": "b535f0aaf71167e5",
   "lastOpenFiles": [
-    "delete.md",
-    "dl_transformers_explained.md",
-    "programming_concepts.md",
+    "writing_ssh_for-data-science.md",
+    "SSH.md",
+    "dl_transformers_definitions.md",
+    "ssh.md",
     "dl_transformers.md",
     "dl_transformers_resources.md",
-    "writing_transformers.md",
-    "writing_how-to-change-julia-version-vscode.md",
-    "writing_programming-concepts.md",
-    "writing_bayesian-stacking.md",
-    "fai_jargon.md"
+    "dl_transformers_vocab-problem.md",
+    "Python_notes.md",
+    "writing_how-to-get-started-with-nbdev-and-quarto.md",
+    "dl_transformers_explained.md"
   ]
 }

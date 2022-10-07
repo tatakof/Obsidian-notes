@@ -1,14 +1,40 @@
 
 watch
 
+MUST 
+https://www.youtube.com/watch?v=Y_Hty6Dl9cc
+https://www.youtube.com/watch?v=Y_Hty6Dl9cc&list=PLD80i8An1OEF8UOb9N9uSoidOGIMKW96t&index=10&t=158s
+
+END MUST
+
 https://www.youtube.com/watch?time_continue=1&v=brmidghOP6c&feature=emb_title
 
 https://www.youtube.com/watch?v=4Bdc55j80l8
 
 https://www.youtube.com/watch?v=xRh4Jk8rjfA
 
+https://www.youtube.com/watch?v=iDulhoQ2pro
+
 
 written info
+MUST THEORY 
+https://peterbloem.nl/blog/transformers
+END MUST
+
+MUST PRACTICE 
+https://huggingface.co/docs/transformers/tasks/language_modeling
+
+https://chriskhanhtran.github.io/posts/spanberta-bert-for-spanish-from-scratch/
+
+https://colab.research.google.com/github/huggingface/blog/blob/main/notebooks/02_how_to_generate.ipynb
+
+https://huggingface.co/blog/how-to-generate
+
+
+END MUST
+
+
+
 https://docs.fast.ai/tutorial.transformers.html
 
 https://walkwithfastai.com/nlp.external.transformers-glue
@@ -53,5 +79,16 @@ https://huggingface.co/llange/xlm-roberta-large-spanish-clinical
 
 https://huggingface.co/xlm-roberta-large-finetuned-conll02-spanish
 
+https://medium.com/dair-ai/beto-spanish-bert-420e4860d2c6
+
+https://huggingface.co/bertin-project/bertin-roberta-base-spanish
+
+
+
 pretrained text-generation models
 https://transformer.huggingface.co/
+
+
+
+
+
