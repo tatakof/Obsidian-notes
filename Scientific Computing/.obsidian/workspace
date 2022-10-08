@@ -4,24 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "b535f0aaf71167e5",
+        "id": "cc0df44eb01228e2",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "SSH.md",
+            "file": "dl_transformers_explained.md",
             "mode": "source",
             "source": false
           }
         }
       },
       {
-        "id": "cc0df44eb01228e2",
+        "id": "1ba9538661058642",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "writing_ssh_for-data-science.md",
+            "file": "dl_concepts.md",
             "mode": "source",
             "source": false
           }
@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "concepts",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,11 +69,13 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 317.5
+    "width": 317.5,
+    "collapsed": true
   },
   "right": {
     "id": "05a607f0c33ccdf3",
@@ -89,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SSH.md",
+                "file": "dl_transformers_explained.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +108,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SSH.md",
+                "file": "dl_transformers_explained.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -129,7 +131,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SSH.md"
+                "file": "dl_transformers_explained.md"
               }
             }
           }
@@ -140,17 +142,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "b535f0aaf71167e5",
+  "active": "cc0df44eb01228e2",
   "lastOpenFiles": [
-    "writing_ssh_for-data-science.md",
+    "dl_concepts.md",
+    "dl_transformers_explained.md",
     "SSH.md",
+    "dl_transformers.md",
+    "dl_transformers_causal-language-models.md",
+    "writing_ssh_for-data-science.md",
     "dl_transformers_definitions.md",
     "ssh.md",
-    "dl_transformers.md",
     "dl_transformers_resources.md",
-    "dl_transformers_vocab-problem.md",
-    "Python_notes.md",
-    "writing_how-to-get-started-with-nbdev-and-quarto.md",
-    "dl_transformers_explained.md"
+    "dl_transformers_vocab-problem.md"
   ]
 }
