@@ -27,3 +27,21 @@ _Fine-tuning_, on the other hand, is the training done **after** a model has bee
 -   For the same reason, the amount of time and resources needed to get good results are much lower.
 
 
+### Tokenizer
+Like other neural networks, Transformer models can’t process raw text directly, so the first step of our pipeline is to convert the text inputs into numbers that the model can make sense of. To do this we use a **_tokenizer_**, which will be responsible for:
+
+-   Splitting the input into words, subwords, or symbols (like punctuation) that are called _tokens_
+-   Mapping each token to an integer
+-   Adding additional inputs that may be useful to the model
+
+Once we have the tokenizer, we can directly pass our sentences to it and we’ll get back a dictionary that’s ready to feed to our model! The only thing left to do is to convert the list of input IDs to tensors.
+
+
+### Encoding
+
+Translating text to numbers is known as _encoding_. Encoding is done in a two-step process: the tokenization, followed by the conversion to input IDs.
+
+### Tokens
+
+As we’ve seen, the first step is to split the text into words (or parts of words, punctuation symbols, etc.), usually called _tokens_. There are multiple rules that can govern that process, which is why we need to instantiate the tokenizer using the name of the model, to make sure we use the same rules that were used when the model was pretrained.
+

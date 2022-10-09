@@ -145,14 +145,14 @@
   "active": "cc0df44eb01228e2",
   "lastOpenFiles": [
     "dl_concepts.md",
+    "dl_transformers_resources.md",
     "dl_transformers_explained.md",
+    "dl_transformers_vocab-problem.md",
+    "dl_nlp.md",
+    "dl_transformers_causal-language-models.md",
     "SSH.md",
     "dl_transformers.md",
-    "dl_transformers_causal-language-models.md",
     "writing_ssh_for-data-science.md",
-    "dl_transformers_definitions.md",
-    "ssh.md",
-    "dl_transformers_resources.md",
-    "dl_transformers_vocab-problem.md"
+    "dl_transformers_definitions.md"
   ]
 }

@@ -323,3 +323,161 @@ This architecture contains only the base Transformer module: given some inputs, 
 
 **While these hidden states can be useful on their own, they’re usually inputs to another part of the model, known as the _head_. In [Chapter 1](https://huggingface.co/course/chapter1), the different tasks could have been performed with the same architecture, but each of these tasks will have a different head associated with it.**
 
+# Behind the pipeline
+
+## Preprocessing with a tokenizer
+Like other neural networks, Transformer models can’t process raw text directly, so the first step of our pipeline is to convert the text inputs into numbers that the model can make sense of. To do this we use a _tokenizer_, which will be responsible for:
+
+-   Splitting the input into words, subwords, or symbols (like punctuation) that are called _tokens_
+-   Mapping each token to an integer
+-   Adding additional inputs that may be useful to the model
+
+...
+
+**Once we have the tokenizer, we can directly pass our sentences to it and we’ll get back a dictionary that’s ready to feed to our model! The only thing left to do is to convert the list of input IDs to tensors.**
+
+Transformer models only accept _tensors_ as input. If this is your first time hearing about tensors, you can think of them as NumPy arrays instead. A NumPy array can be a scalar (0D), a vector (1D), a matrix (2D), or have more dimensions. It’s effectively a tensor; other ML frameworks’ tensors behave similarly, and are usually as simple to instantiate as NumPy arrays.
+
+### Model heads: Making sense out of numbers
+
+The model heads take the high-dimensional vector of hidden states as input and project them onto a different dimension. They are usually composed of one or a few linear layers:
+
+![[Pasted image 20221009072108.png]]
+
+The output of the Transformer model is sent directly to the model head to be processed.
+
+In this diagram, the model is represented by its embeddings layer and the subsequent layers. The embeddings layer converts each input ID in the tokenized input into a vector that represents the associated token. The subsequent layers manipulate those vectors using the attention mechanism to produce the final representation of the sentences.
+
+There are many different architectures available in 🤗 Transformers, with each one designed around tackling a specific task. Here is a non-exhaustive list:
+
+-   `*Model` (retrieve the hidden states)
+-   `*ForCausalLM`
+-   `*ForMaskedLM`
+-   `*ForMultipleChoice`
+-   `*ForQuestionAnswering`
+-   `*ForSequenceClassification`
+-   `*ForTokenClassification`
+-   and others 🤗
+
+
+
+
+# Models
+
+If you take a look at the _config.json_ file, you’ll recognize the attributes necessary to build the model architecture. This file also contains some metadata, such as where the checkpoint originated and what 🤗 Transformers version you were using when you last saved the checkpoint.
+
+The _pytorch_model.bin_ file is known as the _state dictionary_; it contains all your model’s weights. The two files go hand in hand; the configuration is necessary to know your model’s architecture, while the model weights are your model’s parameters.
+
+## Using a Transformer model for inference
+
+Transformer models can only process numbers — numbers that the tokenizer generates.
+
+Tokenizers can take care of casting the inputs to the appropriate framework’s tensors
+
+Let’s say we have a couple of sequences:
+
+sequences = ["Hello!", "Cool.", "Nice!"]
+
+The tokenizer converts these to vocabulary indices which are typically called _input IDs_. Each sequence is now a list of numbers! The resulting output is:
+
+encoded_sequences = [
+    [101, 7592, 999, 102],
+    [101, 4658, 1012, 102],
+    [101, 3835, 999, 102],
+]
+
+This is a list of encoded sequences: a list of lists. Tensors only accept rectangular shapes (think matrices). This “array” is already of rectangular shape, so converting it to a tensor is easy:
+
+import torch
+
+model_inputs = torch.tensor(encoded_sequences)
+
+### Using the tensors as inputs to the model
+
+Making use of the tensors with the model is extremely simple — we just call the model with the inputs:
+
+output = model(model_inputs)
+
+While the model accepts a lot of different arguments, only the input IDs are necessary.
+
+# Tokenizers
+
+Tokenizers are one of the core components of the NLP pipeline. They serve one purpose: to translate text into data that can be processed by the model. Models can only process numbers, so tokenizers need to convert our text inputs to numerical data.
+
+In NLP tasks, the data that is generally processed is raw text.
+However, models can only process numbers, so we need to find a way to convert the raw text to numbers. That’s what the tokenizers do, and there are a lot of ways to go about this. The goal is to find the most meaningful representation — that is, the one that makes the most sense to the model — and, if possible, the smallest representation.
+
+## Word-based
+
+The first type of tokenizer that comes to mind is _word-based_. It’s generally very easy to set up and use with only a few rules, and **it often yields decent results.** For example, in the image below, the goal is to split the raw text into words and find a numerical representation for each of them:
+
+![An example of word-based tokenization.](https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter2/word_based_tokenization-dark.svg)
+
+
+There are different ways to split the text. For example, we could could use whitespace to tokenize the text into words by applying Python’s `split()` function
+
+There are also variations of word tokenizers that have extra rules for punctuation. With this kind of tokenizer, we can end up with some pretty large “vocabularies,” where a vocabulary is defined by the total number of independent tokens that we have in our corpus.
+
+Each word gets assigned an ID, starting from 0 and going up to the size of the vocabulary. The model uses these IDs to identify each word.
+
+If we want to completely cover a language with a word-based tokenizer, we’ll need to have an identifier for each word in the language, which will generate a huge amount of tokens. For example, there are over 500,000 words in the English language, so to build a map from each word to an input ID we’d need to keep track of that many IDs. Furthermore, words like “dog” are represented differently from words like “dogs”, and the model will initially have no way of knowing that “dog” and “dogs” are similar: it will identify the two words as unrelated. The same applies to other similar words, like “run” and “running”, which the model will not see as being similar initially.
+
+**Finally, we need a custom token to represent words that are not in our vocabulary. This is known as the “unknown” token, often represented as ”[UNK]” or ””. It’s generally a bad sign if you see that the tokenizer is producing a lot of these tokens, as it wasn’t able to retrieve a sensible representation of a word and you’re losing information along the way. The goal when crafting the vocabulary is to do it in such a way that the tokenizer tokenizes as few words as possible into the unknown token.**
+
+**One way to reduce the amount of unknown tokens is to go one level deeper, using a _character-based_ tokenizer.**
+
+## Character-based
+
+Character-based tokenizers split the text into characters, rather than words. This has two primary benefits:
+
+-   The vocabulary is much smaller.
+-   There are much fewer out-of-vocabulary (unknown) tokens, since every word can be built from characters.
+
+But here too some questions arise concerning spaces and punctuation
+
+This approach isn’t perfect either. Since the representation is now based on characters rather than words, one could argue that, intuitively, it’s less meaningful: each character doesn’t mean a lot on its own, whereas that is the case with words.
+
+Another thing to consider is that we’ll end up with a very large amount of tokens to be processed by our model: whereas a word would only be a single token with a word-based tokenizer, it can easily turn into 10 or more tokens when converted into characters.
+
+**To get the best of both worlds, we can use a third technique that combines the two approaches: _subword tokenization_.**
+
+## Subword tokenization
+
+Subword tokenization algorithms rely on the principle that frequently used words should not be split into smaller subwords, but rare words should be decomposed into meaningful subwords.
+
+For instance, “annoyingly” might be considered a rare word and could be decomposed into “annoying” and “ly”. These are both likely to appear more frequently as standalone subwords, while at the same time the meaning of “annoyingly” is kept by the composite meaning of “annoying” and “ly”.
+
+Here is an example showing how a subword tokenization algorithm would tokenize the sequence “Let’s do tokenization!“:
+
+![A subword tokenization algorithm.](https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter2/bpe_subword-dark.svg)
+
+These subwords end up providing a lot of semantic meaning: for instance, in the example above “tokenization” was split into “token” and “ization”, two tokens that have a semantic meaning while being space-efficient (only two tokens are needed to represent a long word). This allows us to have relatively good coverage with small vocabularies, and close to no unknown tokens.
+
+### And more!
+
+Unsurprisingly, there are many more techniques out there. To name a few:
+
+-   Byte-level BPE, as used in GPT-2
+-   WordPiece, as used in BERT
+-   SentencePiece or Unigram, as used in several multilingual models
+
+You should now have sufficient knowledge of how tokenizers work to get started with the API.
+
+## Loading and saving
+
+
+
+## Encoding
+
+Translating text to numbers is known as _encoding_. Encoding is done in a two-step process: the tokenization, followed by the conversion to input IDs.
+
+As we’ve seen, the first step is to split the text into words (or parts of words, punctuation symbols, etc.), usually called _tokens_. There are multiple rules that can govern that process, which is why we need to instantiate the tokenizer using the name of the model, to make sure we use the same rules that were used when the model was pretrained.
+
+**The second step is to convert those tokens into numbers, so we can build a tensor out of them and feed them to the model. To do this, the tokenizer has a _vocabulary_, which is the part we download when we instantiate it with the `from_pretrained()` method. Again, we need to use the same vocabulary used when the model was pretrained.**
+
+## Decoding
+
+_Decoding_ is going the other way around: from vocabulary indices, we want to get a string. This can be done with the `decode()` method as follows:
+
+Note that the `decode` method not only converts the indices back to tokens, but also groups together the tokens that were part of the same words to produce a readable sentence. This behavior will be extremely useful when we use models that predict new text (either text generated from a prompt, or for sequence-to-sequence problems like translation or summarization).
+

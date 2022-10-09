@@ -33,6 +33,22 @@ https://huggingface.co/blog/how-to-generate
 
 END MUST
 
+### Masked language model vs Causal Language Model
+https://towardsdatascience.com/understanding-masked-language-models-mlm-and-causal-language-models-clm-in-nlp-194c15f56a5
+END
+
+
+### Easy Causal Language Modeling with Machine Learning and HuggingFace Transformers
+https://github.com/christianversloot/machine-learning-articles/blob/main/easy-causal-language-modeling-with-machine-learning-and-huggingface-transformers.md
+END
+
+### Streaming vocabulary for natural language modeling: dynamic words replacement
+https://towardsdatascience.com/streaming-vocabulary-for-natural-language-modeling-dynamic-words-replacement-efa5b04cad81
+END
+
+
+### How to generate text: using different decoding methods for language generation with Transformers
+https://huggingface.co/blog/how-to-generate
 
 
 https://docs.fast.ai/tutorial.transformers.html
