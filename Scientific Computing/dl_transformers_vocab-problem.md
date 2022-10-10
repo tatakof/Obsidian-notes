@@ -1,5 +1,7 @@
 on the smaller vocabulary problem
 
+https://github.com/huggingface/transformers/issues/1937 
+
 https://discuss.huggingface.co/t/smaller-output-vocabulary-for-gpt-2/366
 
 https://github.com/huggingface/transformers/issues/237

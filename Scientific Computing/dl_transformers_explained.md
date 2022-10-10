@@ -481,3 +481,22 @@ _Decoding_ is going the other way around: from vocabulary indices, we want to ge
 
 Note that the `decode` method not only converts the indices back to tokens, but also groups together the tokens that were part of the same words to produce a readable sentence. This behavior will be extremely useful when we use models that predict new text (either text generated from a prompt, or for sequence-to-sequence problems like translation or summarization).
 
+# Handling multiple sequences
+_Attention masks_ are tensors with the exact same shape as the input IDs tensor, filled with 0s and 1s: 1s indicate the corresponding tokens should be attended to, and 0s indicate the corresponding tokens should not be attended to (i.e., they should be ignored by the attention layers of the model).
+
+## Longer sequences
+
+With Transformer models, there is a limit to the lengths of the sequences we can pass the models. Most models handle sequences of up to 512 or 1024 tokens, and will crash when asked to process longer sequences. There are two solutions to this problem:
+
+-   Use a model with a longer supported sequence length.
+-   Truncate your sequences.
+
+Models have different supported sequence lengths, and some specialize in handling very long sequences. [Longformer](https://huggingface.co/transformers/model_doc/longformer.html) is one example, and another is [LED](https://huggingface.co/transformers/model_doc/led.html). If you’re working on a task that requires very long sequences, we recommend you take a look at those models.
+
+Otherwise, we recommend you truncate your sequences by specifying the `max_sequence_length` parameter:
+
+sequence = sequence[:max_sequence_length]
+
+## Special tokens
+The tokenizer added the special word `[CLS]` at the beginning and the special word `[SEP]` at the end. This is because the model was pretrained with those, so to get the same results for inference we need to add them as well. Note that some models don’t add special words, or add different ones; models may also add these special words only at the beginning, or only at the end. In any case, the tokenizer knows which ones are expected and will deal with this for you.
+
