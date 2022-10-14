@@ -1,6 +1,107 @@
+
+### Object introspection
+Using a question mark (`?`) before or after a variable will display some general information about the object:
+
+```
+In [1]: b = [1, 2, 3]
+
+In [2]: b?
+Type:        list
+String form: [1, 2, 3]
+Length:      3
+Docstring:
+Built-in mutable sequence.
+
+If no argument is given, the constructor creates a new empty list.
+The argument must be an iterable if specified.
+```
+This is referred to as _object introspection_. If the object is a function or instance method, the docstring, if defined, will also be shown. Suppose we’d written the following function (which you can reproduce in IPython or Jupyter)
+
+`?` has a final usage, which is for searching the IPython namespace in a manner similar to the standard Unix or Windows command line. A number of characters combined with the wildcard (`*`) will show all names matching the wildcard expression. For example, we could get a list of all functions in the top-level NumPy namespace containing `load`:
+
+```
+In [9]: import numpy as np
+
+In [10]: np.*load*?
+np.__loader__
+np.load
+np.loads
+np.loadtxt
+```
+
+### Typed language
+Typed Language: Typed languages are **the languages in which we define the type of data type and it will be known by machine at the compile-time or at runtime**. Typed languages can be classified into two categories: Statically typed languages. Dynamically typed languages
+
+
 ### Dynamically typed language
 Dynamically-typed languages are those (like Julia) where the interpreter assigns variables a type at runtime based on the variable's value at the time.
 
+
+### Statically typed
+
+
+
+### Duck typing
+wiki
+**Duck typing** in computer programming is an application of the [duck test](https://en.wikipedia.org/wiki/Duck_test "Duck test")—"If it walks like a duck and it quacks like a duck, then it must be a duck"—to determine whether an [object](https://en.wikipedia.org/wiki/Object_(computer_science) "Object (computer science)") can be used for a particular purpose. With [nominative typing](https://en.wikipedia.org/wiki/Nominative_typing "Nominative typing"), an object is _of a given type_ if it is declared to be (or if a type's association with the object is inferred through mechanisms such as [object inheritance](https://en.wikipedia.org/wiki/Object_inheritance "Object inheritance")). In duck typing, an object is _of a given type_ if it has all [methods](https://en.wikipedia.org/wiki/Method_(computer_programming) "Method (computer programming)") and properties required by that type.[[1]](https://en.wikipedia.org/wiki/Duck_typing#cite_note-1)[[2]](https://en.wikipedia.org/wiki/Duck_typing#cite_note-2) Duck typing can be viewed as a usage-based structural equivalence between a given object and the requirements of a type. See [structural typing](https://en.wikipedia.org/wiki/Structural_typing "Structural typing") for a further explanation of structural type equivalence.
+
+This is a simple example in [Python](https://en.wikipedia.org/wiki/Python_(programming_language) "Python (programming language)") 3 that demonstrates how any object may be used in any context, up until it is used in a way that it does not support.
+
+class Duck:
+    def swim(self):
+        print("Duck swimming")
+
+    def fly(self):
+        print("Duck flying")
+
+class Whale:
+    def swim(self):
+        print("Whale swimming")
+
+for animal in [Duck(), Whale()]:
+    animal.swim()
+    animal.fly()
+
+Output:
+
+Duck swimming
+Duck flying
+Whale swimming
+AttributeError: 'Whale' object has no attribute 'fly'
+
+So, if we assume everything that can swim is a duck because ducks can swim, we will consider a whale to be a duck, but, if we also assume it has to be capable of flying, the whale won’t be considered to be a duck.
+
+
+end wiki
+
+wes mckinley book
+Often you may not care about the type of an object but rather only whether it has certain methods or behavior. This is sometimes called _duck typing_, after the saying "If it walks like a duck and quacks like a duck, then it's a duck." For example, you can verify that an object is iterable if it implements the _iterator protocol_. For many objects, this means it has an `__iter__` “magic method,” though an alternative and better way to check is to try using the `iter` function:
+
+```
+In [33]: def isiterable(obj):
+   ....:     try:
+   ....:         iter(obj)
+   ....:         return True
+   ....:     except TypeError: # not iterable
+   ....:         return False
+```
+
+This function would return `True` for strings as well as most Python collection types:
+
+```
+In [34]: isiterable("a string")
+Out[34]: True
+
+In [35]: isiterable([1, 2, 3])
+Out[35]: True
+
+In [36]: isiterable(5)
+Out[36]: False
+```
+end book
+
+### Casting
+changing the type of an object, automatically?
 
 ### Callback: 
 	FROM WIKIPEDIA
