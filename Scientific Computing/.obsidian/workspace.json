@@ -6,7 +6,7 @@
       {
         "id": "74349a8e9020c84b",
         "type": "tabs",
-        "dimension": 22.52252252252252,
+        "dimension": 75,
         "children": [
           {
             "id": "cc0df44eb01228e2",
@@ -25,7 +25,7 @@
       {
         "id": "a6d075fc28bb6eac",
         "type": "tabs",
-        "dimension": 77.47747747747748,
+        "dimension": 25,
         "children": [
           {
             "id": "1ba9538661058642",
@@ -107,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "writing_python.md",
+                "file": "programming_concepts.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,7 +124,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "writing_python.md",
+                "file": "programming_concepts.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -147,7 +147,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "writing_python.md"
+                "file": "programming_concepts.md"
               }
             }
           }
@@ -161,10 +161,10 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "1ba9538661058642",
+  "active": "cc0df44eb01228e2",
   "lastOpenFiles": [
-    "programming_concepts.md",
     "writing_python.md",
+    "programming_concepts.md",
     "dl_transformers_explained.md",
     "computers.md",
     "dl_transformers_vocab-problem.md",

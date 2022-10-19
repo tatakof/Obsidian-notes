@@ -1,4 +1,10 @@
 
+### Vectorization
+Using NumPy arrays enables you to express many kinds of data processing tasks as concise array expressions that might otherwise require writing loops. This practice of replacing explicit loops with array expressions is referred to by some people as _vectorization_. In general, vectorized array operations will usually be significantly faster than their pure Python equivalents, with the biggest impact in any kind of numerical computations. Later, in [Appendix A: Advanced NumPy](https://wesmckinney.com/book/advanced-numpy.html), I explain _broadcasting_, a powerful method for vectorizing computations.
+Arrays are important because they enable you to express batch operations on data without writing any `for` loops. NumPy users call this _vectorization_.
+
+
+
 ### Object introspection
 Using a question mark (`?`) before or after a variable will display some general information about the object:
 
@@ -40,6 +46,16 @@ Dynamically-typed languages are those (like Julia) where the interpreter assigns
 ### Statically typed
 
 
+
+
+### Generator
+A generator is a convenient way, similar to writing a normal function, to construct a new iterable object. Whereas normal functions execute and return a single result at a time, generators can return a sequence of multiple values by pausing and resuming execution each time the generator is used. To create a generator, use the `yield` keyword instead of `return` in a function. 
+When you actually call the generator, no code is immediately executed. It's not until you request elements from the generator that it begins executing its code.
+Since generators produce output one element at a time versus an entire list all at once, it can help your program use less memory. 
+
+
+### Iterator
+an iterator is any object that will yield objects to the python interpreter when used in a context like a for loop. Most methods expecting a list or lis-like object will also accept any iterable object. This includes built-in methods such as min, max, and sum, and type constructors like list and tuple
 
 ### Duck typing
 wiki
