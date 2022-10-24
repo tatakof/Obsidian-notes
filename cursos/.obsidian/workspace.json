@@ -1,0 +1,144 @@
+{
+  "main": {
+    "id": "ff364746b87e5097",
+    "type": "split",
+    "children": [
+      {
+        "id": "ecd55c1b196b3608",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5d1b84b5ade72080",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Evaluación de Sistemas de Aprendizaje Automático.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "733964329c2bcb6c",
+    "type": "split",
+    "children": [
+      {
+        "id": "7fcf1589f78fc8d1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "64179b4416ad05ab",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e7ba655e33262dff",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "92f4780cce998ca9",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "8059c908848b3ca5",
+    "type": "split",
+    "children": [
+      {
+        "id": "75d66b2d4cfedca2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "750005ed6955debb",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Evaluación de Sistemas de Aprendizaje Automático.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4cf8442390f4a415",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Evaluación de Sistemas de Aprendizaje Automático.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "2824f8813e151889",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "483f6219c3d74e1d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Evaluación de Sistemas de Aprendizaje Automático.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "5d1b84b5ade72080",
+  "lastOpenFiles": []
+}
