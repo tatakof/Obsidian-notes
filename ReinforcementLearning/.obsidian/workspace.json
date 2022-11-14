@@ -1,0 +1,237 @@
+{
+  "main": {
+    "id": "3a35f0e730fa00a2",
+    "type": "split",
+    "children": [
+      {
+        "id": "5ff0d6650b6df08d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "904f228cb91e9e33",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Elements-of-RF.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "478c1460a2c8d72d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Agent-environment interaction cycle.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "364ee827ce2cbda5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "concepts.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f77e333f939fa76e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Components of reinforcement learning.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a531dcda916455a5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "resources.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8869214edd639bef",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "types of agents.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0248e276d43bee43",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Markov Decision Process.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "bd7e3cd34a4f5bab",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "concepts.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "54c1469fb7dc2256",
+    "type": "split",
+    "children": [
+      {
+        "id": "3d68282e6ee62100",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1ed8e48a40e983a1",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0f797eea1ec2ef5e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "c28d9140ebcb62c6",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "29eb61cb92b10848",
+    "type": "split",
+    "children": [
+      {
+        "id": "2bbfc134ebc4865a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b7049ece3ee5fd4f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "concepts.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "256b074f74e8d669",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "concepts.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "66815d6ea2ba9bbe",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "e6a8ef54a741e880",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "concepts.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "364ee827ce2cbda5",
+  "lastOpenFiles": [
+    "Reward signal.md",
+    "Agent-environment interaction cycle.md",
+    "Elements-of-RF.md",
+    "concepts.md",
+    "Markov Decision Process.md",
+    "limitations-and-scope.md",
+    "Components of reinforcement learning.md",
+    "resources.md",
+    "types of agents.md",
+    "exploration-exploitation_tradeoff.md"
+  ]
+}

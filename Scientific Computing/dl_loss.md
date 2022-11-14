@@ -1,4 +1,12 @@
 
+The network that transforms input data into output is not the only thing we need or training. We need to dene our learning objective, which is to have a unction that accepts two arguments—the network's output and the desired output. Its responsibility is to return to us a single number—how close the network's prediction
+is from the desired result. This function is called the loss function, and its output is the loss value. Using the loss value, we calculate gradients of network parameters and adjust them to decrease this loss value, which pushes our model to better results in the future. Both the loss function and the method of tweaking a network's
+parameters by gradient are so common and exist in so many forms that both of them orm a signicant part o the PyTorch library. Let's start with loss unctions.
+
+
+
+
+
 Loss: A value that represents how well (or badly) our model is doing.
 
 The loss function will return a value based on the given predictions and targets, where lower values correspond to better model predictions.

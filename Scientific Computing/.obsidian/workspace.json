@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "programming_concepts.md",
+                "file": "jl_notes.md",
                 "mode": "source",
                 "source": false
               }
@@ -107,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "programming_concepts.md",
+                "file": "jl_notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,7 +124,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "programming_concepts.md",
+                "file": "jl_notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -147,7 +147,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "programming_concepts.md"
+                "file": "jl_notes.md"
               }
             }
           }
@@ -158,20 +158,17 @@
     "width": 300,
     "collapsed": true
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
   "active": "cc0df44eb01228e2",
   "lastOpenFiles": [
-    "writing_python.md",
+    "dl_loss.md",
     "programming_concepts.md",
+    "DeepLearningRoadmap.md",
+    "writing_python.md",
     "dl_transformers_explained.md",
     "computers.md",
     "dl_transformers_vocab-problem.md",
     "dl_concepts.md",
     "dl_transformers_resources.md",
-    "dl_nlp.md",
-    "dl_transformers_causal-language-models.md",
-    "SSH.md"
+    "dl_nlp.md"
   ]
 }
