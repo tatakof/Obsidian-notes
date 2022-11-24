@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "1043b94550037299",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "embeddings.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "the vocab extending problem.md",
+                "file": "embeddings.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "the vocab extending problem.md",
+                "file": "embeddings.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "the vocab extending problem.md"
+                "file": "embeddings.md"
               }
             }
           }
@@ -136,6 +149,8 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "21c997e39aacf0d3",
-  "lastOpenFiles": []
+  "active": "1043b94550037299",
+  "lastOpenFiles": [
+    "the vocab extending problem.md"
+  ]
 }

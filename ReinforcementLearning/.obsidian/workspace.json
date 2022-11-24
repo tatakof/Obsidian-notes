@@ -44,6 +44,18 @@
             }
           },
           {
+            "id": "8661d16f108275c6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Markov Decision Process.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "f77e333f939fa76e",
             "type": "leaf",
             "state": {
@@ -154,7 +166,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "29eb61cb92b10848",
@@ -223,15 +236,15 @@
   },
   "active": "364ee827ce2cbda5",
   "lastOpenFiles": [
+    "Markov Decision Process.md",
+    "concepts.md",
+    "Practical side of Markov property.md",
+    "2022-11-14.md",
     "Reward signal.md",
     "Agent-environment interaction cycle.md",
     "Elements-of-RF.md",
-    "concepts.md",
-    "Markov Decision Process.md",
     "limitations-and-scope.md",
     "Components of reinforcement learning.md",
-    "resources.md",
-    "types of agents.md",
-    "exploration-exploitation_tradeoff.md"
+    "resources.md"
   ]
 }
