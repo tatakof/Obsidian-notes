@@ -1,64 +1,39 @@
 {
   "main": {
-    "id": "02fccd46b8373629",
+    "id": "6f00d7fbc779c2ec",
     "type": "split",
     "children": [
       {
-        "id": "9a64fbb2760c714d",
+        "id": "ece553ed6b2fb402",
         "type": "tabs",
         "children": [
           {
-            "id": "0586dc49ba198cb8",
+            "id": "b1ac46d3ab75dc95",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notas_wade-et-al-2006.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3b024b4557793d89",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "actual repo.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9e90b9f2d21f2459",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "actual repo.md",
+                "file": "video-processing.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "044bcbe1f222bc25",
+    "id": "ad6d1bd0b5c08b6d",
     "type": "split",
     "children": [
       {
-        "id": "bbe296ebc2d0dbae",
+        "id": "cb570a13cbb292f4",
         "type": "tabs",
         "children": [
           {
-            "id": "e84851b59c454269",
+            "id": "eed47dbf64ee774e",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -68,7 +43,7 @@
             }
           },
           {
-            "id": "0631dd8cba4081f5",
+            "id": "fb1c2d5fd56149dc",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -86,23 +61,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 268.5
+    "width": 300
   },
   "right": {
-    "id": "5406b1dfe8c05756",
+    "id": "bdcce35733cb67bc",
     "type": "split",
     "children": [
       {
-        "id": "4fa1673e8cb6304a",
+        "id": "7da238ee2e2cc0d8",
         "type": "tabs",
         "children": [
           {
-            "id": "5719d2c422097ff8",
+            "id": "b2627a9c832be8be",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "actual repo.md",
+                "file": "video-processing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,17 +95,19 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "9e90b9f2d21f2459",
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false
+    }
+  },
+  "active": "b1ac46d3ab75dc95",
   "lastOpenFiles": [
-    "neff table.md",
-    "actual repo.md",
-    "notas_wade-et-al-2006.md",
-    "preguntas-pajaro.md",
-    "preguntas charla.md",
-    "papers-to-search.md",
-    "Paper-notes.md",
-    "paper_covariates.md",
-    "future.md",
-    "Cuestiones que dijo juan.md"
+    "blogs to check.md",
+    "To Do.md",
+    "video-processing.md"
   ]
 }

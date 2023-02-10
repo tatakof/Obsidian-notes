@@ -1,64 +1,148 @@
 {
   "main": {
-    "id": "30e85d252a06b1cd",
+    "id": "04d8f10dac50a2a4",
     "type": "split",
     "children": [
       {
-        "id": "8d9499ed0f839c5f",
+        "id": "5e90f3a39dc3108e",
         "type": "tabs",
         "children": [
           {
-            "id": "21c997e39aacf0d3",
+            "id": "4717b20a094f1328",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "the vocab extending problem.md",
+                "file": "muestreos.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "1043b94550037299",
+            "id": "563bae81f03357df",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "the vocab extending problem.md",
+                "file": "muestreos.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "9131494044cca8e8",
+            "id": "a119bef8b9066602",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "preprocessing the data.md",
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c4d12708e0b2e1c3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "diskstation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "aaf8a34e18d80d2b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "diskstation 1.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d11cabc5eac2e60d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Paper notes.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "fd8dbfd26f2d6799",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "papers_macal-and-north-2005.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1257f2dcb2847ce4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Paper notes.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9a2708cc9fe170fe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Model Observation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "28b218b01bb626b0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "muestreos.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "6cc4b60f3050b46f",
+    "id": "8f1f16caa95e214d",
     "type": "split",
     "children": [
       {
-        "id": "0df40fd1529ce1bb",
+        "id": "f04a947dc5823e57",
         "type": "tabs",
         "children": [
           {
-            "id": "f9b5a40ece4ccc90",
+            "id": "5219647a69837e4a",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -68,7 +152,7 @@
             }
           },
           {
-            "id": "1e929ac135ec4ea2",
+            "id": "c970139bd09701a3",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -83,7 +167,7 @@
             }
           },
           {
-            "id": "8c43ff60f83c22a6",
+            "id": "6756622502364ad2",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -94,24 +178,24 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
+    "width": 173.5,
     "collapsed": true
   },
   "right": {
-    "id": "f781457a68475c17",
+    "id": "155af37fe5ce5a2e",
     "type": "split",
     "children": [
       {
-        "id": "7325ca75d2cbde62",
+        "id": "d00da7ec3760b1e0",
         "type": "tabs",
         "children": [
           {
-            "id": "33d99043ce84bf63",
+            "id": "9a2e1668fbea4ff4",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "preprocessing the data.md",
+                "file": "Model Observation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,19 +207,19 @@
             }
           },
           {
-            "id": "91d5f146cf972088",
+            "id": "26d48e79666f5aac",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "preprocessing the data.md",
+                "file": "Model Observation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "2677977eac41fd8f",
+            "id": "93930280a4f8f5e7",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -146,12 +230,12 @@
             }
           },
           {
-            "id": "f577c37ac8132c91",
+            "id": "4255031abe277ded",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "preprocessing the data.md"
+                "file": "Model Observation.md"
               }
             }
           }
@@ -172,9 +256,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9131494044cca8e8",
+  "active": "9a2708cc9fe170fe",
   "lastOpenFiles": [
-    "the vocab extending problem.md",
-    "embeddings.md"
+    "Paper notes.md",
+    "papers_macal-and-north-2005.md",
+    "papers_morales-2005.md",
+    "Questions.md",
+    "Agents.jl typos or missing.md",
+    "diskstation 1.md",
+    "diskstation.md",
+    "Reunion con marcela y paula. 6 diciembre 2022.md",
+    "Untitled.md",
+    "F. Hepatica y epidemias masterclass.md"
   ]
 }

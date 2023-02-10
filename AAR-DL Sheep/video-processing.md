@@ -11,6 +11,11 @@ Video editing software
 - Natron (linux)
 
 
+davinci
+https://www.blackmagicdesign.com/support/family/davinci-resolve-and-fusion
+
+
+
 Packages to process videos: 
 
 ### R: 

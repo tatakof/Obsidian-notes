@@ -1,3 +1,13 @@
+
+### Inductive bias (also known as learning bias)
+The inductive bias of a learning algorithm is the set of assumptions that the learner uses to predict outputs of given inputs that it has not encountered. 
+
+In ML, one aims to construct algorithms that are able to learn to predict a certain target output. To achieve this, the learning algorithm is presented some training examples that demonstrate the intended relation of input and output values. Then the learner is suppoosed to approximate the correct output, even for examples that have not been shown during training. Without any additional assumptions, this problem cannot be solved since unseen situations might have an arbitrary output value. The kind of necessary assumptions about the nature of the target function are subsumed in the phrase *inductive bias*. 
+
+A classical example of an is Occam's razor, assuming that the simplest consistent hypothesis about the target function is actually the best. Here *consistent* means that the hypothesis of the learner yields correct output for all of the examples that have been given to the algorithm.
+
+
+
 ### Zero shot learning
 
 a model that's able to perform well on a variety of tasks without the need for fine-tuning (called _zero-shot learning_)

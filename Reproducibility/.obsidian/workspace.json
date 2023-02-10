@@ -1,43 +1,19 @@
 {
   "main": {
-    "id": "600f7e60cdf3932d",
+    "id": "33ac99a8e6103053",
     "type": "split",
     "children": [
       {
-        "id": "74349a8e9020c84b",
+        "id": "3ca47a6b23c27b37",
         "type": "tabs",
-        "dimension": 75,
         "children": [
           {
-            "id": "cc0df44eb01228e2",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": 0,
-                  "zoom": 0,
-                  "snapToGrid": false
-                }
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "a6d075fc28bb6eac",
-        "type": "tabs",
-        "dimension": 25,
-        "children": [
-          {
-            "id": "1ba9538661058642",
+            "id": "ad706e5bdb6a5c0b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "writing_python.md",
+                "file": "Docker.md",
                 "mode": "source",
                 "source": false
               }
@@ -49,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "2bee6b06a6ef2b2b",
+    "id": "d25e3817fb9deb6c",
     "type": "split",
     "children": [
       {
-        "id": "1342c4fad68ce5ed",
+        "id": "51c615c50f8ed900",
         "type": "tabs",
         "children": [
           {
-            "id": "efdde37267eb8fff",
+            "id": "247ab2981fe5eed0",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -67,12 +43,12 @@
             }
           },
           {
-            "id": "414625f490586d56",
+            "id": "7cd1de267e28eb3f",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "gec3",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -82,35 +58,34 @@
             }
           },
           {
-            "id": "ce32c41a1c554d36",
+            "id": "88d45c171f8ac3cc",
             "type": "leaf",
             "state": {
               "type": "starred",
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 317.5
+    "width": 300
   },
   "right": {
-    "id": "05a607f0c33ccdf3",
+    "id": "9c41e898c3ab4201",
     "type": "split",
     "children": [
       {
-        "id": "ee4c32bc5d193750",
+        "id": "5acb9a23de69a350",
         "type": "tabs",
         "children": [
           {
-            "id": "997d1edd7911dc8b",
+            "id": "27ac9a4788366f86",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Untitled.canvas",
+                "file": "Docker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,19 +97,19 @@
             }
           },
           {
-            "id": "a299b15e56320081",
+            "id": "bdf7641fe81c940a",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Untitled.canvas",
+                "file": "Docker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "5c2f92bf87a166fe",
+            "id": "2733797a8ab3e976",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -145,12 +120,12 @@
             }
           },
           {
-            "id": "3431b0a1850ec732",
+            "id": "dc272a96d74b2ee2",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Untitled.canvas"
+                "file": "Docker.md"
               }
             }
           }
@@ -171,17 +146,6 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "414625f490586d56",
-  "lastOpenFiles": [
-    "dl_concepts.md",
-    "dl_transformers_textual-data-prediction.md",
-    "dl_nlp.md",
-    "jl_notes.md",
-    "dl_loss.md",
-    "programming_concepts.md",
-    "DeepLearningRoadmap.md",
-    "writing_python.md",
-    "dl_transformers_explained.md",
-    "computers.md"
-  ]
+  "active": "ad706e5bdb6a5c0b",
+  "lastOpenFiles": []
 }

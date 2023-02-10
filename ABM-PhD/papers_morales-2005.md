@@ -98,19 +98,19 @@ limits set by digestive constraints.
 Another ANN governed movements when the
 individual explores instead of eating (Figure 1).
 
-Each day the individuals kept performing different
+**Each day the individuals kept performing different
 behaviors until they accumulate 13 h of daily
 activity, which represents a time constraint that
 arises from the need to carry out alternative
 activities other than foraging (Wilmshurst et al.
-1995).
+1995).**
 
-The model kept track of (COMMENT 'ABM observation?') energetic gains and
+**The model kept track of (COMMENT 'ABM observation?') energetic gains and
  losses, and the time spent at different landscape
-locations. In this implementation we simulated
-foraging during the spring and summer months,
+locations. In this implementation we simulated**
+**foraging during the spring and summer months,
 and animals were ranked according to their
-percent of body fat at the end of the season. Pre-
+percent of body fat at the end of the season. Pre-**
 dation risk was represented by a map of risk per
 unit time, and simulated individuals compounded
 their experienced risk in proportion to the time
@@ -166,7 +166,7 @@ ANN’’ was sensitive to the internal state of the
 simulated animal, which was quantified by body
 fat. We assumed that the individuals knew the date
 of the season (Julian date) and where they were in the landscape (given by x and y coordinates).
-Environmental variables (predation risks and
+**Environmental variables (predation risks and
 abundance of the different food types) were as-
 sessed at three spatial scales using a hierarchical
 perception framework (modified from Beecham
@@ -179,21 +179,21 @@ cells adjacent to the nearest neighbor cells, and a
 third level of perception corresponded to blocks of
 9 by 9 cells. For these higher order perceptions
 (levels 2 and 3), individuals perceived only aver-
-aged values of landscape attributes. 
+aged values of landscape attributes.** 
 
 Exploratory-Move-ANN and the Foraging-Move-
-ANN dictated movement direction based not only
+**ANN dictated movement direction based not only
 on predation and abundance of the different food
 types, but also on differences in elevation between
-current position and neighboring landscape cells.
+current position and neighboring landscape cells.**
 
-Any area would have a mixture of plants of
+**Any area would have a mixture of plants of
 different sizes that would reflect the patterns of
 vegetation growth and plant consumption by
 grazers. Animals would have to choose among
 these food items. As grasses matured, their size
 increased and their nutritional value decreased
-(Fryxell 1991).
+(Fryxell 1991).**
 
 We represented individual body mass (kg) by the
 state variable W, which was the sum of lean mass
