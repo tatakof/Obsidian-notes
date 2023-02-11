@@ -4,43 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "74349a8e9020c84b",
+        "id": "8f225decce4df70a",
         "type": "tabs",
-        "dimension": 75,
         "children": [
           {
-            "id": "cc0df44eb01228e2",
+            "id": "e0043674046c04c4",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": 0,
-                  "zoom": 0,
-                  "snapToGrid": false
-                }
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "a6d075fc28bb6eac",
-        "type": "tabs",
-        "dimension": 25,
-        "children": [
-          {
-            "id": "1ba9538661058642",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "writing_python.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -72,8 +44,8 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "gec3",
-                "matchingCase": false,
+                "query": "",
+                "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -89,8 +61,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -110,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Untitled.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Untitled.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Untitled.canvas"
-              }
+              "state": {}
             }
           }
         ]
@@ -171,8 +138,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "414625f490586d56",
+  "active": "efdde37267eb8fff",
   "lastOpenFiles": [
+    "computers.md",
+    "Untitled.canvas",
     "dl_concepts.md",
     "dl_transformers_textual-data-prediction.md",
     "dl_nlp.md",
@@ -180,8 +149,6 @@
     "dl_loss.md",
     "programming_concepts.md",
     "DeepLearningRoadmap.md",
-    "writing_python.md",
-    "dl_transformers_explained.md",
-    "computers.md"
+    "writing_python.md"
   ]
 }

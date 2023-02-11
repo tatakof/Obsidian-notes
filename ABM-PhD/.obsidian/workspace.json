@@ -4,35 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "5e90f3a39dc3108e",
+        "id": "46f57c6b7041665f",
         "type": "tabs",
         "children": [
           {
-            "id": "4717b20a094f1328",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "muestreos.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "563bae81f03357df",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "muestreos.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a119bef8b9066602",
+            "id": "1a8d74bd942fc16d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -42,93 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "c4d12708e0b2e1c3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "diskstation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "aaf8a34e18d80d2b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "diskstation 1.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d11cabc5eac2e60d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Paper notes.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "fd8dbfd26f2d6799",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "papers_macal-and-north-2005.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1257f2dcb2847ce4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Paper notes.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9a2708cc9fe170fe",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Model Observation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "28b218b01bb626b0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "muestreos.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 8
+        ]
       }
     ],
     "direction": "vertical"
@@ -178,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 173.5,
-    "collapsed": true
+    "width": 391.5
   },
   "right": {
     "id": "155af37fe5ce5a2e",
@@ -195,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Model Observation.md",
+                "file": "Untitled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -212,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Model Observation.md",
+                "file": "Untitled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -235,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Model Observation.md"
+                "file": "Untitled.md"
               }
             }
           }
@@ -256,17 +146,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9a2708cc9fe170fe",
+  "active": "1a8d74bd942fc16d",
   "lastOpenFiles": [
+    "Untitled.canvas",
+    "diskstation 1.md",
+    "diskstation.md",
+    "Model Observation.md",
+    "muestreos.md",
+    "Untitled.md",
     "Paper notes.md",
     "papers_macal-and-north-2005.md",
     "papers_morales-2005.md",
-    "Questions.md",
-    "Agents.jl typos or missing.md",
-    "diskstation 1.md",
-    "diskstation.md",
-    "Reunion con marcela y paula. 6 diciembre 2022.md",
-    "Untitled.md",
-    "F. Hepatica y epidemias masterclass.md"
+    "Questions.md"
   ]
 }
