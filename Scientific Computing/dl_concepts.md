@@ -1,4 +1,14 @@
 
+### Word embedding
+As computers are only capable of understanding numerical values, a data transformation process that converts alphabetical values (textual data) into numerical values must be applied first at the beginning of most transformer models. In the deep learning world, this process is called word embedding.
+
+
+### Frozen parameters
+In a NN, parameters that don't compute gradients are usually called **frozen parameters**. It is useful to "freeze" par of your model if you know in advance that you won't need the gradients of those parameters (this offers some performance benefits byreducing autograd computations)
+
+In finetuning, we freeze most of the model and typically only modify the classifier layers to make predictions on new labels. 
+
+
 ### Inductive bias (also known as learning bias)
 The inductive bias of a learning algorithm is the set of assumptions that the learner uses to predict outputs of given inputs that it has not encountered. 
 

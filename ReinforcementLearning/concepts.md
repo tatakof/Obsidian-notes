@@ -5,6 +5,10 @@ In this type of task, no human labels data, and no human collects or explicitly 
 At its core, DRL is about complex sequential decision-making problems under uncertainty. 
 
 
+
+
+
+
 ### Supervised learning.
 The task of learning from labeled data. The human dicides which data to collect and how to label it. the goal in SL is to generalize. 
 
@@ -26,8 +30,45 @@ Multi-layered non-linear function approximators.
 ### Policies
 mappings from observations to actions. 
 
+We define a discount rate called gamma. **It must be between 0 and 1.** Most of the time between **0.99 and 0.95**.
+
+![[Pasted image 20230217085908.png]]
+
+This Policy **is the function we want to learn**, our goal is to find the optimal policy π*, the policy that **maximizes expected return** when the agent acts according to it. We find this π* **through training.**
+
+There are two approaches to train our agent to find this optimal policy π*:
+
+-   **Directly,** by teaching the agent to learn which **action to take,** given the current state: **Policy-Based Methods.**
+-   Indirectly, **teach the agent to learn which state is more valuable** and then take the action that **leads to the more valuable states**: Value-Based Methods.
+
+
+
 ### Value functions
 mappings from observations (and possibly actions) to reward-to-go estimates (aslice of the return)
+
+
+### Policy-based methods
+
+In Policy-Based methods, **we learn a policy function directly.**
+
+This function will define a mapping between each state and the best corresponding action. We can also say that it’ll define **a probability distribution over the set of possible actions at that state.**
+
+We have two types of policies:
+
+-   _Deterministic_: a policy at a given state **will always return the same action.**
+-  _Stochastic_: outputs **a probability distribution over actions.**
+
+
+### Value-based methods
+
+In value-based methods, instead of training a policy function, we **train a value function** that maps a state to the expected value **of being at that state.**
+
+The value of a state is the **expected discounted return** the agent can get if it **starts in that state, and then act according to our policy.** “Act according to our policy” just means that our policy is **“going to the state with the highest value”.**
+
+
+
+
+
 
 ### Models
 Mappings from observations to new observations and/or rewards. 
