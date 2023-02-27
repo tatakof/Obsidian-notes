@@ -44,6 +44,18 @@
             }
           },
           {
+            "id": "722025eb3deedf38",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wandb.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "4828c6e71aeba0c5",
             "type": "leaf",
             "state": {
@@ -56,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -122,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "papers to read.md",
+                "file": "wandb.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "papers to read.md",
+                "file": "wandb.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "papers to read.md"
+                "file": "wandb.md"
               }
             }
           }
@@ -183,8 +195,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "39fc265182a8c38a",
+  "active": "722025eb3deedf38",
   "lastOpenFiles": [
+    "papers to read.md",
+    "wandb.md",
     "Model observation.md",
     "Roadmap.md",
     "nlp_definitions.md"

@@ -1,6 +1,6 @@
 
 ### Word embedding
-As computers are only capable of understanding numerical values, a data transformation process that converts alphabetical values (textual data) into numerical values must be applied first at the beginning of most transformer models. In the deep learning world, this process is called word embedding.
+As computers are only capable of understanding numerical values, a data transformation process that converts alphabetical values (textual data) into numerical values must be applied first at the beginning of most transformer models. In the deep learning world, this process is called word embedding. Word embeddings will represent each word in the form of a real-valued vector that encodes the word's meaning such that the words closer in the vector space are expected to be similar in meaning.
 
 
 ### Frozen parameters
