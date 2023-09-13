@@ -1,2 +1,0 @@
-stinkbug_dynamics
-

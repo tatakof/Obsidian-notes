@@ -18,8 +18,45 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "e1acbcc5c23c77b6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "angulos de giro.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e1baf34e346b0693",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "diskstation 1.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "de4c8c88cecd2b14",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "diskstation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -64,6 +101,14 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "4f895d1110763b17",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
@@ -85,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Model Observation.md",
+                "file": "diskstation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Model Observation.md",
+                "file": "diskstation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Model Observation.md"
+                "file": "diskstation.md"
               }
             }
           }
@@ -146,17 +191,27 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1a8d74bd942fc16d",
+  "active": "de4c8c88cecd2b14",
   "lastOpenFiles": [
-    "Untitled.md",
-    "Untitled.canvas",
-    "diskstation 1.md",
     "diskstation.md",
+    "Agents.jl typos or missing.md",
+    "angulos de giro.md",
+    "Animal Movement Masterclass.md",
+    "diskstation 1.md",
     "Model Observation.md",
-    "muestreos.md",
-    "Paper notes.md",
-    "papers_macal-and-north-2005.md",
+    "Untitled.canvas",
+    "F. Hepatica y epidemias masterclass.md",
+    "Untitled.md",
+    "Reunion con marcela y paula. 6 diciembre 2022.md",
+    "Reunión 2022-08-23.md",
+    "Reunion 2022-08-11.md",
+    "Questions.md",
+    "Pasted image 20230112104601.png",
     "papers_morales-2005.md",
-    "Questions.md"
+    "papers_macal-and-north-2005.md",
+    "Paper notes.md",
+    "notas odd proyecto fasciola.md",
+    "muestreos.md",
+    "GIS -- geographic data stuff.md"
   ]
 }
